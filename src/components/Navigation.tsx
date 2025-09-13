@@ -28,7 +28,7 @@ const Navigation = () => {
 				scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
 			}`}
 		>
-			<div className="container mx-auto px-4 py-4">
+			<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 max-w-7xl">
 				<div className="flex items-center justify-between">
 					<div className="text-2xl font-bold text-gradient">HC</div>
 

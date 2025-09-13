@@ -71,7 +71,7 @@ const Footer = () => {
 
 				<div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
 					<p className="text-text-secondary text-sm">
-						© 2024 Huy Che. All rights reserved.
+						©2025 Huy Che. All rights reserved.
 					</p>
 					<p className="text-text-secondary text-sm flex items-center mt-4 md:mt-0">
 						Made with <Heart size={16} className="mx-1 text-red-500" /> using React &

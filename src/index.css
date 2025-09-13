@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -128,6 +128,32 @@ All colors MUST be HSL.
 	html {
 		scroll-behavior: smooth;
 	}
+
+	/* Ensure proper responsive behavior */
+	* {
+		box-sizing: border-box;
+	}
+
+	/* Prevent horizontal scroll on mobile */
+	body {
+		overflow-x: hidden;
+	}
+
+	/* Responsive container max-width */
+	.container {
+		width: 100%;
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Mobile-first responsive typography */
+	@media (max-width: 640px) {
+		.container {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
 }
 
 @layer utilities {
@@ -192,5 +218,44 @@ All colors MUST be HSL.
 			opacity: 1;
 			transform: translateY(0);
 		}
+	}
+}
+
+svg {
+	font-family: 'Bungee Shade', sans-serif;
+}
+
+svg text {
+	animation: stroke 2s infinite alternate;
+	stroke-width: 2;
+	stroke: #ffffff;
+}
+
+@keyframes stroke {
+	0% {
+		fill: rgba(255, 86, 246, 0);
+		stroke: rgba(255, 255, 255, 1);
+		stroke-dashoffset: 25%;
+		stroke-dasharray: 0 50%;
+		stroke-width: 2;
+	}
+
+	70% {
+		fill: rgba(255, 86, 246, 0);
+		stroke: rgba(255, 255, 255, 1);
+	}
+
+	80% {
+		fill: rgba(255, 86, 246, 0);
+		stroke: rgba(255, 255, 255, 1);
+		stroke-width: 3;
+	}
+
+	100% {
+		fill: rgb(81, 81, 81);
+		stroke: rgba(255, 255, 255, 0);
+		stroke-dashoffset: -25%;
+		stroke-dasharray: 50% 0;
+		stroke-width: 0;
 	}
 }
