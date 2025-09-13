@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -122,7 +124,13 @@ All colors MUST be HSL.
 	}
 
 	body {
-		@apply bg-background text-foreground font-sans antialiased;
+		@apply bg-background text-foreground antialiased;
+		font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+			'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+			'Helvetica Neue', sans-serif;
+		font-feature-settings: 'cv11', 'ss01';
+		font-variation-settings: 'opsz' 32;
+		letter-spacing: -0.011em;
 	}
 
 	html {
@@ -137,6 +145,14 @@ All colors MUST be HSL.
 	/* Prevent horizontal scroll on mobile */
 	body {
 		overflow-x: hidden;
+		width: 100%;
+	}
+
+	/* Fix mobile viewport issues */
+	html,
+	body {
+		max-width: 100vw;
+		overflow-x: hidden;
 	}
 
 	/* Responsive container max-width */
@@ -147,11 +163,30 @@ All colors MUST be HSL.
 		margin-right: auto;
 	}
 
-	/* Mobile-first responsive typography */
+	/* Mobile-first responsive typography and spacing */
 	@media (max-width: 640px) {
 		.container {
 			padding-left: 1rem;
 			padding-right: 1rem;
+		}
+
+		/* Ensure no elements exceed viewport */
+		* {
+			max-width: 100%;
+			box-sizing: border-box;
+		}
+
+		/* Fix potential overflow issues */
+		section {
+			overflow-x: hidden;
+		}
+	}
+
+	/* Additional mobile optimizations */
+	@media (max-width: 480px) {
+		.container {
+			padding-left: 0.75rem;
+			padding-right: 0.75rem;
 		}
 	}
 }
@@ -174,6 +209,21 @@ All colors MUST be HSL.
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+		text-shadow: none;
+	}
+
+	/* Enhanced gradient for better contrast */
+	.text-gradient-enhanced {
+		background: linear-gradient(
+			135deg,
+			hsl(var(--hero-gradient-start)) 0%,
+			hsl(var(--accent-blue)) 50%,
+			hsl(var(--hero-gradient-end)) 100%
+		);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: 800;
 	}
 
 	.shadow-card {
@@ -219,43 +269,87 @@ All colors MUST be HSL.
 			transform: translateY(0);
 		}
 	}
-}
 
-svg {
-	font-family: 'Bungee Shade', sans-serif;
-}
+	/* Hero Name Animation */
+	.hero-name-svg {
+		font-family: 'Bungee Outline', sans-serif;
+		width: 100%;
+		height: 100%;
+	}
 
-svg text {
-	animation: stroke 2s infinite alternate;
-	stroke-width: 2;
-	stroke: #ffffff;
-}
-
-@keyframes stroke {
-	0% {
-		fill: rgba(255, 86, 246, 0);
-		stroke: rgba(255, 255, 255, 1);
-		stroke-dashoffset: 25%;
-		stroke-dasharray: 0 50%;
+	.hero-name-svg text {
+		animation: heroStroke 5s infinite alternate;
 		stroke-width: 2;
+		stroke: hsl(var(--primary));
+		font-size: 64px;
 	}
 
-	70% {
-		fill: rgba(255, 86, 246, 0);
-		stroke: rgba(255, 255, 255, 1);
+	@keyframes heroStroke {
+		0% {
+			fill: rgba(139, 87, 244, 0);
+			stroke: hsl(var(--primary));
+			stroke-dashoffset: 25%;
+			stroke-dasharray: 0 50%;
+			stroke-width: 2;
+		}
+		70% {
+			fill: rgba(139, 87, 244, 0);
+			stroke: hsl(var(--primary));
+		}
+		80% {
+			fill: rgba(139, 87, 244, 0);
+			stroke: hsl(var(--primary));
+			stroke-width: 3;
+		}
+		100% {
+			fill: rgba(139, 87, 244, 1);
+			stroke: rgba(110, 56, 213, 0);
+			stroke-dashoffset: -25%;
+			stroke-dasharray: 50% 0;
+			stroke-width: 0;
+		}
 	}
 
-	80% {
-		fill: rgba(255, 86, 246, 0);
-		stroke: rgba(255, 255, 255, 1);
-		stroke-width: 3;
+	/* Enhanced Typography */
+	.font-inter {
+		font-family: 'Inter', sans-serif;
 	}
 
-	100% {
-		fill: rgb(81, 81, 81);
-		stroke: rgba(255, 255, 255, 0);
-		stroke-dashoffset: -25%;
-		stroke-dasharray: 50% 0;
-		stroke-width: 0;
+	.font-poppins {
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.text-balance {
+		text-wrap: balance;
+	}
+
+	/* Improved text rendering */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: 'Poppins', sans-serif;
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.025em;
+		text-rendering: optimizeLegibility;
+	}
+
+	p,
+	span,
+	div {
+		font-family: 'Inter', sans-serif;
+		line-height: 1.6;
+		font-feature-settings: 'kern' 1;
+		text-rendering: optimizeLegibility;
+	}
+
+	/* Navigation and UI text */
+	.nav-text {
+		font-family: 'Inter', sans-serif;
+		font-weight: 500;
+		letter-spacing: -0.01em;
 	}
 }

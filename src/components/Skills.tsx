@@ -1,66 +1,45 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
-import AnimatedSection from './AnimatedSection';
 import AnimatedCard from './AnimatedCard';
 import { easeInOutCubic } from '@/lib/animations';
+import frontEndSkills from '@/hooks/skills/frontEndSkills';
+import backEndSkills from '@/hooks/skills/backEndSkills';
+import devOpsToolsSkills from '@/hooks/skills/devOpsToolsSkills';
+import designAndOthersSkills from '@/hooks/skills/designAndOthersSkills';
+
+interface SkillCategory {
+	title: string;
+	skills: Skill[];
+	gradient: string;
+}
+
+export interface Skill {
+	name: string;
+	logo?: string;
+	classNames?: string;
+}
 
 const Skills = () => {
-	const skillCategories = [
+	const skillCategories: SkillCategory[] = [
 		{
 			title: 'Frontend',
-			skills: [
-				'React',
-				'TypeScript',
-				'Next.js',
-				'Tailwind CSS',
-				'Vue.js',
-				'HTML5',
-				'CSS3',
-				'JavaScript ES6+',
-			],
+			skills: frontEndSkills,
 			gradient: 'from-blue-500 to-purple-600',
 		},
 		{
 			title: 'Backend',
-			skills: [
-				'Node.js',
-				'Express.js',
-				'Python',
-				'Django',
-				'PostgreSQL',
-				'MongoDB',
-				'Redis',
-				'GraphQL',
-			],
+			skills: backEndSkills,
 			gradient: 'from-green-500 to-blue-500',
 		},
 		{
 			title: 'DevOps & Tools',
-			skills: [
-				'Docker',
-				'AWS',
-				'Git',
-				'GitHub Actions',
-				'Webpack',
-				'Vite',
-				'Jest',
-				'Cypress',
-			],
+			skills: devOpsToolsSkills,
 			gradient: 'from-orange-500 to-red-500',
 		},
 		{
 			title: 'Design & Others',
-			skills: [
-				'Figma',
-				'Adobe XD',
-				'UI/UX Design',
-				'Responsive Design',
-				'REST APIs',
-				'Agile',
-				'Scrum',
-				'Team Leadership',
-			],
+			skills: designAndOthersSkills,
 			gradient: 'from-purple-500 to-pink-500',
 		},
 	];
@@ -177,7 +156,7 @@ const Skills = () => {
 											initial={{ opacity: 0, scale: 0, rotate: -180 }}
 											whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
 											transition={{
-												delay: 0.6 + index * 0.1 + skillIndex * 0.05,
+												delay: 0.2 + index * 0.1 + skillIndex * 0.05,
 												duration: 0.4,
 												type: 'spring',
 												stiffness: 200,
@@ -187,9 +166,16 @@ const Skills = () => {
 										>
 											<Badge
 												variant="secondary"
-												className="hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-pointer"
+												className="hover:bg-primary hover:text-primary-foreground transition-colors duration-200 cursor-pointer flex items-center gap-2 py-2 pr-3"
 											>
-												{skill}
+												{skill.logo && (
+													<img
+														src={skill.logo}
+														alt={skill.name}
+														className={skill.classNames || 'h-4 w-auto object-contain'}
+													/>
+												)}
+												{skill.name}
 											</Badge>
 										</motion.div>
 									))}
