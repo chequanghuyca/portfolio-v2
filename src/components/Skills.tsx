@@ -7,6 +7,7 @@ import frontEndSkills from '@/hooks/skills/frontEndSkills';
 import backEndSkills from '@/hooks/skills/backEndSkills';
 import devOpsToolsSkills from '@/hooks/skills/devOpsToolsSkills';
 import designAndOthersSkills from '@/hooks/skills/designAndOthersSkills';
+import CountUpStat from './CountUpStats';
 
 interface SkillCategory {
 	title: string;
@@ -185,7 +186,7 @@ const Skills = () => {
 					))}
 				</motion.div>
 
-				{/* Stats Section */}
+				{/* Stats Section with Count Up */}
 				<motion.div
 					className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-12 sm:mt-16"
 					variants={containerVariants}
@@ -194,42 +195,17 @@ const Skills = () => {
 					viewport={{ once: true, margin: '-50px' }}
 				>
 					{[
-						{ number: '50+', label: 'Projects Completed' },
-						{ number: '3+', label: 'Years Experience' },
-						{ number: '20+', label: 'Happy Clients' },
+						{ number: '20+', label: 'Projects Completed' },
+						{ number: '4+', label: 'Years Experience' },
+						{ number: '5000+', label: 'Happy Clients' },
 						{ number: '100%', label: 'Satisfaction Rate' },
 					].map((stat, index) => (
-						<motion.div
+						<CountUpStat
 							key={index}
-							className="text-center"
-							variants={statsVariants}
-							whileHover={{ scale: 1.1, y: -10 }}
-							transition={{ type: 'spring', stiffness: 300 }}
-						>
-							<motion.div
-								className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient mb-2"
-								initial={{ scale: 0 }}
-								whileInView={{ scale: 1 }}
-								transition={{
-									delay: 0.5 + index * 0.1,
-									duration: 0.5,
-									type: 'spring',
-									stiffness: 200,
-								}}
-								viewport={{ once: true }}
-							>
-								{stat.number}
-							</motion.div>
-							<motion.p
-								className="text-sm sm:text-base text-text-secondary"
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
-								viewport={{ once: true }}
-							>
-								{stat.label}
-							</motion.p>
-						</motion.div>
+							number={stat.number}
+							label={stat.label}
+							delay={index}
+						/>
 					))}
 				</motion.div>
 			</div>

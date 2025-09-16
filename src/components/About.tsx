@@ -1,11 +1,9 @@
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Code, Coffee, Users, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 import AnimatedCard from './AnimatedCard';
 import { easeInOutCubic } from '@/lib/animations';
-import CV from '@/assets/HUYCHE-CV.pdf?url';
 
 const About = () => {
 	const highlights = [
@@ -67,23 +65,6 @@ const About = () => {
 		},
 	};
 
-	const handleDownloadClick = () => {
-		try {
-			const link = document.createElement('a');
-			link.href = CV;
-			link.download = 'HUYCHE-CV.pdf';
-			link.target = '_blank';
-			link.rel = 'noopener noreferrer';
-
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-		} catch (error) {
-			console.error('Error downloading CV:', error);
-			window.open(CV, '_blank');
-		}
-	};
-
 	return (
 		<section id="about" className="py-16 sm:py-20 bg-surface">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -141,24 +122,6 @@ const About = () => {
 							to open-source projects, or sharing knowledge with the developer community.
 							I believe in continuous learning and staying ahead of industry trends.
 						</motion.p>
-						<motion.div
-							className="flex flex-col sm:flex-row gap-4"
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.6, delay: 0.6 }}
-							viewport={{ once: true }}
-						>
-							<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-								<Button size="lg" onClick={handleDownloadClick}>
-									Download CV
-								</Button>
-							</motion.div>
-							<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-								<Button variant="outline" size="lg">
-									Let's Connect
-								</Button>
-							</motion.div>
-						</motion.div>
 					</AnimatedSection>
 
 					{/* Right Content - Highlights Grid */}

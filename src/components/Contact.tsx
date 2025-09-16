@@ -2,13 +2,12 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
-import AnimatedSection from './AnimatedSection';
-import AnimatedCard from './AnimatedCard';
 import { easeInOutCubic } from '@/lib/animations';
+import { useMutationResponsePortfolio } from '@/hooks/email/useMutationResponsePortfolio';
 
 const Contact = () => {
 	const { toast } = useToast();
@@ -18,41 +17,63 @@ const Contact = () => {
 		message: '',
 	});
 
+	const emailMutation = useMutationResponsePortfolio({
+		onSuccess: () => {
+			toast({
+				title: 'Message Sent!',
+				description: "Thank you for your message. I'll get back to you soon!",
+			});
+			setFormData({ name: '', email: '', message: '' });
+		},
+		onError: () => {
+			toast({
+				title: 'Error!',
+				description: 'Failed to send message. Please try again later.',
+				variant: 'destructive',
+			});
+		},
+	});
+
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		// Handle form submission here
-		toast({
-			title: 'Message Sent!',
-			description: "Thank you for your message. I'll get back to you soon!",
+
+		// Validate form data
+		if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+			toast({
+				title: 'Validation Error',
+				description: 'Please fill in all fields.',
+				variant: 'destructive',
+			});
+			return;
+		}
+
+		// Send email
+		emailMutation.mutate({
+			name: formData.name,
+			email: formData.email,
+			message: formData.message,
 		});
-		setFormData({ name: '', email: '', message: '' });
 	};
 
 	const contactInfo = [
 		{
 			icon: Mail,
 			title: 'Email',
-			value: 'huy.che@example.com',
-			href: 'mailto:huy.che@example.com',
+			value: 'chequanghuybtt@gmail.com',
+			href: 'mailto:chequanghuybtt@gmail.com',
 		},
 		{
 			icon: Phone,
 			title: 'Phone',
-			value: '+1 (555) 123-4567',
+			value: '+84 939 260 508',
 			href: 'tel:+15551234567',
 		},
 		{
 			icon: MapPin,
 			title: 'Location',
-			value: 'San Francisco, CA',
-			href: '#',
+			value: 'Ho Chi Minh City, Vietnam',
+			href: 'https://www.google.com/maps/place/Ho+Chi+Minh+City,+Vietnam',
 		},
-	];
-
-	const socialLinks = [
-		{ icon: Github, href: '#', label: 'GitHub' },
-		{ icon: Linkedin, href: '#', label: 'LinkedIn' },
-		{ icon: Twitter, href: '#', label: 'Twitter' },
 	];
 
 	// Animation variants
@@ -165,6 +186,7 @@ const Contact = () => {
 											placeholder="Your Name"
 											value={formData.name}
 											onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+											disabled={emailMutation.isPending}
 											required
 										/>
 									</motion.div>
@@ -183,6 +205,7 @@ const Contact = () => {
 											onChange={(e) =>
 												setFormData({ ...formData, email: e.target.value })
 											}
+											disabled={emailMutation.isPending}
 											required
 										/>
 									</motion.div>
@@ -201,6 +224,7 @@ const Contact = () => {
 											onChange={(e) =>
 												setFormData({ ...formData, message: e.target.value })
 											}
+											disabled={emailMutation.isPending}
 											required
 										/>
 									</motion.div>
@@ -216,8 +240,16 @@ const Contact = () => {
 											type="submit"
 											size="lg"
 											className="w-full gradient-primary text-white"
+											disabled={emailMutation.isPending}
 										>
-											Send Message
+											{emailMutation.isPending ? (
+												<>
+													<Loader2 className="w-4 h-4 mr-2 animate-spin" />
+													Sending...
+												</>
+											) : (
+												'Send Message'
+											)}
 										</Button>
 									</motion.div>
 								</motion.div>
@@ -271,92 +303,6 @@ const Contact = () => {
 									</motion.div>
 								);
 							})}
-						</motion.div>
-
-						{/* Social Links */}
-						<motion.div
-							initial={{ opacity: 0, y: 30 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ delay: 0.5, duration: 0.6 }}
-							viewport={{ once: true }}
-						>
-							<motion.h4
-								className="text-xl font-semibold mb-6"
-								initial={{ opacity: 0 }}
-								whileInView={{ opacity: 1 }}
-								transition={{ delay: 0.6, duration: 0.5 }}
-								viewport={{ once: true }}
-							>
-								Follow Me
-							</motion.h4>
-							<div className="flex space-x-4">
-								{socialLinks.map((social, index) => {
-									const IconComponent = social.icon;
-									return (
-										<motion.a
-											key={index}
-											href={social.href}
-											aria-label={social.label}
-											className="w-12 h-12 bg-surface-elevated rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-200"
-											initial={{ opacity: 0, scale: 0, rotate: -180 }}
-											whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-											transition={{
-												delay: 0.7 + index * 0.1,
-												duration: 0.5,
-												type: 'spring',
-												stiffness: 200,
-											}}
-											viewport={{ once: true }}
-											whileHover={{ scale: 1.2, rotate: 360 }}
-											whileTap={{ scale: 0.9 }}
-										>
-											<IconComponent size={20} />
-										</motion.a>
-									);
-								})}
-							</div>
-						</motion.div>
-
-						{/* CTA */}
-						<motion.div
-							initial={{ opacity: 0, y: 30, scale: 0.9 }}
-							whileInView={{ opacity: 1, y: 0, scale: 1 }}
-							transition={{ delay: 0.8, duration: 0.6, type: 'spring', stiffness: 100 }}
-							viewport={{ once: true }}
-							whileHover={{ scale: 1.02, y: -5 }}
-						>
-							<Card className="p-6 mt-8 gradient-primary text-white">
-								<motion.h4
-									className="text-xl font-semibold mb-2"
-									initial={{ opacity: 0 }}
-									whileInView={{ opacity: 1 }}
-									transition={{ delay: 1, duration: 0.5 }}
-									viewport={{ once: true }}
-								>
-									Ready to collaborate?
-								</motion.h4>
-								<motion.p
-									className="mb-4 text-white/90"
-									initial={{ opacity: 0 }}
-									whileInView={{ opacity: 1 }}
-									transition={{ delay: 1.1, duration: 0.5 }}
-									viewport={{ once: true }}
-								>
-									Let's discuss your project and turn your ideas into reality.
-								</motion.p>
-								<motion.div
-									initial={{ opacity: 0, scale: 0.8 }}
-									whileInView={{ opacity: 1, scale: 1 }}
-									transition={{ delay: 1.2, duration: 0.4, type: 'spring' }}
-									viewport={{ once: true }}
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 0.95 }}
-								>
-									<Button variant="secondary" size="sm">
-										Schedule a Call
-									</Button>
-								</motion.div>
-							</Card>
 						</motion.div>
 					</motion.div>
 				</div>
