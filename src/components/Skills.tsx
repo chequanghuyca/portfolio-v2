@@ -22,6 +22,19 @@ export interface Skill {
 }
 
 const Skills = () => {
+	const calculateExperienceYears = (): number => {
+		const startYear = 2022;
+		const currentDate = new Date();
+		const currentYear = currentDate.getFullYear() + 0.5;
+		const currentMonth = currentDate.getMonth() + 1;
+
+		let years = currentYear - startYear;
+
+		if (currentMonth >= 6) years += 0.5;
+
+		return years;
+	};
+
 	const skillCategories: SkillCategory[] = [
 		{
 			title: 'Frontend',
@@ -45,7 +58,6 @@ const Skills = () => {
 		},
 	];
 
-	// Animation variants
 	const containerVariants = {
 		hidden: { opacity: 0 },
 		visible: {
@@ -68,19 +80,6 @@ const Skills = () => {
 			},
 		},
 	};
-
-	const statsVariants = {
-		hidden: { opacity: 0, scale: 0.5 },
-		visible: {
-			opacity: 1,
-			scale: 1,
-			transition: {
-				duration: 0.6,
-				ease: easeInOutCubic,
-			},
-		},
-	};
-
 	return (
 		<section id="skills" className="py-16 sm:py-20">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -195,16 +194,21 @@ const Skills = () => {
 					viewport={{ once: true, margin: '-50px' }}
 				>
 					{[
-						{ number: '20+', label: 'Projects Completed' },
-						{ number: '4+', label: 'Years Experience' },
-						{ number: '5000+', label: 'Happy Clients' },
-						{ number: '100%', label: 'Satisfaction Rate' },
+						{ number: '30+', label: 'Projects Completed', isExperience: false },
+						{
+							number: `${calculateExperienceYears()}+`,
+							label: 'Years Experience',
+							isExperience: true,
+						},
+						{ number: '5000+', label: 'Happy Clients', isExperience: false },
+						{ number: '100%', label: 'Satisfaction Rate', isExperience: false },
 					].map((stat, index) => (
 						<CountUpStat
 							key={index}
 							number={stat.number}
 							label={stat.label}
 							delay={index}
+							isExperience={stat.isExperience}
 						/>
 					))}
 				</motion.div>

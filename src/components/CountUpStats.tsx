@@ -1,24 +1,79 @@
 import { useCountUp } from '@/hooks/useCountUp';
 import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 
 interface CountUpStatProps {
 	number: string;
 	label: string;
 	delay?: number;
+	isExperience?: boolean;
 }
 
-const CountUpStat: React.FC<CountUpStatProps> = ({ number, label, delay = 0 }) => {
-	const numericValue = parseInt(number.replace(/\D/g, ''));
-	const suffix = number.replace(/\d/g, '');
+const CountUpStat: React.FC<CountUpStatProps> = ({
+	number,
+	label,
+	delay = 0,
+	isExperience = false,
+}) => {
+	const numericValue = parseFloat(number.replace(/[^\d.]/g, ''));
+	const suffix = number.replace(/[\d.]/g, '');
+
+	// Custom count for experience (0.5, 1.0, 1.5, 2.0, ...)
+	const [experienceCount, setExperienceCount] = useState(0.5);
+	const [isVisible, setIsVisible] = useState(false);
+	const countRef = useRef<HTMLDivElement>(null);
+
+	// Regular count for other stats
 	const { count, ref } = useCountUp({
+		start: 0,
 		end: numericValue,
 		duration: 2000,
 		delay: delay * 100,
 	});
 
+	// Custom experience counting logic
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting && !isVisible) {
+					setIsVisible(true);
+				}
+			},
+			{ threshold: 0.3 },
+		);
+
+		if (countRef.current) {
+			observer.observe(countRef.current);
+		}
+
+		return () => observer.disconnect();
+	}, [isVisible]);
+
+	useEffect(() => {
+		if (!isVisible || !isExperience) return;
+
+		const duration = 2000;
+		const steps = Math.ceil((numericValue - 0.5) / 0.5);
+		const stepDuration = duration / steps;
+
+		let currentStep = 0;
+		const interval = setInterval(() => {
+			currentStep++;
+			const newValue = 0.5 + currentStep * 0.5;
+			setExperienceCount(newValue);
+
+			if (newValue >= numericValue) {
+				setExperienceCount(numericValue);
+				clearInterval(interval);
+			}
+		}, stepDuration);
+
+		return () => clearInterval(interval);
+	}, [isVisible, numericValue, delay, isExperience]);
+
 	return (
 		<motion.div
-			ref={ref}
+			ref={isExperience ? countRef : ref}
 			className="text-center"
 			whileHover={{ scale: 1.1, y: -10 }}
 			transition={{ type: 'spring', stiffness: 300 }}
@@ -35,7 +90,11 @@ const CountUpStat: React.FC<CountUpStatProps> = ({ number, label, delay = 0 }) =
 				}}
 				viewport={{ once: true }}
 			>
-				{count}
+				{isExperience
+					? Number.isInteger(experienceCount)
+						? experienceCount
+						: experienceCount.toFixed(1)
+					: Math.floor(count)}
 				{suffix}
 			</motion.div>
 			<motion.p

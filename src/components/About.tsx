@@ -10,51 +10,55 @@ import logoFPT from '@/assets/fpt.png';
 const About = () => {
 	const workExperience = [
 		{
-			role: 'Front-end Developer',
+			role: 'Middle Software Engineer',
 			company: 'Mirai Labs',
 			companyShort: 'Mirai Labs',
 			logo: logoMirai,
-			location: 'Remote',
+			location: 'Ho Chi Minh City, Vietnam',
 			period: 'Mar 2024 - Present',
 			color: 'bg-orange-500',
 			achievements: [
-				'Built a marketplace for buying, selling, and auctioning NFTs',
-				'Developed an operator web page for the Mirai App (similar to Binance)',
-				'Worked on website optimization using SEO techniques',
-				'Integrated ThirdWeb for blockchain functionalities',
-				'Implemented web tokens and JWT for secure authentication',
+				'Built a decentralized NFT marketplace enabling users to buy, sell, and auction digital assets with seamless Web3 wallet integration (MetaMask, WalletConnect).',
+				'Developed an operator dashboard for the Mirai App (similar to Binance), empowering admins to manage listings, users, and transactions efficiently.',
+				'Enhanced visibility and traffic for Web3 products through advanced SEO strategies.',
+				'Integrated ThirdWeb SDK and smart contract interactions to enable blockchain functionalities such as minting, transferring, and auctioning NFTs.',
+				'Implemented secure authentication using JWT and blockchain-based tokens.',
+				'Developed a cross-platform desktop application with Tauri (Rust + React) for timekeeping and task management.',
+				'Incorporated AI-driven analytics to evaluate employee productivity from screen activity recordings.',
+				'Contributed to Web3 adoption by bridging traditional web solutions with decentralized technologies.',
 			],
 		},
 		{
-			role: 'Fresher Full-Stack Web Developer',
+			role: 'Junior Full-Stack Web Developer',
 			company:
 				'Data and Information Technology Center of Ho Chi Minh City University of Technology',
-			companyShort: 'HCMUT - DITC',
+			companyShort: 'HCMUT',
 			logo: logoHCMUT,
 			location: 'Ho Chi Minh City, Vietnam',
 			period: 'Aug 2022 - Mar 2024',
 			color: 'bg-blue-500',
 			achievements: [
-				'Building a quality assurance system for Office for International Study Programs (OISP) in Ho Chi Minh City University of Technology',
-				'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products',
-				"Participate in analysis, record and clarify user's business requirements, propose solutions to deploy the system",
-				'Maintain and develop new features as well as optimize the system during operation',
+				'Developed and maintained a quality assurance system for the Office for International Study Programs (OISP), supporting academic operations at Ho Chi Minh City University of Technology.',
+				'Collaborated with cross-functional teams — including designers, product managers, and developers — to deliver high-quality, user-focused web applications.',
+				'Analyzed and clarified business requirements with stakeholders, and proposed scalable solutions for system deployment.',
+				'Diagnosed and resolved system issues, while continuously optimizing performance and reliability during production.',
+				'Implemented responsive, accessible, and cross-browser compatible designs to enhance user experience across devices.',
+				'Contributed to code reviews by providing constructive feedback and promoting clean coding practices.',
 			],
 		},
 		{
-			role: 'Fresher Full-Stack Web Developer',
-			company:
-				'Data and Information Technology Center of Ho Chi Minh City University of Technology',
-			companyShort: 'HCMUT - DITC',
+			role: 'Intern Back-end Developer',
+			company: 'FPT Software',
+			companyShort: 'FPT Software',
 			logo: logoFPT,
 			location: 'Ho Chi Minh City, Vietnam',
-			period: 'Aug 2022 - Mar 2024',
+			period: 'Jun 2022 - Aug 2022',
 			color: 'bg-blue-500',
 			achievements: [
-				'Building a quality assurance system for Office for International Study Programs (OISP) in Ho Chi Minh City University of Technology',
-				'Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products',
-				"Participate in analysis, record and clarify user's business requirements, propose solutions to deploy the system",
-				'Maintain and develop new features as well as optimize the system during operation',
+				'Gained hands-on experience with Java and the Spring Boot framework.',
+				'Designed and implemented RESTful microservices APIs for a human resource management system.',
+				'Collaborated with senior developers in code reviews to improve code quality and follow best practices.',
+				'Prepared technical documentation and feature reports to support product development.',
 			],
 		},
 	];
@@ -126,8 +130,13 @@ const About = () => {
 				{/* Timeline Container */}
 				<div className="max-w-6xl mx-auto">
 					<div className="relative">
-						{/* Timeline Line - Hidden on mobile, centered on desktop */}
-						<div className="hidden md:block absolute left-1/2 transform -translate-x-0.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-purple-600"></div>
+						<div
+							className="hidden md:block absolute left-1/2 transform w-0.5 bg-gradient-to-b from-primary to-purple-600"
+							style={{
+								top: '2rem',
+								height: 'calc(100% - 25rem)',
+							}}
+						/>
 
 						{/* Timeline Items */}
 						{workExperience.map((experience, index) => {

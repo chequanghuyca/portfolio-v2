@@ -3,50 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
-import project1 from '@/assets/project1.jpg';
-import project2 from '@/assets/project2.jpg';
-import project3 from '@/assets/project3.jpg';
-import AnimatedSection from './AnimatedSection';
+import { Link } from '@tanstack/react-router';
+import { Route as ProjectDetailRoute } from '@/routes/projects.$projectId';
+import { projects } from '@/data/projects';
 import AnimatedCard from './AnimatedCard';
 import { easeInOutCubic } from '@/lib/animations';
 
 const Projects = () => {
-	const projects = [
-		{
-			id: 1,
-			title: 'Analytics Dashboard',
-			description:
-				'A comprehensive analytics dashboard built with React and D3.js, featuring real-time data visualization, interactive charts, and responsive design.',
-			image: project1,
-			technologies: ['React', 'TypeScript', 'D3.js', 'Tailwind CSS'],
-			liveUrl: '#',
-			githubUrl: '#',
-			featured: true,
-		},
-		{
-			id: 2,
-			title: 'E-commerce Platform',
-			description:
-				'Full-stack e-commerce solution with payment integration, admin panel, and modern user interface for seamless shopping experience.',
-			image: project2,
-			technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
-			liveUrl: '#',
-			githubUrl: '#',
-			featured: true,
-		},
-		{
-			id: 3,
-			title: 'Social Media App',
-			description:
-				'Real-time social media application with chat functionality, post sharing, and user authentication built with modern technologies.',
-			image: project3,
-			technologies: ['React', 'Firebase', 'Socket.io', 'Material-UI'],
-			liveUrl: '#',
-			githubUrl: '#',
-			featured: false,
-		},
-	];
-
 	// Animation variants
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -229,6 +192,21 @@ const Projects = () => {
 												<Github size={16} />
 											</Button>
 										</motion.div>
+									</motion.div>
+
+									<motion.div
+										className="mt-4"
+										initial={{ opacity: 0 }}
+										whileInView={{ opacity: 1 }}
+										viewport={{ once: true }}
+									>
+										<Link
+											to={ProjectDetailRoute.to}
+											params={{ projectId: String(project.id) }}
+											className="text-sm text-primary"
+										>
+											View details →
+										</Link>
 									</motion.div>
 								</div>
 							</Card>

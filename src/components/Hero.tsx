@@ -115,9 +115,9 @@ const Hero = () => {
 							)}
 							variants={textVariants}
 						>
-							I'm a professional developer passionate about crafting exceptional digital
-							experiences through clean code, modern technologies, and user-focused
-							design.
+							As a professional Fullstack Software Engineer, I specialize in delivering
+							exceptional digital products by combining clean, scalable code with modern
+							technologies and a strong focus on user experience.
 						</motion.p>
 
 						<motion.div
@@ -198,7 +198,7 @@ const Hero = () => {
 									className="w-14 h-14 rounded-full bg-foreground/5 hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl border border-foreground/10"
 									asChild
 								>
-									<a href="mailto:chequanghuybtt@gmail.com">
+									<a href="#contact">
 										<Mail size={24} />
 									</a>
 								</Button>

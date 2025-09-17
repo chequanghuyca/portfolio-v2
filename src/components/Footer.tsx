@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Copyright } from 'lucide-react';
 
 const Footer = () => {
 	const socialLinks = [
@@ -10,7 +10,7 @@ const Footer = () => {
 		},
 		{
 			icon: Mail,
-			href: 'mailto:chequanghuybtt@gmail.com',
+			href: '#contact',
 			label: 'Email',
 		},
 	];
@@ -40,9 +40,10 @@ const Footer = () => {
 					</div>
 
 					{/* Copyright */}
-					<div className="text-center md:text-right">
-						<p className="text-text-secondary text-sm mb-1">
-							©2025 Huy Che. All rights reserved.
+					<div className="text-center md:text-right flex items-center gap-0.5">
+						<Copyright size={18} className="text-text-secondary" />
+						<p className="text-text-secondary text-sm">
+							{new Date().getFullYear()} Huy Che. All rights reserved.
 						</p>
 					</div>
 				</div>

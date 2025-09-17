@@ -49,7 +49,7 @@ export const useCountUp = ({
 
 			// Easing function (ease out)
 			const easeOut = 1 - Math.pow(1 - progress, 3);
-			const currentValue = Math.floor(startValue + (endValue - startValue) * easeOut);
+			const currentValue = startValue + (endValue - startValue) * easeOut;
 
 			setCount(currentValue);
 
