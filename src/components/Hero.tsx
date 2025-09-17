@@ -121,13 +121,13 @@ const Hero = () => {
 						</motion.p>
 
 						<motion.div
-							className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8 px-2 sm:px-0"
+							className="flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 px-2 sm:px-0"
 							variants={textVariants}
 						>
 							<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
 								<Button
-									size="lg"
-									className="gradient-primary text-white px-8 py-4 text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300 border-0"
+									size="sm"
+									className="gradient-primary text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold shadow-xl hover:shadow-2xl transition-all duration-300 border-0"
 									asChild
 								>
 									<a href="#projects">View My Work</a>
@@ -136,8 +136,8 @@ const Hero = () => {
 							<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
 								<Button
 									variant="outline"
-									size="lg"
-									className="px-8 py-4 text-lg font-bold border-2 border-foreground/20 text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-lg hover:shadow-xl"
+									size="sm"
+									className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-lg hover:shadow-xl"
 									asChild
 								>
 									<a href="#contact">Get In Touch</a>

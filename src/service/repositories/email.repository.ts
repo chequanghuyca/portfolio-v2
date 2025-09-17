@@ -12,6 +12,7 @@ export class EmailRepository extends BaseRepository<IEmail> implements IEmail {
 	async sendMailResponsePortfolio(
 		args: SendMailResponsePortfolioArgs,
 	): Promise<IApiResponse<EmailPortfolioResponse>> {
-		return this.post(args, 'response-portfolio');
+		const payload: Record<string, unknown> = { ...args };
+		return this.post(payload, 'response-portfolio');
 	}
 }

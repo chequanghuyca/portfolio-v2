@@ -34,6 +34,13 @@ const Navigation = () => {
 		}
 	};
 
+	const handleLogoClick = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	};
+
 	const navItems = [
 		{ name: 'Home', href: '#home' },
 		{ name: 'About', href: '#about' },
@@ -56,7 +63,14 @@ const Navigation = () => {
 						scrolled ? ' justify-between' : 'justify-end',
 					)}
 				>
-					{scrolled && <img src={logo} alt="logo" className="lg:w-10 lg:h-10 w-8 h-8" />}
+					{scrolled && (
+						<img
+							src={logo}
+							alt="logo"
+							className="lg:w-10 lg:h-10 w-8 h-8 cursor-pointer hover:scale-110 transition-transform duration-300"
+							onClick={handleLogoClick}
+						/>
+					)}
 
 					{/* Desktop Navigation */}
 					<div className="hidden md:flex items-center space-x-8">
