@@ -3,7 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Loader2 } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
 import { easeInOutCubic } from '@/lib/animations';
@@ -34,26 +34,31 @@ const Contact = () => {
 		},
 	});
 
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
+	const handleSubmit = useCallback(
+		async (e: React.FormEvent) => {
+			try {
+				e.preventDefault();
 
-		// Validate form data
-		if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-			toast({
-				title: 'Validation Error',
-				description: 'Please fill in all fields.',
-				variant: 'destructive',
-			});
-			return;
-		}
+				if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+					toast({
+						title: 'Validation Error',
+						description: 'Please fill in all fields.',
+						variant: 'destructive',
+					});
+					return;
+				}
 
-		// Send email
-		emailMutation.mutate({
-			name: formData.name,
-			email: formData.email,
-			message: formData.message,
-		});
-	};
+				await emailMutation.mutate({
+					name: formData.name,
+					email: formData.email,
+					message: formData.message,
+				});
+			} catch (error) {
+				console.error(error);
+			}
+		},
+		[emailMutation, formData],
+	);
 
 	const contactInfo = [
 		{

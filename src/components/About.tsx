@@ -310,73 +310,56 @@ const About = () => {
 
 									{/* Mobile Content Card */}
 									<div className="md:hidden">
-										<motion.div
-											whileHover={{ scale: 1.02, y: -5 }}
-											transition={{ duration: 0.3 }}
-										>
-											<Card className="p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-l-primary relative">
-												{/* Mobile Logo */}
-												<div className="flex items-center gap-4 mb-4">
-													<div className="w-12 h-12 rounded-full bg-background shadow-md border-2 border-primary/20 flex items-center justify-center flex-shrink-0">
-														<img
-															src={experience.logo}
-															alt={`${experience.companyShort} logo`}
-															className="w-8 h-8 rounded-full object-cover"
-														/>
-													</div>
-													<div className="flex-1">
-														<Badge
-															variant="secondary"
-															className="bg-primary/10 text-primary mb-2"
-														>
-															<Calendar className="w-3 h-3 mr-1" />
-															{experience.period}
-														</Badge>
-													</div>
+										<Card className="p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-l-primary relative">
+											{/* Mobile Logo */}
+											<div className="flex items-center gap-4 mb-4">
+												<div className="w-12 h-12 rounded-full bg-background shadow-md border-2 border-primary/20 flex items-center justify-center flex-shrink-0">
+													<img
+														src={experience.logo}
+														alt={`${experience.companyShort} logo`}
+														className="w-8 h-8 rounded-full object-cover"
+													/>
 												</div>
+												<div className="flex-1">
+													<Badge
+														variant="secondary"
+														className="bg-primary/10 text-primary mb-2"
+													>
+														<Calendar className="w-3 h-3 mr-1" />
+														{experience.period}
+													</Badge>
+												</div>
+											</div>
 
-												{/* Header */}
-												<div className="mb-4">
-													<h3 className="text-xl font-bold text-foreground mb-2">
-														{experience.role}
-													</h3>
-													<div className="flex items-start gap-2 text-text-secondary mb-2">
-														<Building2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
-														<span className="font-semibold text-base leading-relaxed">
-															{experience.company}
-														</span>
-													</div>
-													<div className="flex items-center gap-2 text-text-secondary">
-														<MapPin className="w-4 h-4 flex-shrink-0" />
-														<span className="text-sm">{experience.location}</span>
-													</div>
+											{/* Header */}
+											<div className="mb-4">
+												<h3 className="text-xl font-bold text-foreground mb-2">
+													{experience.role}
+												</h3>
+												<div className="flex items-start gap-2 text-text-secondary mb-2">
+													<Building2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
+													<span className="font-semibold text-base leading-relaxed">
+														{experience.company}
+													</span>
 												</div>
+												<div className="flex items-center gap-2 text-text-secondary">
+													<MapPin className="w-4 h-4 flex-shrink-0" />
+													<span className="text-sm">{experience.location}</span>
+												</div>
+											</div>
 
-												{/* Achievements */}
-												<div className="space-y-3">
-													{experience.achievements.map(
-														(achievement, achievementIndex) => (
-															<motion.div
-																key={achievementIndex}
-																className="flex items-start gap-3"
-																initial={{ opacity: 0, x: -20 }}
-																whileInView={{ opacity: 1, x: 0 }}
-																transition={{
-																	duration: 0.4,
-																	delay: index * 0.2 + achievementIndex * 0.1 + 0.3,
-																}}
-																viewport={{ once: true }}
-															>
-																<div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-																<p className="text-sm text-text-secondary leading-relaxed">
-																	{achievement}
-																</p>
-															</motion.div>
-														),
-													)}
-												</div>
-											</Card>
-										</motion.div>
+											{/* Achievements */}
+											<div className="space-y-3">
+												{experience.achievements.map((achievement, achievementIndex) => (
+													<div key={achievementIndex} className="flex items-start gap-3">
+														<div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+														<p className="text-sm text-text-secondary leading-relaxed">
+															{achievement}
+														</p>
+													</div>
+												))}
+											</div>
+										</Card>
 									</div>
 								</motion.div>
 							);
