@@ -1,0 +1,32 @@
+{
+	"name": "Huy Che - Full Stack Developer Portfolio",
+	"short_name": "Huy Che Portfolio",
+	"description": "Full Stack Developer specializing in React, TypeScript, Node.js, and Web3 technologies",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#1a1a1a",
+	"theme_color": "#8b5cf6",
+	"orientation": "portrait-primary",
+	"scope": "/",
+	"lang": "en",
+	"categories": ["portfolio", "developer", "technology"],
+	"icons": [
+		{
+			"src": "/favicon.ico",
+			"sizes": "16x16",
+			"type": "image/x-icon"
+		},
+		{
+			"src": "/logo.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "/logo.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	]
+}

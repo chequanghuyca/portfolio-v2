@@ -66,7 +66,7 @@ const Navigation = () => {
 					{scrolled && (
 						<img
 							src={logo}
-							alt="logo"
+							alt="Huy Che - Full Stack Developer Portfolio Logo"
 							className="lg:w-10 lg:h-10 w-8 h-8 cursor-pointer hover:scale-110 transition-transform duration-300"
 							onClick={handleLogoClick}
 						/>
@@ -102,7 +102,7 @@ const Navigation = () => {
 
 				{/* Mobile Navigation */}
 				{isOpen && (
-					<div className="md:hidden mt-4 py-4 bg-surface-elevated rounded-lg shadow-card animate-fade-in">
+					<div className="md:hidden mt-4 py-4 bg-slate-50 rounded-lg animate-fade-in border border-border shadow-md">
 						<div className="flex flex-col space-y-4 px-4">
 							{navItems.map((item) => (
 								<a

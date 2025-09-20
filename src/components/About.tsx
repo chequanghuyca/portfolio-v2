@@ -6,6 +6,7 @@ import { easeInOutCubic } from '@/lib/animations';
 import logoHCMUT from '@/assets/hcmut.png';
 import logoMirai from '@/assets/mirai.png';
 import logoFPT from '@/assets/fpt.png';
+import { cn } from '@/lib/utils';
 
 const About = () => {
 	const workExperience = [
@@ -134,7 +135,7 @@ const About = () => {
 							className="hidden md:block absolute left-1/2 transform w-0.5 bg-gradient-to-b from-primary to-purple-600"
 							style={{
 								top: '2rem',
-								height: 'calc(100% - 25rem)',
+								height: 'calc(100% - 22rem)',
 							}}
 						/>
 
@@ -167,15 +168,7 @@ const About = () => {
 													>
 														<Card className="p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-r-4 border-r-primary">
 															{/* Period Badge */}
-															<div className="mb-4">
-																<Badge
-																	variant="secondary"
-																	className="bg-primary/10 text-primary"
-																>
-																	<Calendar className="w-3 h-3 mr-1" />
-																	{experience.period}
-																</Badge>
-															</div>
+															{/* */}
 
 															{/* Header */}
 															<div className="mb-4">
@@ -226,17 +219,31 @@ const About = () => {
 										{/* Center Column - Logo */}
 										<div className="flex flex-col items-center justify-start pt-4">
 											<motion.div
-												className="flex flex-col items-center"
+												className="flex flex-col items-center relative"
 												whileHover={{ scale: 1.05 }}
 												transition={{ duration: 0.3 }}
 											>
 												<div className="w-20 h-20 rounded-full bg-background shadow-xl border-4 border-primary/30 flex items-center justify-center relative overflow-hidden">
 													<img
 														src={experience.logo}
-														alt={`${experience.companyShort} logo`}
+														alt={`${experience.company} company logo - ${experience.role} at ${experience.company}`}
 														className="w-12 h-12 object-contain"
 													/>
 													<div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/20 to-purple-500/20 blur-sm"></div>
+												</div>
+												<div
+													className={cn(
+														'absolute top-1/2 -translate-y-1/2',
+														isLeft ? 'left-24' : 'right-24',
+													)}
+												>
+													<Badge
+														variant="secondary"
+														className="bg-primary/10 text-primary text-nowrap"
+													>
+														<Calendar className="w-3 h-3 mr-1" />
+														{experience.period}
+													</Badge>
 												</div>
 											</motion.div>
 										</div>
@@ -250,17 +257,6 @@ const About = () => {
 														transition={{ duration: 0.3 }}
 													>
 														<Card className="p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-l-primary">
-															{/* Period Badge */}
-															<div className="mb-4">
-																<Badge
-																	variant="secondary"
-																	className="bg-primary/10 text-primary"
-																>
-																	<Calendar className="w-3 h-3 mr-1" />
-																	{experience.period}
-																</Badge>
-															</div>
-
 															{/* Header */}
 															<div className="mb-4">
 																<h3 className="text-xl font-bold text-foreground mb-2">

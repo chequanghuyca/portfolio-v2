@@ -126,7 +126,7 @@ const Skills = () => {
 							hoverScale={1.05}
 							hoverRotate={2}
 						>
-							<Card className="p-6 h-full">
+							<Card className="p-6 h-full shadow-xl">
 								<motion.div
 									className={`w-full h-2 rounded-full bg-gradient-to-r ${category.gradient} mb-6`}
 									initial={{ width: 0 }}

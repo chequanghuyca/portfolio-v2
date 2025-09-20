@@ -71,7 +71,7 @@ const Contact = () => {
 			icon: Phone,
 			title: 'Phone',
 			value: '+84 939 260 508',
-			href: 'tel:+15551234567',
+			href: 'https://zalo.me/0939260508',
 		},
 		{
 			icon: MapPin,
@@ -169,7 +169,7 @@ const Contact = () => {
 						whileInView="visible"
 						viewport={{ once: true, margin: '-50px' }}
 					>
-						<Card className="p-6 sm:p-8">
+						<Card className="p-6 sm:p-8 shadow-md">
 							<motion.h3
 								className="text-xl sm:text-2xl font-semibold mb-6"
 								initial={{ opacity: 0, y: 20 }}
@@ -301,6 +301,7 @@ const Contact = () => {
 												href={info.href}
 												className="text-text-secondary hover:text-primary transition-colors"
 												whileHover={{ scale: 1.05 }}
+												target="_blank"
 											>
 												{info.value}
 											</motion.a>

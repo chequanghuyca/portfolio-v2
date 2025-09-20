@@ -101,11 +101,11 @@ const Projects = () => {
 							hoverScale={1.03}
 							hoverRotate={1}
 						>
-							<Card className="overflow-hidden h-full flex flex-col">
+							<Card className="overflow-hidden h-full flex flex-col shadow-md">
 								<div className="relative overflow-hidden">
 									<motion.img
 										src={project.image}
-										alt={project.title}
+										alt={`${project.title} - ${project.description} - Built with ${project.technologies.join(', ')} by Huy Che`}
 										className="w-full h-48 object-cover"
 										whileHover={{ scale: 1.1 }}
 										transition={{ duration: 0.3 }}
