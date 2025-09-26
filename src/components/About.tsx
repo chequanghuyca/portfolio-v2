@@ -12,60 +12,67 @@ import { useTranslation } from 'react-i18next';
 const About = () => {
 	const { t } = useTranslation();
 
+	const getExperience = (company: string) => {
+		const logoMap = {
+			mirai: logoMirai,
+			hcmut: logoHCMUT,
+			fpt: logoFPT,
+		};
+
+		return {
+			role: t(`about.experience.${company}.role`),
+			company: t(`about.experience.${company}.company`),
+			companyShort: t(`about.experience.${company}.companyShort`),
+			logo: logoMap[company as keyof typeof logoMap],
+			location: t(`about.experience.${company}.location`),
+			period: t(`about.experience.${company}.period`),
+			achievements: t(`about.experience.${company}.achievements`, {
+				returnObjects: true,
+			}) as string[],
+		};
+	};
+
 	const workExperience = [
-		{
-			role: 'Middle Software Engineer',
-			company: 'Mirai Labs',
-			companyShort: 'Mirai Labs',
-			logo: logoMirai,
-			location: 'Ho Chi Minh City, Vietnam',
-			period: 'Mar 2024 - Present',
-			color: 'bg-orange-500',
-			achievements: [
-				'Built a decentralized NFT marketplace enabling users to buy, sell, and auction digital assets with seamless Web3 wallet integration (MetaMask, WalletConnect).',
-				'Developed an operator dashboard for the Mirai App (similar to Binance), empowering admins to manage listings, users, and transactions efficiently.',
-				'Enhanced visibility and traffic for Web3 products through advanced SEO strategies.',
-				'Integrated ThirdWeb SDK and smart contract interactions to enable blockchain functionalities such as minting, transferring, and auctioning NFTs.',
-				'Implemented secure authentication using JWT and blockchain-based tokens.',
-				'Developed a cross-platform desktop application with Tauri (Rust + React) for timekeeping and task management.',
-				'Incorporated AI-driven analytics to evaluate employee productivity from screen activity recordings.',
-				'Contributed to Web3 adoption by bridging traditional web solutions with decentralized technologies.',
-			],
-		},
-		{
-			role: 'Junior Full-Stack Web Developer',
-			company:
-				'Data and Information Technology Center of Ho Chi Minh City University of Technology',
-			companyShort: 'HCMUT',
-			logo: logoHCMUT,
-			location: 'Ho Chi Minh City, Vietnam',
-			period: 'Aug 2022 - Mar 2024',
-			color: 'bg-blue-500',
-			achievements: [
-				'Developed and maintained a quality assurance system for the Office for International Study Programs (OISP), supporting academic operations at Ho Chi Minh City University of Technology.',
-				'Collaborated with cross-functional teams — including designers, product managers, and developers — to deliver high-quality, user-focused web applications.',
-				'Analyzed and clarified business requirements with stakeholders, and proposed scalable solutions for system deployment.',
-				'Diagnosed and resolved system issues, while continuously optimizing performance and reliability during production.',
-				'Implemented responsive, accessible, and cross-browser compatible designs to enhance user experience across devices.',
-				'Contributed to code reviews by providing constructive feedback and promoting clean coding practices.',
-			],
-		},
-		{
-			role: 'Intern Back-end Developer',
-			company: 'FPT Software',
-			companyShort: 'FPT Software',
-			logo: logoFPT,
-			location: 'Ho Chi Minh City, Vietnam',
-			period: 'Jun 2022 - Aug 2022',
-			color: 'bg-blue-500',
-			achievements: [
-				'Gained hands-on experience with Java and the Spring Boot framework.',
-				'Designed and implemented RESTful microservices APIs for a human resource management system.',
-				'Collaborated with senior developers in code reviews to improve code quality and follow best practices.',
-				'Prepared technical documentation and feature reports to support product development.',
-			],
-		},
+		getExperience('mirai'),
+		getExperience('hcmut'),
+		getExperience('fpt'),
 	];
+
+	// const workExperience = [
+	// 	{
+	// 		role: t('about.experience.mirai.role'),
+	// 		company: t('about.experience.mirai.company'),
+	// 		companyShort: t('about.experience.mirai.companyShort'),
+	// 		logo: logoMirai,
+	// 		location: t('about.experience.mirai.location'),
+	// 		period: t('about.experience.mirai.period'),
+	// 		achievements: t('about.experience.mirai.achievements', {
+	// 			returnObjects: true,
+	// 		}) as string[],
+	// 	},
+	// 	{
+	// 		role: t('about.experience.hcmut.role'),
+	// 		company: t('about.experience.hcmut.company'),
+	// 		companyShort: t('about.experience.hcmut.companyShort'),
+	// 		logo: logoHCMUT,
+	// 		location: t('about.experience.hcmut.location'),
+	// 		period: t('about.experience.hcmut.period'),
+	// 		achievements: t('about.experience.hcmut.achievements', {
+	// 			returnObjects: true,
+	// 		}) as string[],
+	// 	},
+	// 	{
+	// 		role: t('about.experience.fpt.role'),
+	// 		company: t('about.experience.fpt.company'),
+	// 		companyShort: t('about.experience.fpt.companyShort'),
+	// 		logo: logoFPT,
+	// 		location: t('about.experience.fpt.location'),
+	// 		period: t('about.experience.fpt.period'),
+	// 		achievements: t('about.experience.fpt.achievements', {
+	// 			returnObjects: true,
+	// 		}) as string[],
+	// 	},
+	// ];
 
 	// Animation variants
 	const containerVariants = {

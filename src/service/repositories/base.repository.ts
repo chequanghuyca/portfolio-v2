@@ -7,7 +7,8 @@ export abstract class BaseRepository<T> implements IBaseRepository<T> {
 	protected httpClient: HttpClient;
 
 	constructor() {
-		this.httpClient = new HttpClient('https://email-service-v2.fly.dev');
+		this.httpClient = new HttpClient('https://email-service-v2.onrender.com');
+		// this.httpClient = new HttpClient('htt p://localhost:4000');
 		this.httpClient.use(jsonContentTypeMiddleware());
 	}
 

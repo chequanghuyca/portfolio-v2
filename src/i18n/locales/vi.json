@@ -24,6 +24,8 @@
 			"mirai": {
 				"role": "Middle Software Engineer",
 				"company": "Mirai Labs",
+				"companyShort": "Mirai Labs",
+				"location": "Thành phố Hồ Chí Minh, Việt Nam",
 				"period": "Tháng 3/2024 - Hiện tại",
 				"achievements": [
 					"Xây dựng marketplace NFT phi tập trung cho phép người dùng mua, bán và đấu giá tài sản kỹ thuật số với tích hợp ví Web3 liền mạch (MetaMask, WalletConnect).",
@@ -36,26 +38,43 @@
 					"Đóng góp vào việc áp dụng Web3 bằng cách kết nối các giải pháp web truyền thống với công nghệ phi tập trung."
 				]
 			},
-			"fpt": {
+			"hcmut": {
 				"role": "Junior Full-Stack Web Developer",
-				"company": "FPT Software",
-				"period": "Tháng 6/2023 - Tháng 2/2024",
+				"company": "Trung tâm Công nghệ Thông tin và Dữ liệu - Đại học Bách Khoa TP.HCM",
+				"companyShort": "HCMUT",
+				"location": "Thành phố Hồ Chí Minh, Việt Nam",
+				"period": "Tháng 8/2022 - Tháng 3/2024",
 				"achievements": [
-					"Phát triển và duy trì nhiều ứng dụng web sử dụng React, Node.js và các framework JavaScript hiện đại.",
-					"Hợp tác với các nhóm liên chức năng để cung cấp các giải pháp phần mềm chất lượng cao.",
-					"Triển khai thiết kế responsive và tối ưu hóa hiệu suất ứng dụng.",
-					"Tham gia đánh giá code và đóng góp vào việc chia sẻ kiến thức nhóm."
+					"Phát triển và duy trì hệ thống đảm bảo chất lượng cho Văn phòng Đào tạo Quốc tế (OISP), hỗ trợ hoạt động học thuật tại Đại học Bách Khoa TP.HCM.",
+					"Hợp tác với các nhóm liên chức năng — bao gồm nhà thiết kế, quản lý sản phẩm và nhà phát triển — để cung cấp các ứng dụng web chất lượng cao, tập trung vào người dùng.",
+					"Phân tích và làm rõ yêu cầu kinh doanh với các bên liên quan, và đề xuất các giải pháp có thể mở rộng cho việc triển khai hệ thống.",
+					"Chẩn đoán và giải quyết các vấn đề hệ thống, đồng thời liên tục tối ưu hóa hiệu suất và độ tin cậy trong quá trình sản xuất.",
+					"Triển khai thiết kế responsive, có thể truy cập và tương thích đa trình duyệt để nâng cao trải nghiệm người dùng trên các thiết bị.",
+					"Đóng góp vào việc đánh giá code bằng cách cung cấp phản hồi mang tính xây dựng và thúc đẩy các thực hành coding sạch."
+				]
+			},
+			"fpt": {
+				"role": "Intern Back-end Developer",
+				"company": "FPT Software",
+				"companyShort": "FPT Software",
+				"location": "Thành phố Hồ Chí Minh, Việt Nam",
+				"period": "Tháng 6/2022 - Tháng 8/2022",
+				"achievements": [
+					"Có kinh nghiệm thực tế với Java và framework Spring Boot.",
+					"Thiết kế và triển khai các API microservices RESTful cho hệ thống quản lý nhân sự.",
+					"Hợp tác với các nhà phát triển senior trong việc đánh giá code để cải thiện chất lượng code và tuân thủ các thực hành tốt nhất.",
+					"Chuẩn bị tài liệu kỹ thuật và báo cáo tính năng để hỗ trợ phát triển sản phẩm."
 				]
 			}
 		}
 	},
 	"skills": {
 		"title": "Kỹ năng & Công nghệ",
-		"subtitle": "Các công nghệ tôi làm việc",
-		"frontend": "Frontend",
-		"backend": "Backend",
-		"devops": "DevOps & Công cụ",
-		"design": "Thiết kế & Khác"
+		"subtitle": "Các công nghệ tôi làm việc và sử dụng",
+		"completed": "Dự án hoàn thành",
+		"experience": "Năm kinh nghiệm",
+		"clients": "Khách hàng hài lòng",
+		"satisfaction": "Tỷ lệ hài lòng"
 	},
 	"projects": {
 		"title": "Dự án nổi bật",
@@ -67,7 +86,7 @@
 	},
 	"contact": {
 		"title": "Liên hệ",
-		"subtitle": "Hãy thảo luận về dự án tiếp theo của bạn",
+		"subtitle": "Bạn đang ấp ủ một dự án hay chỉ muốn trò chuyện? Tôi rất mong được nghe ý kiến của bạn. Hãy cùng nhau tạo nên điều gì đó tuyệt vời nhé!",
 		"description": "Tôi luôn quan tâm đến những cơ hội mới và dự án thú vị. Đừng ngần ngại liên hệ!",
 		"name": "Tên",
 		"email": "Email",
@@ -75,7 +94,13 @@
 		"sendMessage": "Gửi tin nhắn",
 		"sending": "Đang gửi...",
 		"success": "Tin nhắn đã được gửi thành công!",
-		"error": "Gửi tin nhắn thất bại. Vui lòng thử lại."
+		"error": "Gửi tin nhắn thất bại. Vui lòng thử lại.",
+		"cta": "Sẵn sàng bắt đầu dự án tiếp theo? Hãy cùng nhau hợp tác!",
+		"sendEmail": "Gửi Email",
+		"callNow": "Gọi ngay",
+		"phone": "Điện thoại",
+		"location": "Địa chỉ",
+		"locationValue": "Hồ Chí Minh, Việt Nam"
 	},
 	"footer": {
 		"rights": "Tất cả quyền được bảo lưu.",

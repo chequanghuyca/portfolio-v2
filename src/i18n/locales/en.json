@@ -24,6 +24,8 @@
 			"mirai": {
 				"role": "Middle Software Engineer",
 				"company": "Mirai Labs",
+				"companyShort": "Mirai Labs",
+				"location": "Ho Chi Minh City, Vietnam",
 				"period": "Mar 2024 - Present",
 				"achievements": [
 					"Built a decentralized NFT marketplace enabling users to buy, sell, and auction digital assets with seamless Web3 wallet integration (MetaMask, WalletConnect).",
@@ -36,15 +38,32 @@
 					"Contributed to Web3 adoption by bridging traditional web solutions with decentralized technologies."
 				]
 			},
-			"fpt": {
+			"hcmut": {
 				"role": "Junior Full-Stack Web Developer",
-				"company": "FPT Software",
-				"period": "Jun 2023 - Feb 2024",
+				"company": "Data and Information Technology Center of Ho Chi Minh City University of Technology",
+				"companyShort": "HCMUT",
+				"location": "Ho Chi Minh City, Vietnam",
+				"period": "Aug 2022 - Mar 2024",
 				"achievements": [
-					"Developed and maintained multiple web applications using React, Node.js, and modern JavaScript frameworks.",
-					"Collaborated with cross-functional teams to deliver high-quality software solutions.",
-					"Implemented responsive designs and optimized application performance.",
-					"Participated in code reviews and contributed to team knowledge sharing."
+					"Developed and maintained a quality assurance system for the Office for International Study Programs (OISP), supporting academic operations at Ho Chi Minh City University of Technology.",
+					"Collaborated with cross-functional teams — including designers, product managers, and developers — to deliver high-quality, user-focused web applications.",
+					"Analyzed and clarified business requirements with stakeholders, and proposed scalable solutions for system deployment.",
+					"Diagnosed and resolved system issues, while continuously optimizing performance and reliability during production.",
+					"Implemented responsive, accessible, and cross-browser compatible designs to enhance user experience across devices.",
+					"Contributed to code reviews by providing constructive feedback and promoting clean coding practices."
+				]
+			},
+			"fpt": {
+				"role": "Intern Back-end Developer",
+				"company": "FPT Software",
+				"companyShort": "FPT Software",
+				"location": "Ho Chi Minh City, Vietnam",
+				"period": "Jun 2022 - Aug 2022",
+				"achievements": [
+					"Gained hands-on experience with Java and the Spring Boot framework.",
+					"Designed and implemented RESTful microservices APIs for a human resource management system.",
+					"Collaborated with senior developers in code reviews to improve code quality and follow best practices.",
+					"Prepared technical documentation and feature reports to support product development."
 				]
 			}
 		}
@@ -52,10 +71,10 @@
 	"skills": {
 		"title": "Skills & Technologies",
 		"subtitle": "Technologies I work with",
-		"frontend": "Frontend",
-		"backend": "Backend",
-		"devops": "DevOps & Tools",
-		"design": "Design & Others"
+		"completed": "Projects Completed",
+		"experience": "Years Experience",
+		"clients": "Happy Clients",
+		"satisfaction": "Satisfaction Rate"
 	},
 	"projects": {
 		"title": "Featured Projects",
@@ -67,7 +86,7 @@
 	},
 	"contact": {
 		"title": "Get In Touch",
-		"subtitle": "Let's discuss your next project",
+		"subtitle": "Have a project in mind or just want to chat? I'd love to hear from you. Let's create something amazing together!",
 		"description": "I'm always interested in new opportunities and exciting projects. Feel free to reach out!",
 		"name": "Name",
 		"email": "Email",
@@ -75,7 +94,13 @@
 		"sendMessage": "Send Message",
 		"sending": "Sending...",
 		"success": "Message sent successfully!",
-		"error": "Failed to send message. Please try again."
+		"error": "Failed to send message. Please try again.",
+		"cta": "Ready to start your next project? Let's work together!",
+		"sendEmail": "Send Email",
+		"callNow": "Call Now",
+		"phone": "Phone",
+		"location": "Location",
+		"locationValue": "Ho Chi Minh City, Vietnam"
 	},
 	"footer": {
 		"rights": "All rights reserved.",

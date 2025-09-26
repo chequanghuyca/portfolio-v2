@@ -4,79 +4,81 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Loader2 } from 'lucide-react';
 import { useCallback, useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
+// import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
 import { easeInOutCubic } from '@/lib/animations';
-import { useMutationResponsePortfolio } from '@/hooks/email/useMutationResponsePortfolio';
+import { useTranslation } from 'react-i18next';
+// import { useMutationResponsePortfolio } from '@/hooks/email/useMutationResponsePortfolio';
 
 const Contact = () => {
-	const { toast } = useToast();
-	const [formData, setFormData] = useState({
-		name: '',
-		email: '',
-		message: '',
-	});
+	const { t } = useTranslation();
+	// const { toast } = useToast();
+	// const [formData, setFormData] = useState({
+	// 	name: '',
+	// 	email: '',
+	// 	message: '',
+	// });
 
-	const emailMutation = useMutationResponsePortfolio({
-		onSuccess: () => {
-			toast({
-				title: 'Message Sent!',
-				description: "Thank you for your message. I'll get back to you soon!",
-			});
-			setFormData({ name: '', email: '', message: '' });
-		},
-		onError: () => {
-			toast({
-				title: 'Error!',
-				description: 'Failed to send message. Please try again later.',
-				variant: 'destructive',
-			});
-		},
-	});
+	// const emailMutation = useMutationResponsePortfolio({
+	// 	onSuccess: () => {
+	// 		toast({
+	// 			title: 'Message Sent!',
+	// 			description: "Thank you for your message. I'll get back to you soon!",
+	// 		});
+	// 		setFormData({ name: '', email: '', message: '' });
+	// 	},
+	// 	onError: () => {
+	// 		toast({
+	// 			title: 'Error!',
+	// 			description: 'Failed to send message. Please try again later.',
+	// 			variant: 'destructive',
+	// 		});
+	// 	},
+	// });
 
-	const handleSubmit = useCallback(
-		async (e: React.FormEvent) => {
-			try {
-				e.preventDefault();
+	// const handleSubmit = useCallback(
+	// 	async (e: React.FormEvent) => {
+	// 		try {
+	// 			e.preventDefault();
 
-				if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-					toast({
-						title: 'Validation Error',
-						description: 'Please fill in all fields.',
-						variant: 'destructive',
-					});
-					return;
-				}
+	// 			if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+	// 				toast({
+	// 					title: 'Validation Error',
+	// 					description: 'Please fill in all fields.',
+	// 					variant: 'destructive',
+	// 				});
+	// 				return;
+	// 			}
 
-				await emailMutation.mutate({
-					name: formData.name,
-					email: formData.email,
-					message: formData.message,
-				});
-			} catch (error) {
-				console.error(error);
-			}
-		},
-		[emailMutation, formData],
-	);
+	// 			await emailMutation.mutate({
+	// 				name: formData.name,
+	// 				email: formData.email,
+	// 				message: formData.message,
+	// 			});
+	// 		} catch (error) {
+	// 			console.error(error);
+	// 		}
+	// 	},
+	// 	[emailMutation, formData],
+	// );
 
 	const contactInfo = [
 		{
 			icon: Mail,
-			title: 'Email',
+			title: t('contact.email'),
 			value: 'chequanghuybtt@gmail.com',
 			href: 'mailto:chequanghuybtt@gmail.com',
 		},
 		{
 			icon: Phone,
-			title: 'Phone',
+			title: t('contact.phone'),
 			value: '+84 939 260 508',
 			href: 'https://zalo.me/0939260508',
 		},
 		{
 			icon: MapPin,
-			title: 'Location',
-			value: 'Ho Chi Minh City, Vietnam',
+			title: t('contact.location'),
+			value: t('contact.locationValue'),
 			href: 'https://www.google.com/maps/place/Ho+Chi+Minh+City,+Vietnam',
 		},
 	];
@@ -143,7 +145,7 @@ const Contact = () => {
 						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
 						variants={headingVariants}
 					>
-						Get In Touch
+						{t('contact.title')}
 					</motion.h2>
 					<motion.div
 						className="w-24 h-1 gradient-primary mx-auto mb-8"
@@ -156,159 +158,125 @@ const Contact = () => {
 						className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto"
 						variants={headingVariants}
 					>
-						Have a project in mind or just want to chat? I'd love to hear from you. Let's
-						create something amazing together!
+						{t('contact.subtitle')}
 					</motion.p>
 				</motion.div>
 
-				<div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-					{/* Contact Form */}
+				{/* Contact Information - Centered Layout */}
+				<div className="max-w-4xl mx-auto">
 					<motion.div
-						variants={formVariants}
+						className="grid md:grid-cols-3 gap-6 lg:gap-8"
+						variants={containerVariants}
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, margin: '-50px' }}
 					>
-						<Card className="p-6 sm:p-8 shadow-md">
-							<motion.h3
-								className="text-xl sm:text-2xl font-semibold mb-6"
-								initial={{ opacity: 0, y: 20 }}
-								whileInView={{ opacity: 1, y: 0 }}
-								transition={{ delay: 0.2, duration: 0.5 }}
-								viewport={{ once: true }}
-							>
-								Send Message
-							</motion.h3>
-							<form onSubmit={handleSubmit} className="space-y-6">
+						{contactInfo.map((info, index) => {
+							const IconComponent = info.icon;
+							return (
 								<motion.div
-									initial={{ opacity: 0, x: -20 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									transition={{ delay: 0.3, duration: 0.5 }}
-									viewport={{ once: true }}
+									key={index}
+									variants={infoVariants}
+									initial="hidden"
+									whileInView="visible"
+									transition={{ delay: index * 0.2, duration: 0.6 }}
+									viewport={{ once: true, margin: '-50px' }}
 								>
-									<motion.div whileFocus={{ scale: 1.02 }}>
-										<Input
-											placeholder="Your Name"
-											value={formData.name}
-											onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-											disabled={emailMutation.isPending}
-											required
-										/>
+									<motion.div
+										className="group"
+										whileHover={{ y: -5 }}
+										transition={{ duration: 0.3 }}
+									>
+										<Card className="p-6 lg:p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-background to-background/50 backdrop-blur-sm">
+											{/* Icon Container */}
+											<motion.div
+												className="w-16 h-16 lg:w-20 lg:h-20 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300"
+												whileHover={{ rotate: 360 }}
+												transition={{ duration: 0.6 }}
+											>
+												<IconComponent size={32} className="text-white" />
+											</motion.div>
+
+											{/* Content */}
+											<div className="text-center space-y-3">
+												<motion.h3
+													className="text-lg lg:text-xl font-semibold text-foreground"
+													initial={{ opacity: 0, y: 10 }}
+													whileInView={{ opacity: 1, y: 0 }}
+													transition={{ delay: index * 0.2 + 0.2, duration: 0.4 }}
+													viewport={{ once: true }}
+												>
+													{info.title}
+												</motion.h3>
+
+												<motion.a
+													href={info.href}
+													className="block text-text-secondary hover:text-primary transition-colors duration-300 text-sm lg:text-base break-words"
+													whileHover={{ scale: 1.05 }}
+													target="_blank"
+													rel="noopener noreferrer"
+													initial={{ opacity: 0, y: 10 }}
+													whileInView={{ opacity: 1, y: 0 }}
+													transition={{ delay: index * 0.2 + 0.3, duration: 0.4 }}
+													viewport={{ once: true }}
+												>
+													{info.value}
+												</motion.a>
+											</div>
+
+											{/* Hover Effect Overlay */}
+											<div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+										</Card>
 									</motion.div>
 								</motion.div>
-								<motion.div
-									initial={{ opacity: 0, x: -20 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									transition={{ delay: 0.4, duration: 0.5 }}
-									viewport={{ once: true }}
-								>
-									<motion.div whileFocus={{ scale: 1.02 }}>
-										<Input
-											type="email"
-											placeholder="Your Email"
-											value={formData.email}
-											onChange={(e) =>
-												setFormData({ ...formData, email: e.target.value })
-											}
-											disabled={emailMutation.isPending}
-											required
-										/>
-									</motion.div>
-								</motion.div>
-								<motion.div
-									initial={{ opacity: 0, x: -20 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									transition={{ delay: 0.5, duration: 0.5 }}
-									viewport={{ once: true }}
-								>
-									<motion.div whileFocus={{ scale: 1.02 }}>
-										<Textarea
-											placeholder="Your Message"
-											rows={6}
-											value={formData.message}
-											onChange={(e) =>
-												setFormData({ ...formData, message: e.target.value })
-											}
-											disabled={emailMutation.isPending}
-											required
-										/>
-									</motion.div>
-								</motion.div>
-								<motion.div
-									initial={{ opacity: 0, y: 20 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									transition={{ delay: 0.6, duration: 0.5 }}
-									viewport={{ once: true }}
-								>
-									<motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-										<Button
-											type="submit"
-											size="lg"
-											className="w-full gradient-primary text-white"
-											disabled={emailMutation.isPending}
-										>
-											{emailMutation.isPending ? (
-												<>
-													<Loader2 className="w-4 h-4 mr-2 animate-spin" />
-													Sending...
-												</>
-											) : (
-												'Send Message'
-											)}
-										</Button>
-									</motion.div>
-								</motion.div>
-							</form>
-						</Card>
+							);
+						})}
 					</motion.div>
 
-					{/* Contact Information */}
+					{/* Call to Action */}
 					<motion.div
-						variants={infoVariants}
-						initial="hidden"
-						whileInView="visible"
-						viewport={{ once: true, margin: '-50px' }}
+						className="text-center mt-12 lg:mt-16"
+						initial={{ opacity: 0, y: 30 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.8, duration: 0.6 }}
+						viewport={{ once: true }}
 					>
-						<motion.div
-							className="space-y-8 mb-12"
-							variants={containerVariants}
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ once: true, margin: '-50px' }}
+						<motion.p
+							className="text-text-secondary text-base lg:text-lg mb-6"
+							initial={{ opacity: 0 }}
+							whileInView={{ opacity: 1 }}
+							transition={{ delay: 1, duration: 0.5 }}
+							viewport={{ once: true }}
 						>
-							{contactInfo.map((info, index) => {
-								const IconComponent = info.icon;
-								return (
-									<motion.div
-										key={index}
-										className="flex items-center space-x-4"
-										initial={{ opacity: 0, x: 20 }}
-										whileInView={{ opacity: 1, x: 0 }}
-										transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-										viewport={{ once: true }}
-										whileHover={{ x: 10 }}
-									>
-										<motion.div
-											className="w-12 h-12 gradient-primary rounded-lg flex items-center justify-center"
-											whileHover={{ rotate: 360, scale: 1.1 }}
-											transition={{ duration: 0.5 }}
-										>
-											<IconComponent size={24} className="text-white" />
-										</motion.div>
-										<div>
-											<p className="font-medium">{info.title}</p>
-											<motion.a
-												href={info.href}
-												className="text-text-secondary hover:text-primary transition-colors"
-												whileHover={{ scale: 1.05 }}
-												target="_blank"
-											>
-												{info.value}
-											</motion.a>
-										</div>
-									</motion.div>
-								);
-							})}
+							{t('contact.cta')}
+						</motion.p>
+						<motion.div
+							className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ delay: 1.2, duration: 0.6 }}
+							viewport={{ once: true }}
+						>
+							<motion.a
+								href="mailto:chequanghuybtt@gmail.com"
+								className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium"
+								whileHover={{ scale: 1.05 }}
+								whileTap={{ scale: 0.95 }}
+							>
+								<Mail className="w-4 h-4" />
+								{t('contact.sendEmail')}
+							</motion.a>
+							<motion.a
+								href="https://zalo.me/0939260508"
+								className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-medium"
+								whileHover={{ scale: 1.05 }}
+								whileTap={{ scale: 0.95 }}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<Phone className="w-4 h-4" />
+								{t('contact.callNow')}
+							</motion.a>
 						</motion.div>
 					</motion.div>
 				</div>

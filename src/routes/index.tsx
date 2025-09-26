@@ -1,6 +1,8 @@
 import Index from '@/pages/Index';
 import { createFileRoute } from '@tanstack/react-router';
 import { Helmet } from 'react-helmet-async';
+import DynamicViewport from '@/components/DynamicViewport';
+import { viewportConfigs } from '@/hooks/useViewport';
 
 export const Route = createFileRoute('/')({
 	component: RouteComponent,
@@ -8,7 +10,7 @@ export const Route = createFileRoute('/')({
 
 function RouteComponent() {
 	return (
-		<>
+		<DynamicViewport config={viewportConfigs.mobile}>
 			<Helmet>
 				<title>Huy Che - Full Stack Developer | React, TypeScript, Web3 Expert</title>
 				<meta
@@ -20,6 +22,7 @@ function RouteComponent() {
 					content="Huy Che, Full Stack Developer, React Developer, TypeScript, Node.js, Web3, Blockchain, Frontend Developer, Backend Developer, Portfolio, Software Engineer"
 				/>
 				<link rel="canonical" href="https://huyche.site" />
+
 				<meta
 					property="og:title"
 					content="Huy Che - Full Stack Developer | React, TypeScript, Web3 Expert"
@@ -43,6 +46,6 @@ function RouteComponent() {
 				<meta name="twitter:url" content="https://huyche.site" />
 			</Helmet>
 			<Index />
-		</>
+		</DynamicViewport>
 	);
 }

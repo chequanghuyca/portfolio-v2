@@ -365,3 +365,28 @@ All colors MUST be HSL.
 		letter-spacing: -0.01em;
 	}
 }
+
+/* iOS Safari viewport fixes */
+@supports (-webkit-touch-callout: none) {
+	/* iOS Safari specific styles */
+	html {
+		background-color: #ffffff;
+	}
+
+	body {
+		background-color: #ffffff;
+	}
+
+	/* Fix for iOS status bar area */
+	#root {
+		background-color: #ffffff;
+	}
+
+	/* Ensure viewport is white on iOS */
+	@media screen and (max-width: 768px) {
+		html,
+		body {
+			background-color: #ffffff !important;
+		}
+	}
+}

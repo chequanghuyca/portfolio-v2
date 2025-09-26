@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, ArrowLeft } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import StructuredData from '@/components/StructuredData';
+import DynamicViewport from '@/components/DynamicViewport';
+import { viewportConfigs } from '@/hooks/useViewport';
 
 export const Route = createFileRoute('/projects/$projectId')({
 	component: RouteComponent,
@@ -34,7 +36,7 @@ function RouteComponent() {
 	}
 
 	return (
-		<>
+		<DynamicViewport config={viewportConfigs.project}>
 			<Helmet>
 				<title>{project.title} | Huy Che - Full Stack Developer Portfolio</title>
 				<meta
@@ -46,6 +48,7 @@ function RouteComponent() {
 					content={`${project.title}, ${project.technologies.join(', ')}, Full Stack Developer, Huy Che, Portfolio, Web Development, Software Engineer`}
 				/>
 				<link rel="canonical" href={`https://huyche.site/projects/${projectId}`} />
+
 				<meta
 					property="og:title"
 					content={`${project.title} | Huy Che - Full Stack Developer Portfolio`}
@@ -118,6 +121,6 @@ function RouteComponent() {
 					</div>
 				</div>
 			</div>
-		</>
+		</DynamicViewport>
 	);
 }

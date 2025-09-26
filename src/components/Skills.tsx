@@ -8,6 +8,7 @@ import backEndSkills from '@/hooks/skills/backEndSkills';
 import devOpsToolsSkills from '@/hooks/skills/devOpsToolsSkills';
 import designAndOthersSkills from '@/hooks/skills/designAndOthersSkills';
 import CountUpStat from './CountUpStats';
+import { useTranslation } from 'react-i18next';
 
 interface SkillCategory {
 	title: string;
@@ -22,6 +23,7 @@ export interface Skill {
 }
 
 const Skills = () => {
+	const { t } = useTranslation();
 	const calculateExperienceYears = (): number => {
 		const startYear = 2022;
 		const currentDate = new Date();
@@ -94,7 +96,7 @@ const Skills = () => {
 						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
 						variants={headingVariants}
 					>
-						Skills & Technologies
+						{t('skills.title')}
 					</motion.h2>
 					<motion.div
 						className="w-24 h-1 gradient-primary mx-auto mb-8"
@@ -107,7 +109,7 @@ const Skills = () => {
 						className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto"
 						variants={headingVariants}
 					>
-						Here are the technologies and tools I use to bring ideas to life
+						{t('skills.subtitle')}
 					</motion.p>
 				</motion.div>
 
@@ -194,14 +196,14 @@ const Skills = () => {
 					viewport={{ once: true, margin: '-50px' }}
 				>
 					{[
-						{ number: '30+', label: 'Projects Completed', isExperience: false },
+						{ number: '30+', label: t('skills.completed'), isExperience: false },
 						{
 							number: `${calculateExperienceYears()}+`,
-							label: 'Years Experience',
+							label: t('skills.experience'),
 							isExperience: true,
 						},
-						{ number: '5000+', label: 'Happy Clients', isExperience: false },
-						{ number: '100%', label: 'Satisfaction Rate', isExperience: false },
+						{ number: '5000+', label: t('skills.clients'), isExperience: false },
+						{ number: '100%', label: t('skills.satisfaction'), isExperience: false },
 					].map((stat, index) => (
 						<CountUpStat
 							key={index}

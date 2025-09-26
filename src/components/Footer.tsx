@@ -1,6 +1,9 @@
-import { Github, Linkedin, Mail, Heart, Copyright } from 'lucide-react';
+import { Github, Linkedin, Mail, Copyright } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+	const { t } = useTranslation();
+
 	const socialLinks = [
 		{ icon: Github, href: 'https://github.com/chequanghuyca', label: 'GitHub' },
 		{
@@ -14,9 +17,9 @@ const Footer = () => {
 			label: 'Email',
 		},
 	];
-
+	// inset 0px -20px 20px -1px #969696
 	return (
-		<footer className="bg-slate-50 shadow-[inset_0_0_20px_10px_rgba(182,182,182,0.6)]">
+		<footer className="bg-slate-50 shadow-[inset_0_-10px_20px_10px_rgba(182,182,182,0.6)]">
 			<div className="container mx-auto px-4 py-8">
 				<div className="flex flex-col md:flex-row justify-between items-center gap-6">
 					{/* Brand & Social */}
@@ -43,7 +46,7 @@ const Footer = () => {
 					<div className="text-center md:text-right flex items-center gap-0.5">
 						<Copyright size={18} className="text-text-secondary" />
 						<p className="text-text-secondary text-sm">
-							{new Date().getFullYear()} Huy Che. All rights reserved.
+							{new Date().getFullYear()} Huy Che. {t('footer.rights')}
 						</p>
 					</div>
 				</div>
