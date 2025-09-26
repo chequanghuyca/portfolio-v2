@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { HelmetProvider } from 'react-helmet-async';
 import { routeTree } from './routeTree.gen';
+import './i18n';
 
 const queryClient = new QueryClient();
 

@@ -5,8 +5,11 @@ import heroImage from '@/assets/hero-bg.jpg';
 import profilePhoto from '@/assets/profile-photo.png';
 import { easeInOutCubic, fadeInUp } from '@/lib/animations';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+	const { t } = useTranslation();
+
 	// Animation variants
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -78,7 +81,7 @@ const Hero = () => {
 								className="text-xl sm:text-2xl lg:text-4xl font-poppins font-semibold text-foreground/80 mb-6 tracking-tight"
 								variants={textVariants}
 							>
-								Hello, I'm
+								{t('hero.greeting')}
 							</motion.h3>
 
 							{/* Enhanced Name Display with Stroke Animation */}
@@ -105,7 +108,7 @@ const Hero = () => {
 								className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-poppins font-bold text-gradient mb-6 tracking-tight"
 								variants={textVariants}
 							>
-								Software Engineer
+								{t('hero.title')}
 							</motion.h2>
 						</div>
 
@@ -115,9 +118,7 @@ const Hero = () => {
 							)}
 							variants={textVariants}
 						>
-							As a professional Fullstack Software Engineer, I specialize in delivering
-							exceptional digital products by combining clean, scalable code with modern
-							technologies and a strong focus on user experience.
+							{t('hero.description')}
 						</motion.p>
 
 						<motion.div
@@ -130,7 +131,7 @@ const Hero = () => {
 									className="gradient-primary text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold shadow-xl hover:shadow-2xl transition-all duration-300 border-0"
 									asChild
 								>
-									<a href="#projects">View My Work</a>
+									<a href="#projects">{t('hero.viewProjects')}</a>
 								</Button>
 							</motion.div>
 							<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -140,7 +141,7 @@ const Hero = () => {
 									className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-lg hover:shadow-xl"
 									asChild
 								>
-									<a href="#contact">Get In Touch</a>
+									<a href="#contact">{t('hero.getInTouch')}</a>
 								</Button>
 							</motion.div>
 						</motion.div>
@@ -315,7 +316,7 @@ const Hero = () => {
 
 			{/* Enhanced Scroll Indicator - Hidden on Mobile */}
 			<motion.div
-				className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center hidden sm:flex"
+				className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center hidden sm:hidden"
 				initial={{ opacity: 0, y: -20 }}
 				animate={{
 					opacity: 1,
@@ -335,7 +336,7 @@ const Hero = () => {
 						ease: 'easeInOut',
 					}}
 				>
-					Scroll Down
+					{/* Scroll Down */} {t('hero.scrollDown')}
 				</motion.div>
 				<motion.div
 					className="w-14 h-14 rounded-full border-2 border-foreground/20 flex items-center justify-center bg-background/50 backdrop-blur-sm shadow-lg hover:shadow-xl cursor-pointer"

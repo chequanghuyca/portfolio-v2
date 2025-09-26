@@ -1,0 +1,93 @@
+{
+	"navigation": {
+		"home": "Trang chủ",
+		"about": "Giới thiệu",
+		"skills": "Kỹ năng",
+		"projects": "Dự án",
+		"contact": "Liên hệ",
+		"downloadCV": "Download CV"
+	},
+	"hero": {
+		"greeting": "Xin chào, tôi là",
+		"name": "Huy Che",
+		"title": "Full Stack Developer",
+		"subtitle": "Tôi xây dựng những trải nghiệm web tuyệt vời với công nghệ hiện đại",
+		"description": "Đam mê tạo ra những giải pháp sáng tạo sử dụng React, TypeScript, Node.js và công nghệ Web3. Hãy cùng xây dựng điều gì đó tuyệt vời!",
+		"getInTouch": "Liên hệ",
+		"viewProjects": "Xem dự án",
+		"scrollDown": "Cuộn xuống"
+	},
+	"about": {
+		"title": "Giới thiệu",
+		"subtitle": "Hành trình nghề nghiệp của tôi",
+		"experience": {
+			"mirai": {
+				"role": "Middle Software Engineer",
+				"company": "Mirai Labs",
+				"period": "Tháng 3/2024 - Hiện tại",
+				"achievements": [
+					"Xây dựng marketplace NFT phi tập trung cho phép người dùng mua, bán và đấu giá tài sản kỹ thuật số với tích hợp ví Web3 liền mạch (MetaMask, WalletConnect).",
+					"Phát triển dashboard điều hành cho Mirai App (tương tự Binance), trao quyền cho admin quản lý danh sách, người dùng và giao dịch hiệu quả.",
+					"Tăng cường khả năng hiển thị và lưu lượng truy cập cho các sản phẩm Web3 thông qua các chiến lược SEO tiên tiến.",
+					"Tích hợp ThirdWeb SDK và tương tác smart contract để kích hoạt các chức năng blockchain như minting, chuyển nhượng và đấu giá NFT.",
+					"Triển khai xác thực bảo mật sử dụng JWT và token dựa trên blockchain.",
+					"Phát triển ứng dụng desktop đa nền tảng với Tauri (Rust + React) để chấm công và quản lý nhiệm vụ.",
+					"Tích hợp phân tích AI để đánh giá năng suất nhân viên từ bản ghi hoạt động màn hình.",
+					"Đóng góp vào việc áp dụng Web3 bằng cách kết nối các giải pháp web truyền thống với công nghệ phi tập trung."
+				]
+			},
+			"fpt": {
+				"role": "Junior Full-Stack Web Developer",
+				"company": "FPT Software",
+				"period": "Tháng 6/2023 - Tháng 2/2024",
+				"achievements": [
+					"Phát triển và duy trì nhiều ứng dụng web sử dụng React, Node.js và các framework JavaScript hiện đại.",
+					"Hợp tác với các nhóm liên chức năng để cung cấp các giải pháp phần mềm chất lượng cao.",
+					"Triển khai thiết kế responsive và tối ưu hóa hiệu suất ứng dụng.",
+					"Tham gia đánh giá code và đóng góp vào việc chia sẻ kiến thức nhóm."
+				]
+			}
+		}
+	},
+	"skills": {
+		"title": "Kỹ năng & Công nghệ",
+		"subtitle": "Các công nghệ tôi làm việc",
+		"frontend": "Frontend",
+		"backend": "Backend",
+		"devops": "DevOps & Công cụ",
+		"design": "Thiết kế & Khác"
+	},
+	"projects": {
+		"title": "Dự án nổi bật",
+		"subtitle": "Đây là một số dự án gần đây của tôi thể hiện kỹ năng và chuyên môn",
+		"viewProject": "Xem dự án",
+		"liveDemo": "Demo trực tiếp",
+		"github": "GitHub",
+		"featured": "Nổi bật"
+	},
+	"contact": {
+		"title": "Liên hệ",
+		"subtitle": "Hãy thảo luận về dự án tiếp theo của bạn",
+		"description": "Tôi luôn quan tâm đến những cơ hội mới và dự án thú vị. Đừng ngần ngại liên hệ!",
+		"name": "Tên",
+		"email": "Email",
+		"message": "Tin nhắn",
+		"sendMessage": "Gửi tin nhắn",
+		"sending": "Đang gửi...",
+		"success": "Tin nhắn đã được gửi thành công!",
+		"error": "Gửi tin nhắn thất bại. Vui lòng thử lại."
+	},
+	"footer": {
+		"rights": "Tất cả quyền được bảo lưu.",
+		"builtWith": "Được xây dựng với React, TypeScript & Tailwind CSS"
+	},
+	"common": {
+		"loading": "Đang tải...",
+		"error": "Lỗi",
+		"success": "Thành công",
+		"close": "Đóng",
+		"back": "Quay lại",
+		"next": "Tiếp theo",
+		"previous": "Trước đó"
+	}
+}

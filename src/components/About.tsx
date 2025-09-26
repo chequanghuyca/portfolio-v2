@@ -7,8 +7,11 @@ import logoHCMUT from '@/assets/hcmut.png';
 import logoMirai from '@/assets/mirai.png';
 import logoFPT from '@/assets/fpt.png';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 const About = () => {
+	const { t } = useTranslation();
+
 	const workExperience = [
 		{
 			role: 'Middle Software Engineer',
@@ -114,7 +117,7 @@ const About = () => {
 						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
 						variants={textVariants}
 					>
-						About Me
+						{t('about.title')}
 					</motion.h2>
 					<motion.div
 						className="h-1 gradient-primary mx-auto mb-8"
@@ -124,7 +127,7 @@ const About = () => {
 						className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto"
 						variants={textVariants}
 					>
-						My Professional Journey.
+						{t('about.subtitle')}
 					</motion.p>
 				</motion.div>
 
@@ -239,7 +242,7 @@ const About = () => {
 												>
 													<Badge
 														variant="secondary"
-														className="bg-primary/10 text-primary text-nowrap"
+														className="bg-primary/10 text-primary text-nowrap text-sm"
 													>
 														<Calendar className="w-3 h-3 mr-1" />
 														{experience.period}

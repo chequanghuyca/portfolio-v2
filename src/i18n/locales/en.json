@@ -1,0 +1,93 @@
+{
+	"navigation": {
+		"home": "Home",
+		"about": "About",
+		"skills": "Skills",
+		"projects": "Projects",
+		"contact": "Contact",
+		"downloadCV": "Download CV"
+	},
+	"hero": {
+		"greeting": "Hello, I'm",
+		"name": "Huy Che",
+		"title": "Full Stack Developer",
+		"subtitle": "I build amazing web experiences with modern technologies",
+		"description": "Passionate about creating innovative solutions using React, TypeScript, Node.js, and Web3 technologies. Let's build something great together!",
+		"getInTouch": "Get In Touch",
+		"viewProjects": "View Projects",
+		"scrollDown": "Scroll Down"
+	},
+	"about": {
+		"title": "About Me",
+		"subtitle": "My Professional Journey",
+		"experience": {
+			"mirai": {
+				"role": "Middle Software Engineer",
+				"company": "Mirai Labs",
+				"period": "Mar 2024 - Present",
+				"achievements": [
+					"Built a decentralized NFT marketplace enabling users to buy, sell, and auction digital assets with seamless Web3 wallet integration (MetaMask, WalletConnect).",
+					"Developed an operator dashboard for the Mirai App (similar to Binance), empowering admins to manage listings, users, and transactions efficiently.",
+					"Enhanced visibility and traffic for Web3 products through advanced SEO strategies.",
+					"Integrated ThirdWeb SDK and smart contract interactions to enable blockchain functionalities such as minting, transferring, and auctioning NFTs.",
+					"Implemented secure authentication using JWT and blockchain-based tokens.",
+					"Developed a cross-platform desktop application with Tauri (Rust + React) for timekeeping and task management.",
+					"Incorporated AI-driven analytics to evaluate employee productivity from screen activity recordings.",
+					"Contributed to Web3 adoption by bridging traditional web solutions with decentralized technologies."
+				]
+			},
+			"fpt": {
+				"role": "Junior Full-Stack Web Developer",
+				"company": "FPT Software",
+				"period": "Jun 2023 - Feb 2024",
+				"achievements": [
+					"Developed and maintained multiple web applications using React, Node.js, and modern JavaScript frameworks.",
+					"Collaborated with cross-functional teams to deliver high-quality software solutions.",
+					"Implemented responsive designs and optimized application performance.",
+					"Participated in code reviews and contributed to team knowledge sharing."
+				]
+			}
+		}
+	},
+	"skills": {
+		"title": "Skills & Technologies",
+		"subtitle": "Technologies I work with",
+		"frontend": "Frontend",
+		"backend": "Backend",
+		"devops": "DevOps & Tools",
+		"design": "Design & Others"
+	},
+	"projects": {
+		"title": "Featured Projects",
+		"subtitle": "Here are some of my recent projects that showcase my skills and expertise",
+		"viewProject": "View Project",
+		"liveDemo": "Live Demo",
+		"github": "GitHub",
+		"featured": "Featured"
+	},
+	"contact": {
+		"title": "Get In Touch",
+		"subtitle": "Let's discuss your next project",
+		"description": "I'm always interested in new opportunities and exciting projects. Feel free to reach out!",
+		"name": "Name",
+		"email": "Email",
+		"message": "Message",
+		"sendMessage": "Send Message",
+		"sending": "Sending...",
+		"success": "Message sent successfully!",
+		"error": "Failed to send message. Please try again."
+	},
+	"footer": {
+		"rights": "All rights reserved.",
+		"builtWith": "Built with React, TypeScript & Tailwind CSS"
+	},
+	"common": {
+		"loading": "Loading...",
+		"error": "Error",
+		"success": "Success",
+		"close": "Close",
+		"back": "Back",
+		"next": "Next",
+		"previous": "Previous"
+	}
+}

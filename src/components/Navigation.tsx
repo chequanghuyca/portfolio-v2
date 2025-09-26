@@ -1,13 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import classNames from 'classnames';
 import CV from '@/assets/HUYCHE-CV.pdf?url';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
+	const { t } = useTranslation();
+	const mobileMenuRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -16,6 +20,26 @@ const Navigation = () => {
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
+
+	// Handle click outside to close mobile menu
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				mobileMenuRef.current &&
+				!mobileMenuRef.current.contains(event.target as Node)
+			) {
+				setIsOpen(false);
+			}
+		};
+
+		if (isOpen) {
+			document.addEventListener('mousedown', handleClickOutside);
+		}
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, [isOpen]);
 
 	const handleDownloadClick = () => {
 		try {
@@ -42,11 +66,11 @@ const Navigation = () => {
 	};
 
 	const navItems = [
-		{ name: 'Home', href: '#home' },
-		{ name: 'About', href: '#about' },
-		{ name: 'Skills', href: '#skills' },
-		{ name: 'Projects', href: '#projects' },
-		{ name: 'Contact', href: '#contact' },
+		{ name: t('navigation.home'), href: '#home' },
+		{ name: t('navigation.about'), href: '#about' },
+		{ name: t('navigation.skills'), href: '#skills' },
+		{ name: t('navigation.projects'), href: '#projects' },
+		{ name: t('navigation.contact'), href: '#contact' },
 	];
 
 	return (
@@ -73,19 +97,20 @@ const Navigation = () => {
 					)}
 
 					{/* Desktop Navigation */}
-					<div className="hidden md:flex items-center space-x-8">
+					<div className="hidden md:flex items-center space-x-4">
 						{navItems.map((item) => (
 							<a
 								key={item.name}
 								href={item.href}
-								className="relative text-foreground hover:text-primary transition-colors duration-300 font-inter font-medium py-1 group tracking-tight"
+								className="relative text-foreground hover:text-primary transition-colors duration-300 font-inter font-medium py-1 px-2 group tracking-tight"
 							>
 								{item.name}
 								<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
 							</a>
 						))}
+						<LanguageSwitcher />
 						<Button variant="outline" size="sm" onClick={handleDownloadClick}>
-							Download CV
+							{t('navigation.downloadCV')}
 						</Button>
 					</div>
 
@@ -102,8 +127,11 @@ const Navigation = () => {
 
 				{/* Mobile Navigation */}
 				{isOpen && (
-					<div className="md:hidden mt-4 py-4 bg-slate-50 rounded-lg animate-fade-in border border-border shadow-md">
-						<div className="flex flex-col space-y-4 px-4">
+					<div
+						ref={mobileMenuRef}
+						className="md:hidden mt-4 py-4 bg-slate-50 rounded-lg animate-fade-in border border-border shadow-md w-[200px] fixed top-11 right-4 z-50"
+					>
+						<div className="flex flex-col space-y-2 px-4">
 							{navItems.map((item) => (
 								<a
 									key={item.name}
@@ -115,14 +143,9 @@ const Navigation = () => {
 									<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
 								</a>
 							))}
-							<Button
-								variant="outline"
-								size="sm"
-								className="self-start"
-								onClick={handleDownloadClick}
-							>
-								Resume
-							</Button>
+							<div className="flex items-center justify-between">
+								<LanguageSwitcher onMobile />
+							</div>
 						</div>
 					</div>
 				)}
