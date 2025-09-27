@@ -10,46 +10,6 @@ import { useTranslation } from 'react-i18next';
 const Hero = () => {
 	const { t } = useTranslation();
 
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.3,
-				delayChildren: 0.2,
-			},
-		},
-	};
-
-	const textVariants = fadeInUp;
-
-	const imageVariants = {
-		hidden: { opacity: 0, scale: 0.8, rotate: -10 },
-		visible: {
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			transition: {
-				duration: 1,
-				ease: easeInOutCubic,
-				delay: 0.5,
-			},
-		},
-	};
-
-	const floatingVariants = {
-		float: {
-			y: [-20, 20],
-			transition: {
-				duration: 3,
-				repeat: Infinity,
-				repeatType: 'reverse' as const,
-				ease: 'easeInOut',
-			},
-		},
-	};
-
 	return (
 		<section
 			id="home"
@@ -371,6 +331,45 @@ const Hero = () => {
 			</motion.div>
 		</section>
 	);
+};
+
+const containerVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.3,
+			delayChildren: 0.2,
+		},
+	},
+};
+
+const textVariants = fadeInUp;
+
+const imageVariants = {
+	hidden: { opacity: 0, scale: 0.8, rotate: -10 },
+	visible: {
+		opacity: 1,
+		scale: 1,
+		rotate: 0,
+		transition: {
+			duration: 1,
+			ease: easeInOutCubic,
+			delay: 0.5,
+		},
+	},
+};
+
+const floatingVariants = {
+	float: {
+		y: [-20, 20],
+		transition: {
+			duration: 3,
+			repeat: Infinity,
+			repeatType: 'reverse' as const,
+			ease: 'easeInOut',
+		},
+	},
 };
 
 export default Hero;

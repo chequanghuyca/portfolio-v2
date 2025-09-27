@@ -3,7 +3,6 @@ import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { HelmetProvider } from 'react-helmet-async';
 import { routeTree } from './routeTree.gen';
 import './i18n';
-import CheckHealthProvider from './contexts/check-health.provider';
 
 const queryClient = new QueryClient();
 
@@ -19,9 +18,9 @@ declare module '@tanstack/react-router' {
 const App = () => (
 	<HelmetProvider>
 		<QueryClientProvider client={queryClient}>
-			<CheckHealthProvider>
-				<RouterProvider router={router} />
-			</CheckHealthProvider>
+			{/* <CheckHealthProvider> */}
+			<RouterProvider router={router} />
+			{/* </CheckHealthProvider> */}
 		</QueryClientProvider>
 	</HelmetProvider>
 );

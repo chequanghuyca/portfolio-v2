@@ -38,78 +38,6 @@ const About = () => {
 		getExperience('fpt'),
 	];
 
-	// const workExperience = [
-	// 	{
-	// 		role: t('about.experience.mirai.role'),
-	// 		company: t('about.experience.mirai.company'),
-	// 		companyShort: t('about.experience.mirai.companyShort'),
-	// 		logo: logoMirai,
-	// 		location: t('about.experience.mirai.location'),
-	// 		period: t('about.experience.mirai.period'),
-	// 		achievements: t('about.experience.mirai.achievements', {
-	// 			returnObjects: true,
-	// 		}) as string[],
-	// 	},
-	// 	{
-	// 		role: t('about.experience.hcmut.role'),
-	// 		company: t('about.experience.hcmut.company'),
-	// 		companyShort: t('about.experience.hcmut.companyShort'),
-	// 		logo: logoHCMUT,
-	// 		location: t('about.experience.hcmut.location'),
-	// 		period: t('about.experience.hcmut.period'),
-	// 		achievements: t('about.experience.hcmut.achievements', {
-	// 			returnObjects: true,
-	// 		}) as string[],
-	// 	},
-	// 	{
-	// 		role: t('about.experience.fpt.role'),
-	// 		company: t('about.experience.fpt.company'),
-	// 		companyShort: t('about.experience.fpt.companyShort'),
-	// 		logo: logoFPT,
-	// 		location: t('about.experience.fpt.location'),
-	// 		period: t('about.experience.fpt.period'),
-	// 		achievements: t('about.experience.fpt.achievements', {
-	// 			returnObjects: true,
-	// 		}) as string[],
-	// 	},
-	// ];
-
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.1,
-			},
-		},
-	};
-
-	const textVariants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.6,
-				ease: easeInOutCubic,
-			},
-		},
-	};
-
-	const lineVariants = {
-		hidden: { width: 0 },
-		visible: {
-			width: '6rem',
-			transition: {
-				duration: 0.8,
-				ease: easeInOutCubic,
-				delay: 0.5,
-			},
-		},
-	};
-
 	return (
 		<section id="about" className="py-16 sm:py-20 bg-surface">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -121,7 +49,7 @@ const About = () => {
 					viewport={{ once: true, margin: '-100px' }}
 				>
 					<motion.h2
-						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-sans"
 						variants={textVariants}
 					>
 						{t('about.title')}
@@ -375,6 +303,41 @@ const About = () => {
 			</div>
 		</section>
 	);
+};
+
+const containerVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.2,
+			delayChildren: 0.1,
+		},
+	},
+};
+
+const textVariants = {
+	hidden: { opacity: 0, y: 30 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.6,
+			ease: easeInOutCubic,
+		},
+	},
+};
+
+const lineVariants = {
+	hidden: { width: 0 },
+	visible: {
+		width: '6rem',
+		transition: {
+			duration: 0.8,
+			ease: easeInOutCubic,
+			delay: 0.5,
+		},
+	},
 };
 
 export default About;

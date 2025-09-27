@@ -107,18 +107,6 @@ const Contact = () => {
 		},
 	};
 
-	const formVariants = {
-		hidden: { opacity: 0, x: -50 },
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: {
-				duration: 0.8,
-				ease: easeInOutCubic,
-			},
-		},
-	};
-
 	const infoVariants = {
 		hidden: { opacity: 0, x: 50 },
 		visible: {
@@ -142,7 +130,7 @@ const Contact = () => {
 					viewport={{ once: true, margin: '-100px' }}
 				>
 					<motion.h2
-						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-sans"
 						variants={headingVariants}
 					>
 						{t('contact.title')}

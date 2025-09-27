@@ -8,55 +8,10 @@ import { Route as ProjectDetailRoute } from '@/routes/projects.$projectId';
 import { projects } from '@/data/projects';
 import AnimatedCard from './AnimatedCard';
 import { easeInOutCubic } from '@/lib/animations';
+import { useTranslation } from 'react-i18next';
 
 const Projects = () => {
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.1,
-			},
-		},
-	};
-
-	const headingVariants = {
-		hidden: { opacity: 0, y: 50 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.8,
-				ease: easeInOutCubic,
-			},
-		},
-	};
-
-	const lineVariants = {
-		hidden: { width: 0, opacity: 0 },
-		visible: {
-			width: '6rem',
-			opacity: 1,
-			transition: {
-				duration: 1,
-				ease: easeInOutCubic,
-				delay: 0.5,
-			},
-		},
-	};
-
-	const projectsGridVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.15,
-				delayChildren: 0.3,
-			},
-		},
-	};
+	const { t } = useTranslation();
 
 	return (
 		<section id="projects" className="py-16 sm:py-20 bg-surface">
@@ -69,10 +24,10 @@ const Projects = () => {
 					viewport={{ once: true, margin: '-100px' }}
 				>
 					<motion.h2
-						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-sans"
 						variants={headingVariants}
 					>
-						Featured Projects
+						{t('projects.title')}
 					</motion.h2>
 					<motion.div
 						className="h-1 gradient-primary mx-auto mb-8"
@@ -82,7 +37,7 @@ const Projects = () => {
 						className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto"
 						variants={headingVariants}
 					>
-						Here are some of my recent projects that showcase my skills and expertise
+						{t('projects.subtitle')}
 					</motion.p>
 				</motion.div>
 
@@ -230,6 +185,53 @@ const Projects = () => {
 			</div>
 		</section>
 	);
+};
+
+const containerVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.2,
+			delayChildren: 0.1,
+		},
+	},
+};
+
+const headingVariants = {
+	hidden: { opacity: 0, y: 50 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.8,
+			ease: easeInOutCubic,
+		},
+	},
+};
+
+const lineVariants = {
+	hidden: { width: 0, opacity: 0 },
+	visible: {
+		width: '6rem',
+		opacity: 1,
+		transition: {
+			duration: 1,
+			ease: easeInOutCubic,
+			delay: 0.5,
+		},
+	},
+};
+
+const projectsGridVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.15,
+			delayChildren: 0.3,
+		},
+	},
 };
 
 export default Projects;
