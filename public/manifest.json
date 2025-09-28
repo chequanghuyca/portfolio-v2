@@ -1,15 +1,25 @@
 {
-	"name": "Huy Che - Full Stack Developer Portfolio",
-	"short_name": "Huy Che Portfolio",
-	"description": "Full Stack Developer specializing in React, TypeScript, Node.js, and Web3 technologies",
+	"name": "Chế Quang Huy - Full Stack Developer Portfolio",
+	"short_name": "Che Quang Huy Portfolio",
+	"description": "Full Stack Developer specializing in React, TypeScript, NextJS, Golang, Rust, and Flutter technologies",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#ffffff",
 	"theme_color": "#ffffff",
 	"orientation": "portrait-primary",
 	"scope": "/",
-	"lang": "en",
-	"categories": ["portfolio", "developer", "technology"],
+	"lang": "vi",
+	"categories": [
+		"portfolio",
+		"developer",
+		"technology",
+		"react",
+		"typescript",
+		"nextjs",
+		"golang",
+		"rust",
+		"flutter"
+	],
 	"icons": [
 		{
 			"src": "/favicon.ico",

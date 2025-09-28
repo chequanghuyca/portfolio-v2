@@ -201,7 +201,7 @@ const Hero = () => {
 							>
 								<img
 									src={profilePhoto}
-									alt="Huy Che - Full Stack Developer"
+									alt="Chế Quang Huy - Full Stack Developer chuyên về React, TypeScript, NextJS, Golang, Rust và Flutter"
 									className="w-full h-full object-cover object-center ml-4 mt-2"
 									style={{
 										filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',

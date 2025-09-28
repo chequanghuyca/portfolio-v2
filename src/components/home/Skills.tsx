@@ -1,13 +1,13 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
-import AnimatedCard from './AnimatedCard';
+import AnimatedCard from '../AnimatedCard';
 import { easeInOutCubic } from '@/lib/animations';
 import frontEndSkills from '@/hooks/skills/frontEndSkills';
 import backEndSkills from '@/hooks/skills/backEndSkills';
 import devOpsToolsSkills from '@/hooks/skills/devOpsToolsSkills';
 import designAndOthersSkills from '@/hooks/skills/designAndOthersSkills';
-import CountUpStat from './CountUpStats';
+import CountUpStat from '../CountUpStats';
 import { useTranslation } from 'react-i18next';
 
 interface SkillCategory {
