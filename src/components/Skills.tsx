@@ -161,10 +161,10 @@ const Skills = () => {
 												delay: 0.2 + index * 0.1 + skillIndex * 0.05,
 												duration: 0.4,
 												type: 'spring',
-												stiffness: 200,
+												stiffness: 100,
 											}}
 											viewport={{ once: true }}
-											whileHover={{ scale: 1.1, rotate: 5 }}
+											whileHover={{ scale: 1.3, rotate: 5 }}
 										>
 											<Badge
 												variant="secondary"

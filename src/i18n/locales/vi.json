@@ -82,7 +82,70 @@
 		"viewProject": "Xem dự án",
 		"liveDemo": "Demo trực tiếp",
 		"github": "GitHub",
-		"featured": "Nổi bật"
+		"featured": "Nổi bật",
+		"viewAllProjects": "Xem tất cả dự án",
+		"gallery": "Thư Viện Ảnh",
+		"galleryDescription": "Khám phá thêm các ảnh chụp màn hình và tính năng của dự án này",
+		"screenshot": "Ảnh Chụp Màn Hình",
+		"moreScreenshots": "Thêm Ảnh Chụp Màn Hình",
+		"watchDemo": "Xem Demo",
+		"projectInfo": "Thông Tin Dự Án",
+		"keyFeatures": "Tính Năng Chính",
+		"challenges": "Thách Thức",
+		"detailedDescription": "Mô Tả Chi Tiết",
+		"role": "Vai Trò",
+		"duration": "Thời Gian",
+		"teamSize": "Quy Mô Team",
+		"learnMore": "Tìm hiểu thêm về dự án này",
+		"projectImpact": "Tác Động Dự Án",
+		"technicalHighlights": "Điểm Nổi Bật Kỹ Thuật",
+		"impact1": "Cải thiện trải nghiệm người dùng và tương tác",
+		"impact2": "Nâng cao hiệu suất và khả năng mở rộng",
+		"impact3": "Codebase hiện đại và dễ bảo trì",
+		"tech1": "Thực hành và mẫu thiết kế phát triển hiện đại",
+		"tech2": "Thiết kế responsive và khả năng tiếp cận",
+		"tech3": "Tối ưu hóa hiệu suất và SEO",
+		"allProjectsItem": {
+			"1": {
+				"title": "Analytics Dashboard",
+				"description": "Một dashboard phân tích dữ liệu tổng hợp được xây dựng với React và D3.js, mang đến trải nghiệm xem thống kê thời gian thực, biểu đồ tương tác và thiết kế phản hồi.",
+				"technologies": ["React", "TypeScript", "D3.js", "Tailwind CSS"],
+				"liveUrl": "#",
+				"featured": true
+			},
+			"2": {
+				"title": "E-commerce Platform",
+				"description": "Một giải pháp thương mại điện tử đa nền tảng với tích hợp thanh toán, bảng điều khiển quản lý và giao diện người dùng hiện đại để trải nghiệm mua sắm trơn tru.",
+				"technologies": ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
+				"liveUrl": "#",
+				"githubUrl": "https://www.flaticon.com/search?word=flag",
+				"featured": true
+			},
+			"3": {
+				"title": "Social Media App",
+				"description": "Một ứng dụng trò chuyện thời gian thực với chức năng chia sẻ bài viết và xác thực người dùng được xây dựng với công nghệ hiện đại.",
+				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
+				"liveUrl": "#",
+				"githubUrl": "#",
+				"featured": false
+			},
+			"4": {
+				"title": "NFT Marketplace",
+				"description": "Một ứng dụng trò chuyện thời gian thực với chức năng chia sẻ bài viết và xác thực người dùng được xây dựng với công nghệ hiện đại.",
+				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
+				"liveUrl": "#",
+				"githubUrl": "#",
+				"featured": false
+			},
+			"5": {
+				"title": "NFT Marketplace",
+				"description": "Một ứng dụng trò chuyện thời gian thực với chức năng chia sẻ bài viết và xác thực người dùng được xây dựng với công nghệ hiện đại.",
+				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
+				"liveUrl": "#",
+				"githubUrl": "#",
+				"featured": false
+			}
+		}
 	},
 	"contact": {
 		"title": "Liên hệ",

@@ -30,14 +30,14 @@ const ScrollToTop = () => {
 					animate={{ opacity: 1, scale: 1 }}
 					exit={{ opacity: 0, scale: 0.5 }}
 					transition={{ duration: 0.3, ease: 'easeInOut' }}
-					className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50"
+					className="fixed bottom-4 right-2 sm:bottom-8 sm:right-6 z-50"
 				>
 					<Button
 						onClick={scrollToTop}
 						size="icon"
-						className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+						className="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 opacity-80"
 					>
-						<ChevronUp size={18} className="sm:w-5 sm:h-5" />
+						<ChevronUp className="sm:w-6 sm:h-6 w-4 h-4" />
 					</Button>
 				</motion.div>
 			)}

@@ -82,7 +82,49 @@
 		"viewProject": "View Project",
 		"liveDemo": "Live Demo",
 		"github": "GitHub",
-		"featured": "Featured"
+		"featured": "Featured",
+		"viewAllProjects": "View All Projects",
+		"allProjectsItem": {
+			"1": {
+				"title": "Analytics Dashboard",
+				"description": "A comprehensive analytics dashboard built with React and D3.js, featuring real-time data visualization, interactive charts, and responsive design.",
+				"technologies": ["React", "TypeScript", "D3.js", "Tailwind CSS"],
+				"liveUrl": "#",
+				"featured": true
+			},
+			"2": {
+				"title": "E-commerce Platform",
+				"description": "Full-stack e-commerce solution with payment integration, admin panel, and modern user interface for seamless shopping experience.",
+				"technologies": ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
+				"liveUrl": "#",
+				"githubUrl": "https://www.flaticon.com/search?word=flag",
+				"featured": true
+			},
+			"3": {
+				"title": "Social Media App",
+				"description": "Real-time social media application with chat functionality, post sharing, and user authentication built with modern technologies.",
+				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
+				"liveUrl": "#",
+				"githubUrl": "#",
+				"featured": false
+			},
+			"4": {
+				"title": "NFT Marketplace",
+				"description": "Real-time social media application with chat functionality, post sharing, and user authentication built with modern technologies.",
+				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
+				"liveUrl": "#",
+				"githubUrl": "#",
+				"featured": false
+			},
+			"5": {
+				"title": "NFT Marketplace",
+				"description": "Real-time social media application with chat functionality, post sharing, and user authentication built with modern technologies.",
+				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
+				"liveUrl": "#",
+				"githubUrl": "#",
+				"featured": false
+			}
+		}
 	},
 	"contact": {
 		"title": "Get In Touch",
