@@ -5,7 +5,8 @@
 		"skills": "Skills",
 		"projects": "Projects",
 		"contact": "Contact",
-		"downloadCV": "Download CV"
+		"downloadCV": "Download CV",
+		"subtitle": "Full Stack Developer"
 	},
 	"hero": {
 		"greeting": "Hello, I'm",
@@ -80,49 +81,88 @@
 		"title": "Featured Projects",
 		"subtitle": "Here are some of my recent projects that showcase my skills and expertise",
 		"viewProject": "View Project",
-		"liveDemo": "Live Demo",
+		"liveDemo": "View Live ",
+		"viewDetails": "View Details",
 		"github": "GitHub",
 		"featured": "Featured",
 		"viewAllProjects": "View All Projects",
 		"allProjectsItem": {
 			"1": {
-				"title": "Analytics Dashboard",
-				"description": "A comprehensive analytics dashboard built with React and D3.js, featuring real-time data visualization, interactive charts, and responsive design.",
-				"technologies": ["React", "TypeScript", "D3.js", "Tailwind CSS"],
-				"liveUrl": "#",
+				"title": "Remoty Platform App",
+				"description": "Track productivity, monitor activity, and manage your remote team with powerful insights and seamless oversight.",
+				"technologies": [
+					"#Tauri",
+					"#React",
+					"#Rust",
+					"#TypeScript",
+					"#AI",
+					"#Tailwind CSS"
+				],
+				"liveUrl": "https://remoty.ai",
 				"featured": true
 			},
 			"2": {
-				"title": "E-commerce Platform",
-				"description": "Full-stack e-commerce solution with payment integration, admin panel, and modern user interface for seamless shopping experience.",
-				"technologies": ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-				"liveUrl": "#",
-				"githubUrl": "https://www.flaticon.com/search?word=flag",
+				"title": "Petopia Marketplace Assets",
+				"description": "Allow users to buy, sell, and auction digital assets with seamless Web3 wallet integration (MetaMask, WalletConnect).",
+				"technologies": [
+					"#Web3",
+					"#Smart Contract",
+					"#Next.js",
+					"#GraphQL",
+					"#Apollo Client"
+				],
+				"liveUrl": "https://asset.petopiagame.io",
 				"featured": true
 			},
 			"3": {
-				"title": "Social Media App",
-				"description": "Real-time social media application with chat functionality, post sharing, and user authentication built with modern technologies.",
-				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
-				"liveUrl": "#",
-				"githubUrl": "#",
-				"featured": false
+				"title": "Pegaxy Marketplace Assets",
+				"description": "Marketplace cho phép người dùng mua, bán và đấu giá tài sản kỹ thuật số với tích hợp ví Web3 liền mạch (MetaMask, WalletConnect).",
+				"technologies": [
+					"#Web3",
+					"#Smart Contract",
+					"#Next.js",
+					"#GraphQL",
+					"#Apollo Client"
+				],
+				"liveUrl": "https://blaze-marketplace.pegaxy.io",
+				"featured": true
 			},
 			"4": {
-				"title": "NFT Marketplace",
-				"description": "Real-time social media application with chat functionality, post sharing, and user authentication built with modern technologies.",
-				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
-				"liveUrl": "#",
-				"githubUrl": "#",
+				"title": "Mirai Telegram Wallet",
+				"description": "Telegram wallet for Mirai App, allowing users to manage Web3 wallets and transactions.",
+				"technologies": [
+					"#Telegram",
+					"#Bot",
+					"#Web3",
+					"#Wallet",
+					"#Blockchain",
+					"#Smart Contract"
+				],
+				"liveUrl": "https://t.me/MiraiAppBot?profile",
 				"featured": false
 			},
 			"5": {
-				"title": "NFT Marketplace",
-				"description": "Real-time social media application with chat functionality, post sharing, and user authentication built with modern technologies.",
-				"technologies": ["React", "Firebase", "Socket.io", "Material-UI"],
-				"liveUrl": "#",
-				"githubUrl": "#",
+				"title": "Play To Whitelist - Merge Pals Games",
+				"description": "Allow users to play and be added to the whitelist to gain access to Merge Pals game.",
+				"technologies": ["#Web3", "#Smart Contract", "#Next.js"],
+				"liveUrl": "https://asset.mergepals.io/",
 				"featured": false
+			},
+			"6": {
+				"title": "TransMaster",
+				"description": "A personal project that helps users practice translating sentences and paragraphs into English with the support of AI.",
+				"technologies": [
+					"#Next.js",
+					"#Golang",
+					"#MongoDB",
+					"#Docker",
+					"#Digital Ocean",
+					"#Cloudflare",
+					"#Gemini Agent"
+				],
+				"liveUrl": "https://transmaster.site",
+				"githubUrl": "https://github.com/chequanghuyca/hub-service",
+				"featured": true
 			}
 		}
 	},
@@ -155,6 +195,7 @@
 		"close": "Close",
 		"back": "Back",
 		"next": "Next",
-		"previous": "Previous"
+		"previous": "Previous",
+		"backToHome": "Back to Home"
 	}
 }

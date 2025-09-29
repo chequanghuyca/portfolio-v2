@@ -46,7 +46,7 @@ const ProjectDetailHeader = () => {
 						<LanguageSwitcher />
 						<Button variant="outline" size="sm" asChild className="hidden sm:flex">
 							<Link to="/">
-								<ArrowLeft className="h-4 w-4 mr-2" />
+								<ArrowLeft className="h-4 w-4" />
 								{t('common.backToHome') || 'Back'}
 							</Link>
 						</Button>

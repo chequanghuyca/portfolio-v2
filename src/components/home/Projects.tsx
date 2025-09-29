@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from '@tanstack/react-router';
 import AnimatedCard from '../AnimatedCard';
@@ -13,7 +13,7 @@ import { Project, useQueryGetProjects } from '@/hooks/project';
 const Projects = () => {
 	const { t } = useTranslation();
 
-	const [size, setSize] = useState<number | 'all'>(3);
+	const [size, setSize] = useState<number | 'all'>(6);
 
 	const { data: projects, isLoading } = useQueryGetProjects({ size });
 
@@ -71,7 +71,7 @@ const Projects = () => {
 								hoverRotate={1}
 								className="flex-1 basis-full sm:basis-[calc(50%-1rem)] xl:basis-[calc(33.333%-2rem)] max-w-[400px]"
 							>
-								<Card className="overflow-hidden h-full flex flex-col shadow-md">
+								<Card className="overflow-hidden h-full flex flex-col shadow-[10px_10px_10px_2px_rgba(0,0,0,0.1)] hover:shadow-[10px_10px_10px_2px_rgba(0,0,0,0.3)] transition-all duration-300 border border-gray-300">
 									<div className="relative overflow-hidden">
 										<motion.img
 											src={project.image}
@@ -80,18 +80,16 @@ const Projects = () => {
 											whileHover={{ scale: 1.1 }}
 											transition={{ duration: 0.3 }}
 										/>
-										{project.featured && (
-											<motion.div
-												initial={{ opacity: 0, scale: 0 }}
-												whileInView={{ opacity: 1, scale: 1 }}
-												transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-												viewport={{ once: true }}
-											>
-												<Badge className="absolute top-4 left-4 gradient-primary text-white">
-													Featured
-												</Badge>
-											</motion.div>
-										)}
+										{/* <motion.div
+											initial={{ opacity: 0, scale: 0 }}
+											whileInView={{ opacity: 1, scale: 1 }}
+											transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+											viewport={{ once: true }}
+										>
+											<Badge className="absolute top-4 left-4 gradient-primary text-white z-10">
+												Featured
+											</Badge>
+										</motion.div> */}
 									</div>
 
 									<div className="p-6 flex-1 flex flex-col">
@@ -159,12 +157,11 @@ const Projects = () => {
 													className="w-full"
 													onClick={() => window.open(project.liveUrl, '_blank')}
 												>
-													<ExternalLink size={16} className="mr-2" />
 													{t('projects.liveDemo')}
 												</Button>
 											</motion.div>
 
-											<motion.div
+											{/* <motion.div
 												whileHover={{ scale: 1.05 }}
 												whileTap={{ scale: 0.95 }}
 												initial={{ opacity: 0 }}
@@ -177,10 +174,10 @@ const Projects = () => {
 														to="/projects/$projectId"
 														params={{ projectId: String(project.id) }}
 													>
-														View details →
+														{t('projects.viewDetails')}
 													</Link>
 												</Button>
-											</motion.div>
+											</motion.div> */}
 											{project.githubUrl && project.githubUrl !== '#' && (
 												<motion.div
 													whileHover={{ scale: 1.05, rotate: 5 }}

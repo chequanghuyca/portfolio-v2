@@ -1,6 +1,9 @@
-import project1 from '@/assets/project1.jpg';
-import project2 from '@/assets/project2.jpg';
-import project3 from '@/assets/project3.jpg';
+import project1 from '@/assets/projects/remoty/remoty-sign.png';
+import project2 from '@/assets/projects/petopia/petopia-sign.png';
+import project3 from '@/assets/projects/pegaxy/pegaxy-sign.png';
+import project4 from '@/assets/projects/telegram-wallet/telegram-wallet-sign.png';
+import project5 from '@/assets/projects/merge-pals/merge-pals-sign.png';
+import project6 from '@/assets/projects/transmaster/transmaster-sign.png';
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
@@ -92,8 +95,12 @@ const getProjectImage = (id: string): string => {
 		case '3':
 			return project3;
 		case '4':
-			return project3;
+			return project4;
+		case '5':
+			return project5;
+		case '6':
+			return project6;
 		default:
-			return project1;
+			return project5;
 	}
 };
