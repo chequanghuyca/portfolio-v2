@@ -38,19 +38,19 @@ const LanguageSwitcher = ({ onMobile = false }: LanguageSwitcherProps) => {
 			<div className="flex flex-row gap-1">
 				<Button
 					variant="ghost"
-					size="sm"
+					size="mini"
 					onClick={() => handleLanguageChange('en')}
-					className={cn(i18n.language === 'en' && 'bg-gray-200', 'border text-xl')}
+					className={cn(i18n.language === 'en' && 'bg-gray-200 border')}
 				>
-					<img src={languages[0].flag} alt={languages[0].name} className="w-4 h-4" />
+					<img src={languages[0].flag} alt={languages[0].name} className="w-3 h-3" />
 				</Button>
 				<Button
 					variant="ghost"
-					size="sm"
+					size="mini"
 					onClick={() => handleLanguageChange('vi')}
-					className={cn(i18n.language === 'vi' && 'bg-gray-200', 'border text-xl')}
+					className={cn(i18n.language === 'vi' && 'bg-gray-200 border')}
 				>
-					<img src={languages[1].flag} alt={languages[1].name} className="w-4 h-4" />
+					<img src={languages[1].flag} alt={languages[1].name} className="w-3 h-3" />
 				</Button>
 			</div>
 		);

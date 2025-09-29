@@ -12,6 +12,7 @@ const Navigation = () => {
 	const [scrolled, setScrolled] = useState(false);
 	const { t } = useTranslation();
 	const mobileMenuRef = useRef<HTMLDivElement>(null);
+	const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -23,18 +24,20 @@ const Navigation = () => {
 
 	// Handle click outside to close mobile menu
 	useEffect(() => {
+		if (!isOpen) return;
+
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
 				mobileMenuRef.current &&
-				!mobileMenuRef.current.contains(event.target as Node)
+				!mobileMenuRef.current.contains(event.target as Node) &&
+				toggleButtonRef.current &&
+				!toggleButtonRef.current.contains(event.target as Node)
 			) {
 				setIsOpen(false);
 			}
 		};
 
-		if (isOpen) {
-			document.addEventListener('mousedown', handleClickOutside);
-		}
+		document.addEventListener('mousedown', handleClickOutside);
 
 		return () => {
 			document.removeEventListener('mousedown', handleClickOutside);
@@ -115,14 +118,18 @@ const Navigation = () => {
 					</div>
 
 					{/* Mobile Menu Button */}
-					<Button
-						variant="ghost"
-						size="sm"
-						className="md:hidden"
-						onClick={() => setIsOpen(!isOpen)}
-					>
-						{isOpen ? <X size={24} /> : <Menu size={24} />}
-					</Button>
+
+					<div className="flex items-center justify-between md:hidden">
+						<LanguageSwitcher onMobile />
+						<Button
+							ref={toggleButtonRef}
+							variant="ghost"
+							size="sm"
+							onClick={() => setIsOpen(!isOpen)}
+						>
+							{isOpen ? <X size={24} /> : <Menu size={24} />}
+						</Button>
+					</div>
 				</div>
 
 				{/* Mobile Navigation */}
@@ -143,9 +150,6 @@ const Navigation = () => {
 									<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
 								</a>
 							))}
-							<div className="flex items-center justify-between">
-								<LanguageSwitcher onMobile />
-							</div>
 						</div>
 					</div>
 				)}
