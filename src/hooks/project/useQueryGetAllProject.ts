@@ -4,6 +4,7 @@ import project3 from '@/assets/projects/pegaxy/pegaxy-sign.png';
 import project4 from '@/assets/projects/telegram-wallet/telegram-wallet-sign.png';
 import project5 from '@/assets/projects/merge-pals/merge-pals-sign.png';
 import project6 from '@/assets/projects/transmaster/transmaster-sign.png';
+import project7 from '@/assets/projects/mhp/mhp-sign.png';
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
@@ -100,6 +101,8 @@ const getProjectImage = (id: string): string => {
 			return project5;
 		case '6':
 			return project6;
+		case '7':
+			return project7;
 		default:
 			return project5;
 	}

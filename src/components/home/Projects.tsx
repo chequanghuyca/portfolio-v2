@@ -13,7 +13,7 @@ import { Project, useQueryGetProjects } from '@/hooks/project';
 const Projects = () => {
 	const { t } = useTranslation();
 
-	const [size, setSize] = useState<number | 'all'>(6);
+	const [size, setSize] = useState<number | 'all'>('all');
 
 	const { data: projects, isLoading } = useQueryGetProjects({ size });
 

@@ -163,6 +163,20 @@
 				"liveUrl": "https://transmaster.site",
 				"githubUrl": "https://github.com/chequanghuyca/hub-service",
 				"featured": true
+			},
+			"7": {
+				"title": "MHP TECHNOLOGY INVESTMENT JOINT STOCK COMPANY",
+				"description": "Freelance project building a website for MHP TECHNOLOGY INVESTMENT JOINT STOCK COMPANY.",
+				"technologies": [
+					"#Next.js",
+					"#Golang",
+					"#MongoDB",
+					"#Docker",
+					"#Digital Ocean",
+					"#Cloudflare"
+				],
+				"liveUrl": "https://mhptech.com.vn",
+				"featured": true
 			}
 		}
 	},

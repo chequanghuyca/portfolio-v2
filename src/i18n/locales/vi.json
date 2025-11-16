@@ -164,6 +164,20 @@
 				"liveUrl": "https://transmaster.site",
 				"githubUrl": "https://github.com/chequanghuyca/hub-service",
 				"featured": false
+			},
+			"7": {
+				"title": "CÔNG TY CỔ PHẦN ĐẦU TƯ CÔNG NGHỆ MHP",
+				"description": "Dự án freelance xây dựng website cho Công ty Cổ phần Đầu tư Công nghệ MHP.",
+				"technologies": [
+					"#Next.js",
+					"#Golang",
+					"#MongoDB",
+					"#Docker",
+					"#Digital Ocean",
+					"#Cloudflare"
+				],
+				"liveUrl": "https://mhptech.com.vn",
+				"featured": true
 			}
 		}
 	},
