@@ -174,7 +174,8 @@
 					"#MongoDB",
 					"#Docker",
 					"#Digital Ocean",
-					"#Cloudflare"
+					"#Cloudflare",
+					"#Google reCAPTCHA"
 				],
 				"liveUrl": "https://mhptech.com.vn",
 				"featured": true
