@@ -11,9 +11,9 @@
 	"hero": {
 		"greeting": "Hello, I'm",
 		"name": "Huy Che",
-		"title": "Full Stack Developer",
+		"title": "Software Engineer",
 		"subtitle": "I build amazing web experiences with modern technologies",
-		"description": "Passionate about creating innovative solutions across Front-end, Back-end, and Web3 technologies, with a strong understanding of blockchain. Let’s build something amazing together!",
+		"description": "Software Engineer with 5 years of experience in building high-performance Microservices and scalable Frontend/Backend systems. Expert in leveraging AI-driven workflows (Vibe Coding) with LLMs to accelerate delivery while maintaining high code quality. Strong focus on performance optimization and Web3 integration. Skilled in ReactJS, NextJS, NestJS, and Golang, with a passion for applying best practices to deliver impactful solutions.",
 		"getInTouch": "Get In Touch",
 		"viewProjects": "View Projects",
 		"scrollDown": "Scroll Down"

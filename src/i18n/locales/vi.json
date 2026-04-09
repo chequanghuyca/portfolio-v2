@@ -11,9 +11,9 @@
 	"hero": {
 		"greeting": "Xin chào, tôi là",
 		"name": "Huy Che",
-		"title": "Full Stack Developer",
+		"title": "Software Engineer",
 		"subtitle": "Tôi xây dựng những trải nghiệm web tuyệt vời với công nghệ hiện đại",
-		"description": "Tôi đam mê sáng tạo các giải pháp đột phá trên nhiều công nghệ Front-end, Back-end và Web3, với hiểu biết sâu sắc về blockchain. Hãy cùng nhau xây dựng những điều tuyệt vời!",
+		"description": "Kỹ sư Phần mềm có 5 năm kinh nghiệm chuyên sâu về Microservices và hệ thống Full-stack quy mô lớn. Tiên phong trong việc ứng dụng AI-driven workflow (Vibe Coding) để tăng tốc độ phát triển dự án. Thế mạnh của tôi nằm ở việc tối ưu hiệu suất, tích hợp Web3 và làm chủ các công nghệ ReactJS, NextJS, NestJS, Golang. Mục tiêu của tôi là tạo ra các giải pháp đột phá thông qua việc áp dụng những tiêu chuẩn kỹ thuật khắt khe nhất.",
 		"getInTouch": "Liên hệ",
 		"viewProjects": "Xem dự án",
 		"scrollDown": "Cuộn xuống"
