@@ -104,7 +104,6 @@ const ProjectHero = ({ project }: ProjectHeroProps) => {
 					src={project.image}
 					alt={`${project.title} project screenshot`}
 					loading="eager"
-					fetchPriority="high"
 					decoding="async"
 					className="w-full h-64 sm:h-80 lg:h-96 rounded-xl shadow-2xl object-cover"
 				/>

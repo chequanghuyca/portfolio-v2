@@ -251,3 +251,37 @@ TanStack Router, i18n, project data, and project-detail architecture.
 - Browser-rendered English home, Vietnamese home, and Vietnamese project pages
   each contain one description, one canonical, one H1, valid JSON-LD, correct
   locale alternates, no horizontal overflow, and no console errors.
+
+## Follow-up fix: 2K and ultrawide hero composition
+
+### Screen and files updated
+
+- Home hero and navigation layout at 1920px, 2048px, 2536px, and 2560px.
+- `src/index.css` for the root max-width fix and wide-screen scaling.
+- `src/components/home/Hero.tsx` and
+  `src/components/project/ProjectHero.tsx` for console-clean image markup.
+
+### Behavior changes
+
+- Removed a landing-page reset that forced `max-width: none` onto every
+  heading, paragraph, span, and div. That reset had overridden the intended
+  Tailwind container limits and pushed hero content to opposite screen edges.
+- Restored the intended centered 1600px hero container and 1480px navigation
+  container on wide viewports while keeping both fluid below their limits.
+- Added a wide-screen-only rule at 1920px and at least 900px tall that scales
+  the hero headline from 184px up to 216px and the portrait shell to 512×608px.
+- Kept the canvas, sticky parallax, scroll fade, and entrance motion unchanged.
+- Removed unsupported `fetchPriority` React props that generated repeated
+  development console warnings; eager loading remains on the project hero.
+
+### Verification
+
+- Browser geometry checked at 390×844, 1440×900, 1920×1080, 2048×1080,
+  2536×1333, and 2560×1440 with no horizontal overflow.
+- At 2536px, navigation resolves to 1480px, hero layout to 1600px, headline to
+  about 213px, and portrait shell to 512px.
+- Mobile keeps the portrait hidden and the hero in normal flow; desktop keeps
+  the sticky hero scene.
+- Scroll test at 2048px confirmed the hero parallax transform still responds.
+- Browser console after the final render contains no errors or warnings.
+- `npm run build` and `git diff --check` — passed.

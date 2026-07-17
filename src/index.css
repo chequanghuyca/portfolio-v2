@@ -133,18 +133,6 @@ All colors MUST be HSL.
 	box-sizing: border-box;
 }
 
-.portfolio-shell h1,
-.portfolio-shell h2,
-.portfolio-shell h3,
-.portfolio-shell h4,
-.portfolio-shell h5,
-.portfolio-shell h6,
-.portfolio-shell p,
-.portfolio-shell span,
-.portfolio-shell div {
-	max-width: none;
-}
-
 .font-display,
 .portfolio-shell .font-display {
 	font-family: 'Space Grotesk', 'Inter', sans-serif;
@@ -421,10 +409,13 @@ All colors MUST be HSL.
 	pointer-events: none;
 }
 
-.hero-stage,
-.hero-layout {
+.hero-stage {
 	width: 100%;
 	max-width: 100%;
+}
+
+.hero-layout {
+	width: 100%;
 }
 
 .hero-scroll-wrapper,
@@ -1283,6 +1274,17 @@ All colors MUST be HSL.
 		grid-template-columns: 9rem minmax(15rem, 0.7fr) minmax(28rem, 1.3fr) auto;
 		gap: 2rem;
 		padding-block: 2.1rem;
+	}
+}
+
+@media (min-width: 1920px) and (min-height: 900px) {
+	.hero-title {
+		font-size: clamp(12rem, 8.4vw, 13.5rem);
+	}
+
+	.hero-portrait-shell {
+		width: 32rem;
+		height: 38rem;
 	}
 }
 

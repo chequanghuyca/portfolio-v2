@@ -73,7 +73,6 @@ const Hero = () => {
 							alt="Huy Che, Senior Software Engineer"
 							width={509}
 							height={490}
-							fetchPriority="high"
 							decoding="async"
 							className="hero-portrait-image"
 						/>
