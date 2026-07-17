@@ -1,10 +1,10 @@
-import project1 from '@/assets/projects/remoty/remoty-sign.png';
-import project2 from '@/assets/projects/petopia/petopia-sign.png';
-import project3 from '@/assets/projects/pegaxy/pegaxy-sign.png';
-import project4 from '@/assets/projects/telegram-wallet/telegram-wallet-sign.png';
-import project5 from '@/assets/projects/merge-pals/merge-pals-sign.png';
-import project6 from '@/assets/projects/transmaster/transmaster-sign.png';
-import project7 from '@/assets/projects/mhp/mhp-sign.png';
+import project1 from '@/assets/projects/remoty/remoty-sign.webp';
+import project2 from '@/assets/projects/petopia/petopia-sign.webp';
+import project3 from '@/assets/projects/pegaxy/pegaxy-sign.webp';
+import project4 from '@/assets/projects/telegram-wallet/telegram-wallet-sign.webp';
+import project5 from '@/assets/projects/merge-pals/merge-pals-sign.webp';
+import project6 from '@/assets/projects/transmaster/transmaster-sign.webp';
+import project7 from '@/assets/projects/mhp/mhp-sign.webp';
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';

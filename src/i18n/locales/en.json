@@ -16,11 +16,21 @@
 		"description": "Software Engineer with 5 years of experience in building high-performance Microservices and scalable Frontend/Backend systems. Expert in leveraging AI-driven workflows (Vibe Coding) with LLMs to accelerate delivery while maintaining high code quality. Strong focus on performance optimization and Web3 integration. Skilled in ReactJS, NextJS, NestJS, and Golang, with a passion for applying best practices to deliver impactful solutions.",
 		"getInTouch": "Get In Touch",
 		"viewProjects": "View Projects",
-		"scrollDown": "Scroll Down"
+		"scrollDown": "Scroll Down",
+		"eyebrow": "Senior Software Engineer / Product Builder",
+		"lead": "I design and ship reliable digital products — from high-performance interfaces to distributed services and Web3 infrastructure.",
+		"systemStatus": "Systems operational"
 	},
 	"about": {
 		"title": "About Me",
 		"subtitle": "My Professional Journey",
+		"statement": "I turn complex requirements into products people can trust.",
+		"intro": "My work sits at the intersection of product thinking, pragmatic architecture, and careful execution. I stay close to the problem, communicate clearly, and own the outcome from first decision to production.",
+		"principles": {
+			"01": "Clarity over cleverness",
+			"02": "Built for production",
+			"03": "Measure what matters"
+		},
 		"experience": {
 			"mirai": {
 				"role": "Middle Software Engineer",
@@ -72,14 +82,25 @@
 	"skills": {
 		"title": "Skills & Technologies",
 		"subtitle": "Technologies I work with",
+		"statement": "Broad enough to see the system. Deep enough to ship it.",
+		"intro": "I choose technology for the problem in front of me, balancing delivery speed, maintainability, performance, and the realities of operating software in production.",
 		"completed": "Projects Completed",
 		"experience": "Years Experience",
 		"clients": "Happy Clients",
-		"satisfaction": "Satisfaction Rate"
+		"satisfaction": "Satisfaction Rate",
+		"domains": "Production Domains",
+		"curiosity": "Continuous Learning",
+		"categories": {
+			"frontend": "Accessible, fast interfaces with scalable component and state architecture.",
+			"backend": "Resilient APIs, service boundaries, data models, and authentication flows.",
+			"cloud": "Repeatable delivery, observable environments, and practical infrastructure.",
+			"systems": "Applied exploration across Web3, desktop systems, AI tooling, and architecture."
+		}
 	},
 	"projects": {
 		"title": "Featured Projects",
 		"subtitle": "Here are some of my recent projects that showcase my skills and expertise",
+		"statement": "Selected work, built to solve real operational problems.",
 		"viewProject": "View Project",
 		"liveDemo": "View Live ",
 		"viewDetails": "View Details",
@@ -184,6 +205,10 @@
 	"contact": {
 		"title": "Get In Touch",
 		"subtitle": "Have a project in mind or just want to chat? I'd love to hear from you. Let's create something amazing together!",
+		"availability": "Available for meaningful products and engineering challenges",
+		"headlineTop": "Let's build",
+		"headlineBottom": "what matters.",
+		"responseTime": "Usually replies within 24 hours",
 		"description": "I'm always interested in new opportunities and exciting projects. Feel free to reach out!",
 		"name": "Name",
 		"email": "Email",

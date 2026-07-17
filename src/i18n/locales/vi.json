@@ -16,11 +16,21 @@
 		"description": "Kỹ sư Phần mềm có 5 năm kinh nghiệm chuyên sâu về Microservices và hệ thống Full-stack quy mô lớn. Tiên phong trong việc ứng dụng AI-driven workflow (Vibe Coding) để tăng tốc độ phát triển dự án. Thế mạnh của tôi nằm ở việc tối ưu hiệu suất, tích hợp Web3 và làm chủ các công nghệ ReactJS, NextJS, NestJS, Golang. Mục tiêu của tôi là tạo ra các giải pháp đột phá thông qua việc áp dụng những tiêu chuẩn kỹ thuật khắt khe nhất.",
 		"getInTouch": "Liên hệ",
 		"viewProjects": "Xem dự án",
-		"scrollDown": "Cuộn xuống"
+		"scrollDown": "Cuộn xuống",
+		"eyebrow": "Senior Software Engineer / Product Builder",
+		"lead": "Tôi thiết kế và triển khai các sản phẩm số đáng tin cậy — từ giao diện hiệu năng cao đến dịch vụ phân tán và hạ tầng Web3.",
+		"systemStatus": "Hệ thống đang hoạt động"
 	},
 	"about": {
 		"title": "Giới thiệu",
 		"subtitle": "Hành trình nghề nghiệp của tôi",
+		"statement": "Tôi biến yêu cầu phức tạp thành sản phẩm mà người dùng có thể tin cậy.",
+		"intro": "Công việc của tôi là sự giao thoa giữa tư duy sản phẩm, kiến trúc thực dụng và khả năng triển khai cẩn trọng. Tôi luôn bám sát bài toán, giao tiếp rõ ràng và chịu trách nhiệm từ quyết định đầu tiên đến khi vận hành thực tế.",
+		"principles": {
+			"01": "Rõ ràng hơn phô diễn",
+			"02": "Sẵn sàng cho production",
+			"03": "Đo lường điều quan trọng"
+		},
 		"experience": {
 			"mirai": {
 				"role": "Middle Software Engineer",
@@ -72,14 +82,25 @@
 	"skills": {
 		"title": "Kỹ năng & Công nghệ",
 		"subtitle": "Các công nghệ tôi làm việc và sử dụng",
+		"statement": "Đủ rộng để nhìn toàn hệ thống. Đủ sâu để đưa nó vào vận hành.",
+		"intro": "Tôi chọn công nghệ theo bài toán thực tế, cân bằng tốc độ triển khai, khả năng bảo trì, hiệu năng và những yêu cầu khi vận hành phần mềm ở môi trường production.",
 		"completed": "Dự án hoàn thành",
 		"experience": "Năm kinh nghiệm",
 		"clients": "Khách hàng hài lòng",
-		"satisfaction": "Tỷ lệ hài lòng"
+		"satisfaction": "Tỷ lệ hài lòng",
+		"domains": "Lĩnh vực production",
+		"curiosity": "Không ngừng học hỏi",
+		"categories": {
+			"frontend": "Giao diện nhanh, dễ tiếp cận với kiến trúc component và state có thể mở rộng.",
+			"backend": "API bền vững, ranh giới dịch vụ, mô hình dữ liệu và luồng xác thực an toàn.",
+			"cloud": "Quy trình triển khai lặp lại được, môi trường quan sát được và hạ tầng thực dụng.",
+			"systems": "Ứng dụng Web3, desktop systems, AI tooling và kiến trúc vào bài toán thực tế."
+		}
 	},
 	"projects": {
 		"title": "Dự án nổi bật",
 		"subtitle": "Đây là một số dự án gần đây của tôi thể hiện kỹ năng và chuyên môn",
+		"statement": "Những sản phẩm tiêu biểu, được xây dựng để giải quyết bài toán vận hành thực tế.",
 		"viewProject": "Xem dự án",
 		"liveDemo": "Xem trực tiếp",
 		"viewDetails": "Xem chi tiết",
@@ -185,6 +206,10 @@
 	"contact": {
 		"title": "Liên hệ",
 		"subtitle": "Bạn đang ấp ủ một dự án hay chỉ muốn trò chuyện? Tôi rất mong được nghe ý kiến của bạn. Hãy cùng nhau tạo nên điều gì đó tuyệt vời nhé!",
+		"availability": "Sẵn sàng cho những sản phẩm ý nghĩa và thử thách kỹ thuật mới",
+		"headlineTop": "Cùng xây",
+		"headlineBottom": "điều xứng đáng.",
+		"responseTime": "Thường phản hồi trong vòng 24 giờ",
 		"description": "Tôi luôn quan tâm đến những cơ hội mới và dự án thú vị. Đừng ngần ngại liên hệ!",
 		"name": "Tên",
 		"email": "Email",

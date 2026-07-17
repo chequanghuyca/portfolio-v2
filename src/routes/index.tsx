@@ -12,10 +12,10 @@ function RouteComponent() {
 	return (
 		<DynamicViewport config={viewportConfigs.mobile}>
 			<Helmet>
-				<title>Huy Che - Full Stack Developer | React, TypeScript, Web3 Expert</title>
+				<title>Huy Che — Senior Software Engineer | Product & Systems</title>
 				<meta
 					name="description"
-					content="Huy Che is a Full Stack Developer specializing in React, TypeScript, Node.js, and Web3 technologies. View my portfolio projects and get in touch for collaboration."
+					content="Senior Software Engineer building reliable digital products, scalable frontend and backend systems, Web3 infrastructure, and AI-assisted engineering workflows."
 				/>
 				<meta
 					name="keywords"
@@ -25,25 +25,33 @@ function RouteComponent() {
 
 				<meta
 					property="og:title"
-					content="Huy Che - Full Stack Developer | React, TypeScript, Web3 Expert"
+					content="Huy Che — Senior Software Engineer | Product & Systems"
 				/>
 				<meta
 					property="og:description"
-					content="Full Stack Developer specializing in React, TypeScript, Node.js, and Web3 technologies. View my portfolio and get in touch."
+					content="Reliable digital products, scalable systems, Web3 infrastructure, and thoughtful engineering."
 				/>
 				<meta property="og:url" content="https://huyche.site" />
 				<meta property="og:type" content="website" />
 				<meta property="og:site_name" content="Huy Che Portfolio" />
+				<meta property="og:image" content="https://huyche.site/og.png" />
+				<meta property="og:image:width" content="1200" />
+				<meta property="og:image:height" content="630" />
+				<meta
+					property="og:image:alt"
+					content="Huy Che — Senior Software Engineer"
+				/>
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta
 					name="twitter:title"
-					content="Huy Che - Full Stack Developer | React, TypeScript, Web3 Expert"
+					content="Huy Che — Senior Software Engineer | Product & Systems"
 				/>
 				<meta
 					name="twitter:description"
-					content="Full Stack Developer specializing in React, TypeScript, Node.js, and Web3 technologies."
+					content="Reliable digital products, scalable systems, Web3 infrastructure, and thoughtful engineering."
 				/>
 				<meta name="twitter:url" content="https://huyche.site" />
+				<meta name="twitter:image" content="https://huyche.site/og.png" />
 			</Helmet>
 			<Index />
 		</DynamicViewport>

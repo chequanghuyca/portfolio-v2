@@ -1,375 +1,147 @@
-import { Button } from '@/components/ui/button';
-import { Mail, ArrowDown, Github, Linkedin } from 'lucide-react';
-import { motion } from 'framer-motion';
-import heroImage from '@/assets/hero-bg.jpg';
 import profilePhoto from '@/assets/profile-photo.png';
-import { easeInOutCubic, fadeInUp } from '@/lib/animations';
-import classNames from 'classnames';
+import ParticleNetwork from '@/components/canvas/ParticleNetwork';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
 	const { t } = useTranslation();
+	const reduceMotion = useReducedMotion();
+
+	const entrance = (delay: number, y = 24) => ({
+		initial: reduceMotion ? false : { opacity: 0, y },
+		animate: { opacity: 1, y: 0 },
+		transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] as const },
+	});
 
 	return (
 		<section
 			id="home"
-			className="min-h-screen flex items-center justify-center relative overflow-hidden"
-			style={{
-				backgroundImage: `url(${heroImage})`,
-				backgroundSize: 'cover',
-				backgroundPosition: 'center',
-			}}
+			className="hero-stage relative min-h-[100svh] overflow-hidden bg-background"
 		>
-			{/* Enhanced Overlay with better contrast */}
-			<div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/85" />
-			<div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-
-			<div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-6xl">
-				<motion.div
-					className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center min-h-[85vh] py-6 lg:py-0"
-					variants={containerVariants}
-					initial="hidden"
-					animate="visible"
-				>
-					{/* Left Content - Enhanced Typography */}
-					<motion.div
-						className="text-center lg:text-left order-2 lg:order-1"
-						variants={containerVariants}
-					>
-						<div className="mb-8">
-							<motion.h3
-								className="text-xl sm:text-2xl lg:text-4xl font-poppins font-semibold text-foreground/80 mb-6 tracking-tight"
-								variants={textVariants}
-							>
-								{t('hero.greeting')}
-							</motion.h3>
-
-							{/* Enhanced Name Display with Stroke Animation */}
-							<motion.div className="mb-6" variants={textVariants}>
-								<motion.div
-									className="w-full max-w-lg mx-auto lg:mx-0 h-20 sm:h-24 lg:h-28 xl:h-32"
-									initial={{ opacity: 0, scale: 0.8 }}
-									animate={{ opacity: 1, scale: 1 }}
-									transition={{ duration: 0.8, delay: 0.3 }}
-								>
-									<svg
-										className="hero-name-svg"
-										viewBox="0 0 400 100"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<text x="50%" y="50%" dy=".35em" textAnchor="middle">
-											HUY CHE
-										</text>
-									</svg>
-								</motion.div>
-							</motion.div>
-
-							<motion.h2
-								className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-poppins font-bold text-gradient mb-6 tracking-tight"
-								variants={textVariants}
-							>
-								{t('hero.title')}
-							</motion.h2>
-						</div>
-
-						<motion.p
-							className={classNames(
-								'text-base sm:text-lg lg:text-xl text-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed font-inter font-normal px-2 sm:px-0 text-balance',
-							)}
-							variants={textVariants}
-						>
-							{t('hero.description')}
-						</motion.p>
-
-						<motion.div
-							className="flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 px-2 sm:px-0"
-							variants={textVariants}
-						>
-							<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-								<Button
-									size="sm"
-									className="gradient-primary text-white px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold shadow-xl hover:shadow-2xl transition-all duration-300 border-0"
-									asChild
-								>
-									<a href="#projects">{t('hero.viewProjects')}</a>
-								</Button>
-							</motion.div>
-							<motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-								<Button
-									variant="outline"
-									size="sm"
-									className="px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold text-foreground hover:bg-foreground hover:text-background transition-all duration-300 shadow-lg hover:shadow-xl"
-									asChild
-								>
-									<a href="#contact">{t('hero.getInTouch')}</a>
-								</Button>
-							</motion.div>
-						</motion.div>
-
-						{/* Enhanced Social Links */}
-						<motion.div
-							className="flex gap-6 justify-center lg:justify-start"
-							variants={textVariants}
-						>
-							<motion.div
-								whileHover={{ scale: 1.2, rotate: 5, y: -5 }}
-								whileTap={{ scale: 0.9 }}
-							>
-								<Button
-									variant="ghost"
-									size="icon"
-									className="w-14 h-14 rounded-full bg-foreground/5 hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl border border-foreground/10"
-									asChild
-								>
-									<a
-										href="https://github.com/chequanghuyca"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<Github size={24} />
-									</a>
-								</Button>
-							</motion.div>
-							<motion.div
-								whileHover={{ scale: 1.2, rotate: -5, y: -5 }}
-								whileTap={{ scale: 0.9 }}
-							>
-								<Button
-									variant="ghost"
-									size="icon"
-									className="w-14 h-14 rounded-full bg-foreground/5 hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl border border-foreground/10"
-									asChild
-								>
-									<a
-										href="https://www.linkedin.com/in/quang-huy-che-11493311b/"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										<Linkedin size={24} />
-									</a>
-								</Button>
-							</motion.div>
-							<motion.div
-								whileHover={{ scale: 1.2, rotate: 5, y: -5 }}
-								whileTap={{ scale: 0.9 }}
-							>
-								<Button
-									variant="ghost"
-									size="icon"
-									className="w-14 h-14 rounded-full bg-foreground/5 hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl border border-foreground/10"
-									asChild
-								>
-									<a href="#contact">
-										<Mail size={24} />
-									</a>
-								</Button>
-							</motion.div>
-						</motion.div>
-					</motion.div>
-
-					{/* Right Content - Optimized Profile Photo */}
-					<motion.div
-						className="flex justify-center lg:justify-end order-1 lg:order-2"
-						variants={imageVariants}
-						animate="float"
-						{...floatingVariants}
-					>
-						<div className="relative">
-							{/* Background Glow Effect */}
-							<motion.div
-								className="absolute inset-0 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full gradient-primary opacity-10 blur-xl"
-								animate={{
-									scale: [1, 1.05, 1],
-									rotate: [0, 360],
-								}}
-								transition={{
-									duration: 20,
-									repeat: Infinity,
-									ease: 'linear',
-								}}
-							/>
-
-							{/* Main Profile Photo */}
-							<motion.div
-								className="relative w-40 h-40 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-lg border-4 border-purple-300 backdrop-blur-sm mx-auto"
-								whileHover={{ scale: 1.02, rotate: 1 }}
-								transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-								style={{
-									boxShadow:
-										'0 15px 30px -8px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.05)',
-								}}
-							>
-								<img
-									src={profilePhoto}
-									alt="Chế Quang Huy - Full Stack Developer chuyên về React, TypeScript, NextJS, Golang, Rust và Flutter"
-									className="w-full h-full object-cover object-center ml-4 mt-2"
-									style={{
-										filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
-									}}
-								/>
-								{/* Subtle inner border */}
-								<div className="absolute inset-0 rounded-full border border-white/15" />
-							</motion.div>
-							{/* Minimal Decorative Elements */}
-							<motion.div
-								className="absolute -top-3 -right-3 w-12 h-12 sm:w-16 sm:h-16 gradient-primary rounded-full opacity-15 blur-sm"
-								animate={{
-									scale: [1, 1.1, 1],
-									opacity: [0.15, 0.25, 0.15],
-									rotate: [0, 360],
-								}}
-								transition={{
-									duration: 12,
-									repeat: Infinity,
-									ease: 'easeInOut',
-								}}
-							/>
-							<motion.div
-								className="absolute -bottom-4 -left-4 w-14 h-14 sm:w-18 sm:h-18 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded-full opacity-10 blur-lg"
-								animate={{
-									scale: [1, 1.15, 1],
-									opacity: [0.1, 0.2, 0.1],
-									rotate: [360, 0],
-								}}
-								transition={{
-									duration: 15,
-									repeat: Infinity,
-									ease: 'easeInOut',
-									delay: 1,
-								}}
-							/>
-
-							{/* Refined Floating Particles */}
-							<motion.div
-								className="absolute top-12 -left-4 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full opacity-60"
-								animate={{
-									y: [-10, 10, -10],
-									x: [-3, 3, -3],
-									opacity: [0.6, 0.8, 0.6],
-									scale: [1, 1.2, 1],
-								}}
-								transition={{
-									duration: 3,
-									repeat: Infinity,
-									ease: 'easeInOut',
-								}}
-							/>
-							<motion.div
-								className="absolute bottom-16 -right-4 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full opacity-70"
-								animate={{
-									y: [8, -8, 8],
-									x: [3, -3, 3],
-									opacity: [0.7, 0.9, 0.7],
-									scale: [1, 1.3, 1],
-								}}
-								transition={{
-									duration: 2.5,
-									repeat: Infinity,
-									ease: 'easeInOut',
-									delay: 1,
-								}}
-							/>
-						</div>
-					</motion.div>
-				</motion.div>
+			<div className="absolute inset-0 opacity-80">
+				<ParticleNetwork />
 			</div>
+			<div className="hero-grid absolute inset-0" />
+			<div className="hero-aurora hero-aurora-left" />
+			<div className="hero-aurora hero-aurora-right" />
 
-			{/* Enhanced Scroll Indicator - Hidden on Mobile */}
-			<motion.div
-				className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center hidden sm:hidden"
-				initial={{ opacity: 0, y: -20 }}
-				animate={{
-					opacity: 1,
-					y: 0,
-				}}
-				transition={{
-					opacity: { delay: 3, duration: 1 },
-					y: { delay: 3, duration: 0.8 },
-				}}
-			>
+			<div className="hero-layout relative z-10 mx-auto flex min-h-[100svh] max-w-[1600px] flex-col px-5 pb-7 pt-28 sm:px-8 sm:pb-9 sm:pt-32 lg:px-12">
 				<motion.div
-					className="text-sm text-foreground/60 mb-3 font-inter font-medium tracking-wider uppercase"
-					animate={{ opacity: [0.6, 1, 0.6] }}
-					transition={{
-						duration: 2,
-						repeat: Infinity,
-						ease: 'easeInOut',
-					}}
+					{...entrance(0.05, -12)}
+					className="flex items-center justify-between border-b border-white/10 pb-4 font-mono-code text-[9px] uppercase tracking-[0.2em] text-white/45 sm:text-[10px]"
 				>
-					{/* Scroll Down */} {t('hero.scrollDown')}
+					<span>Chế Quang Huy / Portfolio 2026</span>
+					<span className="hidden items-center gap-2 sm:flex">
+						<span className="signal-bars" aria-hidden="true">
+							<i />
+							<i />
+							<i />
+							<i />
+						</span>
+						{t('hero.systemStatus')}
+					</span>
 				</motion.div>
-				<motion.div
-					className="w-14 h-14 rounded-full border-2 border-foreground/20 flex items-center justify-center bg-background/50 backdrop-blur-sm shadow-lg hover:shadow-xl cursor-pointer"
-					animate={{
-						y: [0, 10, 0],
-						scale: [1, 1.05, 1],
-						borderColor: ['rgba(0,0,0,0.2)', 'rgba(99,102,241,0.5)', 'rgba(0,0,0,0.2)'],
-					}}
-					transition={{
-						duration: 2,
-						repeat: Infinity,
-						ease: 'easeInOut',
-						delay: 3.5,
-					}}
-					whileHover={{
-						scale: 1.1,
-						borderColor: 'hsl(var(--primary))',
-						backgroundColor: 'hsl(var(--primary)/0.1)',
-					}}
-					onClick={() => {
-						const aboutSection = document.getElementById('about');
-						if (aboutSection) {
-							aboutSection.scrollIntoView({
-								behavior: 'smooth',
-								block: 'start',
-							});
-						}
-					}}
-				>
-					<ArrowDown size={22} className="text-foreground/70" />
-				</motion.div>
-			</motion.div>
+
+				<div className="hero-content-core relative flex flex-1 flex-col justify-center py-10 sm:py-12">
+					<motion.div
+						{...entrance(0.12)}
+						className="mb-5 flex items-center gap-3 font-mono-code text-[10px] font-semibold uppercase tracking-[0.2em] text-primary sm:text-xs"
+					>
+						<span className="h-px w-8 bg-primary" />
+						{t('hero.eyebrow')}
+					</motion.div>
+
+					<h1
+						className="hero-title relative z-10 uppercase"
+						aria-label="Senior Software Engineer"
+					>
+						<motion.span {...entrance(0.18, 48)} className="hero-title-solid">
+							Software
+						</motion.span>
+						<motion.span {...entrance(0.27, 48)} className="hero-title-outline">
+							Engineer
+						</motion.span>
+					</h1>
+
+					<motion.div
+						{...entrance(0.42, 32)}
+						className="hero-portrait-shell"
+						aria-hidden="true"
+					>
+						<div className="hero-orbit hero-orbit-one" />
+						<div className="hero-orbit hero-orbit-two" />
+						<div className="hero-portrait-glow" />
+						<img src={profilePhoto} alt="" className="hero-portrait-image" />
+						<span className="hero-coordinate hero-coordinate-top">10.8231° N</span>
+						<span className="hero-coordinate hero-coordinate-bottom">106.6297° E</span>
+					</motion.div>
+				</div>
+
+				<div className="hero-bottom-panel relative z-20 grid gap-7 border-t border-white/10 pt-5 sm:grid-cols-[1fr_auto] sm:items-end lg:grid-cols-[1fr_1.15fr_1fr]">
+					{/* <motion.div {...entrance(0.48)} className="max-w-sm">
+						<p className="text-balance text-sm leading-relaxed text-white/60 sm:text-base">
+							{t('hero.lead')}
+						</p>
+					</motion.div> */}
+
+					<motion.a
+						{...entrance(0.56)}
+						href="#about"
+						className="group order-3 hidden h-14 w-14 items-center justify-center rounded-full border border-white/20 text-white transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground lg:flex"
+						aria-label={t('hero.scrollDown')}
+					>
+						<ArrowDownRight
+							size={20}
+							className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+						/>
+					</motion.a>
+
+					<motion.div
+						{...entrance(0.52)}
+						className="flex flex-wrap items-center gap-3 sm:justify-end"
+					>
+						<a href="#projects" className="button-primary group">
+							{t('hero.viewProjects')}
+							<ArrowUpRight
+								size={16}
+								className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+							/>
+						</a>
+						<a href="#contact" className="button-ghost">
+							{t('hero.getInTouch')}
+						</a>
+						<div className="ml-1 flex items-center gap-1">
+							{[
+								{
+									icon: Github,
+									href: 'https://github.com/chequanghuyca',
+									label: 'GitHub',
+								},
+								{
+									icon: Linkedin,
+									href: 'https://www.linkedin.com/in/quang-huy-che-11493311b/',
+									label: 'LinkedIn',
+								},
+								{ icon: Mail, href: 'mailto:chequanghuybtt@gmail.com', label: 'Email' },
+							].map(({ icon: Icon, href, label }) => (
+								<a
+									key={label}
+									href={href}
+									target={href.startsWith('http') ? '_blank' : undefined}
+									rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+									aria-label={label}
+									className="grid h-10 w-10 place-items-center rounded-full text-white/50 transition-all hover:bg-white/10 hover:text-primary"
+								>
+									<Icon size={16} />
+								</a>
+							))}
+						</div>
+					</motion.div>
+				</div>
+			</div>
 		</section>
 	);
-};
-
-const containerVariants = {
-	hidden: { opacity: 0 },
-	visible: {
-		opacity: 1,
-		transition: {
-			staggerChildren: 0.3,
-			delayChildren: 0.2,
-		},
-	},
-};
-
-const textVariants = fadeInUp;
-
-const imageVariants = {
-	hidden: { opacity: 0, scale: 0.8, rotate: -10 },
-	visible: {
-		opacity: 1,
-		scale: 1,
-		rotate: 0,
-		transition: {
-			duration: 1,
-			ease: easeInOutCubic,
-			delay: 0.5,
-		},
-	},
-};
-
-const floatingVariants = {
-	float: {
-		y: [-20, 20],
-		transition: {
-			duration: 3,
-			repeat: Infinity,
-			repeatType: 'reverse' as const,
-			ease: 'easeInOut',
-		},
-	},
 };
 
 export default Hero;

@@ -1,75 +1,36 @@
-import { useState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { useEffect, useRef, useState } from 'react';
+import { Download, Menu, X } from 'lucide-react';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import CV from '@/assets/HUYCHE-CV.pdf?url';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import { useTranslation } from 'react-i18next';
+import logo from '@/assets/logo.png';
 
 const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 	const { t } = useTranslation();
 	const mobileMenuRef = useRef<HTMLDivElement>(null);
-	const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
 	useEffect(() => {
-		const handleScroll = () => {
-			setScrolled(window.scrollY > 50);
-		};
-		window.addEventListener('scroll', handleScroll);
+		const handleScroll = () => setScrolled(window.scrollY > 24);
+		handleScroll();
+		window.addEventListener('scroll', handleScroll, { passive: true });
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
-	// Handle click outside to close mobile menu
 	useEffect(() => {
 		if (!isOpen) return;
 
-		const handleClickOutside = (event: MouseEvent) => {
-			if (
-				mobileMenuRef.current &&
-				!mobileMenuRef.current.contains(event.target as Node) &&
-				toggleButtonRef.current &&
-				!toggleButtonRef.current.contains(event.target as Node)
-			) {
-				setIsOpen(false);
-			}
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') setIsOpen(false);
 		};
 
-		document.addEventListener('mousedown', handleClickOutside);
-
-		return () => {
-			document.removeEventListener('mousedown', handleClickOutside);
-		};
+		document.addEventListener('keydown', handleKeyDown);
+		return () => document.removeEventListener('keydown', handleKeyDown);
 	}, [isOpen]);
 
-	const handleDownloadClick = () => {
-		try {
-			const link = document.createElement('a');
-			link.href = CV;
-			link.download = 'HUYCHE-CV.pdf';
-			link.target = '_blank';
-			link.rel = 'noopener noreferrer';
-
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-		} catch (error) {
-			console.error('Error downloading CV:', error);
-			window.open(CV, '_blank');
-		}
-	};
-
-	const handleLogoClick = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		});
-	};
-
 	const navItems = [
-		{ name: t('navigation.home'), href: '#home' },
 		{ name: t('navigation.about'), href: '#about' },
 		{ name: t('navigation.skills'), href: '#skills' },
 		{ name: t('navigation.projects'), href: '#projects' },
@@ -78,82 +39,113 @@ const Navigation = () => {
 
 	return (
 		<nav
+			aria-label="Primary navigation"
 			className={classNames(
-				'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-				scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent',
+				'fixed inset-x-0 top-0 z-50 transition-all duration-500',
+				scrolled ? 'px-3 pt-3 sm:px-5' : 'px-0 pt-0',
 			)}
 		>
-			<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 max-w-7xl">
-				<div
-					className={classNames(
-						'flex items-center',
-						scrolled ? ' justify-between' : 'justify-end',
-					)}
+			<div
+				className={classNames(
+					'mx-auto flex max-w-[1480px] items-center justify-between px-5 py-4 transition-all duration-500 sm:px-7',
+					scrolled &&
+						'rounded-2xl border border-white/10 bg-[#160d0a]/95 shadow-[0_20px_60px_rgba(28,12,6,0.32)] backdrop-blur-xl',
+				)}
+			>
+				<a
+					href="#home"
+					aria-label="Huy Che — back to top"
+					className="group flex items-center gap-3"
 				>
-					{scrolled && (
+					<span className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/[0.04] transition-colors group-hover:border-primary/60 lg:h-12 lg:w-12">
 						<img
 							src={logo}
-							alt="Huy Che - Full Stack Developer Portfolio Logo"
-							className="lg:w-10 lg:h-10 w-8 h-8 cursor-pointer hover:scale-110 transition-transform duration-300"
-							onClick={handleLogoClick}
+							alt="Huy Che logo"
+							className="brand-logo h-7 w-7 object-contain lg:h-8 lg:w-8"
 						/>
-					)}
+					</span>
+					<span className="hidden sm:block">
+						<span className="block text-base font-semibold leading-none text-white lg:text-lg">Huy Che</span>
+						<span className="mt-1.5 flex items-center gap-1.5 font-mono-code text-[10px] uppercase tracking-[0.18em] text-white/50">
+							<span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
+							Available
+						</span>
+					</span>
+				</a>
 
-					{/* Desktop Navigation */}
-					<div className="hidden md:flex items-center space-x-4">
-						{navItems.map((item) => (
-							<a
-								key={item.name}
-								href={item.href}
-								className="relative text-foreground hover:text-primary transition-colors duration-300 font-inter font-medium py-1 px-2 group tracking-tight"
-							>
-								{item.name}
-								<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
-							</a>
-						))}
-						<LanguageSwitcher />
-						<Button variant="outline" size="sm" onClick={handleDownloadClick}>
-							{t('navigation.downloadCV')}
-						</Button>
-					</div>
-
-					{/* Mobile Menu Button */}
-
-					<div className="flex items-center justify-between md:hidden">
-						<LanguageSwitcher onMobile />
-						<Button
-							ref={toggleButtonRef}
-							variant="ghost"
-							size="sm"
-							onClick={() => setIsOpen(!isOpen)}
+				<div className="hidden items-center gap-1 lg:flex">
+					{navItems.map((item, index) => (
+						<a
+							key={item.href}
+							href={item.href}
+							className="nav-link group"
 						>
-							{isOpen ? <X size={24} /> : <Menu size={24} />}
-						</Button>
-					</div>
+							<span className="text-[10px] text-primary/75">0{index + 1}</span>
+							{item.name}
+						</a>
+					))}
 				</div>
 
-				{/* Mobile Navigation */}
-				{isOpen && (
-					<div
-						ref={mobileMenuRef}
-						className="md:hidden mt-4 py-4 bg-slate-50 rounded-lg animate-fade-in border border-border shadow-md w-[200px] fixed top-11 right-4 z-50"
-					>
-						<div className="flex flex-col space-y-2 px-4">
-							{navItems.map((item) => (
-								<a
-									key={item.name}
-									href={item.href}
-									className="relative text-foreground hover:text-primary transition-colors duration-300 font-inter font-medium py-2 group tracking-tight"
-									onClick={() => setIsOpen(false)}
-								>
-									{item.name}
-									<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full"></span>
-								</a>
-							))}
-						</div>
+				<div className="flex items-center gap-1.5">
+					<div className="hidden sm:block">
+						<LanguageSwitcher />
 					</div>
-				)}
+					<a
+						href={CV}
+						download="HUYCHE-CV.pdf"
+						className="hidden items-center gap-2 rounded-full border border-white/15 px-5 py-3 font-mono-code text-xs font-semibold uppercase tracking-[0.14em] text-white transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground xl:flex"
+					>
+						{t('navigation.downloadCV')}
+						<Download size={13} />
+					</a>
+					<button
+						type="button"
+						aria-label={isOpen ? 'Close menu' : 'Open menu'}
+						aria-expanded={isOpen}
+						aria-controls="mobile-menu"
+						onClick={() => setIsOpen((current) => !current)}
+						className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white transition-colors hover:border-primary hover:text-primary lg:hidden"
+					>
+						{isOpen ? <X size={18} /> : <Menu size={18} />}
+					</button>
+				</div>
 			</div>
+
+			{isOpen && (
+				<div
+					id="mobile-menu"
+					ref={mobileMenuRef}
+					className="mx-3 mt-2 rounded-2xl border border-white/10 bg-[#160d0a]/95 p-4 shadow-2xl backdrop-blur-xl lg:hidden"
+				>
+					<div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3 sm:hidden">
+						<span className="font-mono-code text-[10px] uppercase tracking-[0.16em] text-white/45">
+							Language
+						</span>
+						<LanguageSwitcher onMobile />
+					</div>
+					{navItems.map((item, index) => (
+						<a
+							key={item.href}
+							href={item.href}
+							onClick={() => setIsOpen(false)}
+							className="flex items-center justify-between border-b border-white/10 px-1 py-4 text-lg font-semibold text-white last:border-0"
+						>
+							<span>{item.name}</span>
+							<span className="font-mono-code text-[10px] text-primary">
+								0{index + 1}
+							</span>
+						</a>
+					))}
+					<a
+						href={CV}
+						download="HUYCHE-CV.pdf"
+						className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 font-mono-code text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground"
+					>
+						{t('navigation.downloadCV')}
+						<Download size={14} />
+					</a>
+				</div>
+			)}
 		</nav>
 	);
 };

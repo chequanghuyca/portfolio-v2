@@ -64,11 +64,7 @@ export const useViewport = (config: ViewportConfig = {}) => {
 		statusBarStyle,
 	]);
 
-	return {
-		updateViewport: (newConfig: Partial<ViewportConfig>) => {
-			useViewport({ ...config, ...newConfig });
-		},
-	};
+	return null;
 };
 
 // Predefined viewport configurations
@@ -80,7 +76,7 @@ export const viewportConfigs = {
 		maximumScale: 3.0,
 		userScalable: true,
 		viewportFit: 'cover' as const,
-		themeColor: '#ffffff',
+		themeColor: '#160d0a',
 		statusBarStyle: 'light-content' as const,
 	},
 
