@@ -133,6 +133,60 @@ All colors MUST be HSL.
 	box-sizing: border-box;
 }
 
+/* Branded document scrollbar — Firefox */
+html,
+body {
+	scrollbar-color: #c98235 #120906;
+	scrollbar-width: thin;
+}
+
+/* Branded document scrollbar — Chromium, Safari, and Edge */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+	width: 11px;
+	height: 11px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+	background: #120906;
+	box-shadow: inset 1px 0 rgba(232, 164, 74, 0.08);
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+	min-height: 64px;
+	border: 3px solid #120906;
+	border-radius: 999px;
+	background: linear-gradient(180deg, #f0b660 0%, #c98235 58%, #b95d3d 100%);
+	background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+	border-width: 2px;
+	background: linear-gradient(180deg, #f6c77e 0%, #e8a44a 52%, #d46b45 100%);
+	background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:active,
+body::-webkit-scrollbar-thumb:active {
+	background: #d46b45;
+	background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-corner,
+body::-webkit-scrollbar-corner {
+	background: #120906;
+}
+
+@media (forced-colors: active) {
+	html,
+	body {
+		scrollbar-color: auto;
+	}
+}
+
 .font-display,
 .portfolio-shell .font-display {
 	font-family: 'Space Grotesk', 'Inter', sans-serif;

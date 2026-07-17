@@ -285,3 +285,27 @@ TanStack Router, i18n, project data, and project-detail architecture.
 - Scroll test at 2048px confirmed the hero parallax transform still responds.
 - Browser console after the final render contains no errors or warnings.
 - `npm run build` and `git diff --check` — passed.
+
+## Follow-up polish: branded scrollbar
+
+### Screen and file updated
+
+- Global document scrollbar across the home and project-detail routes.
+- `src/index.css` only; no component, state, dependency, or layout changes.
+
+### Behavior changes
+
+- Replaced the browser-default scrollbar with an 11px cacao track and a
+  rounded earth-gold-to-terracotta thumb matching the portfolio palette.
+- Added brighter hover feedback and a terracotta active state while preserving
+  a 64px minimum thumb length for usability.
+- Added equivalent thin-scrollbar colors for Firefox and retained native
+  high-contrast rendering when forced-colors mode is active.
+- Included both `html` and `body` root-scroller selectors for consistent
+  Chromium, Safari, and Edge behavior.
+
+### Verification
+
+- `npm run build` — passed (2,257 modules transformed).
+- `npx prettier --write src/index.css` — passed with no formatting changes.
+- `git diff --check` — passed.
