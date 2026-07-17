@@ -21,11 +21,16 @@ i18n
 	.init({
 		resources,
 		fallbackLng: 'en',
+		supportedLngs: ['en', 'vi'],
 		debug: false,
 
 		detection: {
-			order: ['localStorage', 'navigator', 'htmlTag'],
+			// A crawlable query parameter takes priority. First-time visits still use
+			// English, while an explicit choice is remembered locally.
+			order: ['querystring', 'localStorage'],
 			caches: ['localStorage'],
+			lookupQuerystring: 'lang',
+			lookupLocalStorage: 'i18nextLng',
 		},
 
 		interpolation: {

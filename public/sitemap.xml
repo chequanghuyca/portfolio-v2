@@ -1,27 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
 	<url>
-		<loc>https://huyche.site</loc>
-		<lastmod>2024-12-28</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>1.0</priority>
+		<loc>https://huyche.site/</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://huyche.site/?lang=vi" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://huyche.site/" />
+	</url>
+	<url>
+		<loc>https://huyche.site/?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/" />
+		<xhtml:link rel="alternate" hreflang="vi" href="https://huyche.site/?lang=vi" />
+		<xhtml:link rel="alternate" hreflang="x-default" href="https://huyche.site/" />
 	</url>
 	<url>
 		<loc>https://huyche.site/projects/1</loc>
-		<lastmod>2024-12-28</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/1" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/1?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/1"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/1?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/1" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/1?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/1"
+		/>
 	</url>
 	<url>
 		<loc>https://huyche.site/projects/2</loc>
-		<lastmod>2024-12-28</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/2" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/2?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/2"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/2?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/2" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/2?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/2"
+		/>
 	</url>
 	<url>
 		<loc>https://huyche.site/projects/3</loc>
-		<lastmod>2024-12-28</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/3" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/3?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/3"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/3?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/3" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/3?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/3"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/4</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/4" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/4?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/4"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/4?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/4" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/4?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/4"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/5</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/5" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/5?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/5"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/5?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/5" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/5?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/5"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/6</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/6" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/6?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/6"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/6?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/6" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/6?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/6"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/7</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/7" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/7?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/7"
+		/>
+	</url>
+	<url>
+		<loc>https://huyche.site/projects/7?lang=vi</loc>
+		<lastmod>2026-07-17</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://huyche.site/projects/7" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://huyche.site/projects/7?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://huyche.site/projects/7"
+		/>
 	</url>
 </urlset>

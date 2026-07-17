@@ -8,6 +8,7 @@ import {
 	Skills,
 } from '@/components/home';
 import ScrollToTop from '@/components/ScrollToTop';
+import TechCursor from '@/components/TechCursor';
 import { StickyHeroWrapper } from '@/components/scroll/ScrollEffects';
 
 const marqueeItems = [
@@ -22,6 +23,7 @@ const marqueeItems = [
 const Index = () => {
 	return (
 		<div className="dark portfolio-shell min-h-screen w-full overflow-x-clip bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+			<TechCursor />
 			<a className="skip-link" href="#main-content">
 				Skip to content
 			</a>

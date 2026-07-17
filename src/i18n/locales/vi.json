@@ -6,7 +6,7 @@
 		"projects": "Dự án",
 		"contact": "Liên hệ",
 		"downloadCV": "Download CV",
-		"subtitle": "Full Stack Developer"
+		"subtitle": "Senior Software Engineer"
 	},
 	"hero": {
 		"greeting": "Xin chào, tôi là",
@@ -90,6 +90,15 @@
 		"satisfaction": "Tỷ lệ hài lòng",
 		"domains": "Lĩnh vực production",
 		"curiosity": "Không ngừng học hỏi",
+		"languagesEyebrow": "Năng lực cốt lõi",
+		"languagesTitle": "Ngôn ngữ kỹ thuật chủ lực",
+		"languagesActive": "Đang sử dụng",
+		"languagesStatus": "Thành thạo production",
+		"languages": {
+			"typescript": "Giao diện sản phẩm, ứng dụng typed và triển khai full-stack.",
+			"golang": "Dịch vụ backend đồng thời, API và workload phân tán.",
+			"rust": "Desktop tooling tin cậy và các hệ thống tập trung vào hiệu năng."
+		},
 		"categories": {
 			"frontend": "Giao diện nhanh, dễ tiếp cận với kiến trúc component và state có thể mở rộng.",
 			"backend": "API bền vững, ranh giới dịch vụ, mô hình dữ liệu và luồng xác thực an toàn.",

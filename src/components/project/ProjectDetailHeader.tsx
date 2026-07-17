@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-ui.webp';
 
 const ProjectDetailHeader = () => {
 	const { t } = useTranslation();
@@ -28,13 +28,15 @@ const ProjectDetailHeader = () => {
 							<img
 								src={logo}
 								alt="Huy Che Logo"
+								width={256}
+								height={256}
 								className="h-8 w-8 lg:h-10 lg:w-10 rounded-lg"
 							/>
 						</motion.div>
 						<div className="hidden sm:block">
-							<h1 className="text-lg lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+							<span className="block text-lg lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
 								Huy Che
-							</h1>
+							</span>
 							<p className="text-xs lg:text-sm text-muted-foreground">
 								{t('navigation.subtitle') || 'Full Stack Developer'}
 							</p>

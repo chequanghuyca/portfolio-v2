@@ -120,6 +120,53 @@ TanStack Router, i18n, project data, and project-detail architecture.
 - Preserved the animated particle network, portrait orbits, signal indicator,
   entrance transitions, and expertise marquee.
 
+## Follow-up enhancement: Navigation logo and technology cursor
+
+- Removed the navigation logo color filter so the original asset colors render
+  unchanged.
+- Added a desktop-only technology crosshair cursor with an immediate center dot
+  and a softly interpolated outer targeting ring.
+- Added hover and pressed states for links, buttons, inputs, and other
+  interactive controls.
+- Updates cursor coordinates through direct refs and `requestAnimationFrame`
+  rather than React state, avoiding a component render on every pointer event.
+- Keeps the native cursor on touch devices, viewports below 1024px, and when
+  reduced motion is enabled.
+
+## Follow-up enhancement: Language defaults and selector
+
+- Changed first-visit language detection to use English through `fallbackLng`
+  instead of automatically following the browser language.
+- Continues restoring an explicit English or Vietnamese choice from
+  `localStorage` on later visits.
+- Redesigned the desktop language trigger and dropdown with the landing page's
+  cacao, cream, earth-gold, mono typography, status indicator, and rounded
+  technical controls.
+- Replaced the old gray mobile flag buttons with a clear EN/VI segmented
+  control that exposes the active language through `aria-pressed`.
+
+## Follow-up enhancement: Skills proficiency and adaptive scroll control
+
+- Added a dedicated proficiency rail for the existing TypeScript, Golang, and
+  Rust skills instead of presenting them only as small technology pills.
+- Added production-focus descriptions, technical grid surfaces, signal bars,
+  hover elevation, and a restrained scan animation without inventing numeric
+  proficiency percentages.
+- Highlighted the same primary languages inside their original skill-category
+  rows for stronger visual hierarchy.
+- Increased the persistent contrast, padding, font size, and earth-gold border
+  treatment of every technology pill; added an individual lift, glow, and
+  restrained light-sweep interaction while keeping primary languages one
+  hierarchy level stronger.
+- Replaced the basic circular scroll-to-top button with a compact technology
+  control containing a scroll-progress ring, rotating targeting detail, TOP
+  label, and improved hover/focus states.
+- The control samples the rendered background beneath its fixed position and
+  switches between earth-gold-on-dark and cacao-on-light color modes to retain
+  contrast across dark, cream, and gold sections.
+- Scroll progress and background sampling are scheduled through
+  `requestAnimationFrame` to avoid excessive work during scrolling.
+
 ## Assumptions
 
 - The existing name, contact details, CV, social links, work history, project
@@ -139,3 +186,68 @@ TanStack Router, i18n, project data, and project-detail architecture.
 - `npm run lint` — repository-wide lint remains blocked by 29 pre-existing
   errors in unrelated UI, service, middleware, and config files. No new lint
   errors are present in the changed files.
+
+## SEO hardening: multilingual portfolio and project case studies
+
+### Screens and files updated
+
+- Home: `src/routes/index.tsx`, `src/components/home/Hero.tsx`,
+  `src/components/home/Projects.tsx`, `src/components/home/Footer.tsx`, and
+  `src/components/LanguageSwitcher.tsx`.
+- Project detail: `src/pages/ProjectDetail.tsx`,
+  `src/components/StructuredData.tsx`, the project image components, and
+  `src/hooks/project/useQueryGetProject.ts`.
+- Crawl and discovery: `index.html`, `public/sitemap.xml`,
+  `public/robots.txt`, `public/.htaccess`, and `public/manifest.json`.
+- SEO utilities and assets: `src/lib/seo.ts`, real multi-size favicon assets,
+  manifest icons, a stable public profile image, and optimized WebP UI images.
+
+### Behavior and feature changes
+
+- Replaced duplicated and keyword-stuffed head tags with one concise English
+  default metadata set aligned to the Senior Software Engineer positioning.
+- Added language-aware title, description, canonical, Open Graph, X card,
+  `html[lang]`, and reciprocal `hreflang` values for English and Vietnamese.
+- Added crawlable `?lang=vi` URLs while keeping English as the first-visit
+  default; the language selector now keeps the visible URL in sync with the
+  selected locale.
+- Added a valid Schema.org graph for `WebSite`, `ProfilePage`, `ImageObject`,
+  and `Person`, plus a language-aware `CreativeWork` entity for every project.
+  Removed the inaccurate MIT license and generic programming-language fields
+  from project schema.
+- Added unique metadata and absolute social images for all seven project case
+  studies, with `noindex, follow` on missing project records.
+- Added descriptive, crawlable internal links from project cards and the
+  footer to all seven project routes.
+- Expanded the sitemap from four stale URLs to all 16 English/Vietnamese home
+  and project URLs with reciprocal `hreflang` declarations.
+- Simplified crawler rules and changed the Apache SPA fallback to rewrite
+  client routes to `index.html` with a successful response instead of using a
+  custom 404 response.
+- Replaced placeholder project-detail copy and incorrect reused images with
+  project-specific bilingual descriptions, challenges, features, roles, and
+  correct visual assets.
+- Added descriptive portrait alt text, fixed the project-detail heading
+  hierarchy, lazy-loaded below-the-fold project/gallery media, and prioritized
+  the actual hero/LCP images.
+- Reduced production image weight without changing the visual identity:
+  profile portrait from about 299 KB to 30 KB, navigation logo from about
+  494 KB to 34 KB, and the secondary Remoty gallery image from about 2.65 MB
+  to 235 KB.
+
+### Verification
+
+- `npm run build` — passed (2,257 modules transformed).
+- Targeted `npx eslint` for every SEO-related TypeScript/TSX file — passed.
+- `npm run lint` — still blocked only by the existing repository-wide lint
+  debt outside the changed SEO files (25 errors and 9 warnings reported).
+- `git diff --check` — passed.
+- `xmllint --noout public/sitemap.xml` — passed; sitemap contains 16 URLs.
+- JSON parsing for manifest and both locale files — passed.
+- Static JSON-LD parsing — passed with `WebSite`, `ProfilePage`, `ImageObject`,
+  and `Person` nodes.
+- Local HTTP verification — `/`, `/projects/6`, `/sitemap.xml`, `/robots.txt`,
+  and `/huy-che-profile.webp` all returned HTTP 200 with correct content types.
+- Browser-rendered English home, Vietnamese home, and Vietnamese project pages
+  each contain one description, one canonical, one H1, valid JSON-LD, correct
+  locale alternates, no horizontal overflow, and no console errors.

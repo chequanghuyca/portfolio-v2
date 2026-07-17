@@ -15,10 +15,12 @@ interface PersonData {
 interface ProjectData {
 	title: string;
 	description: string;
-	dateCreated: string;
+	dateCreated?: string;
 	technologies?: string[];
 	url: string;
 	image: string;
+	liveUrl?: string;
+	inLanguage?: string;
 }
 
 interface OrganizationData {
@@ -57,20 +59,33 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
 				return {
 					'@context': 'https://schema.org',
 					'@type': 'CreativeWork',
+					'@id': `${projectData.url}#project`,
 					name: projectData.title,
 					description: projectData.description,
-					creator: {
-						'@type': 'Person',
-						name: 'Chế Quang Huy',
-						alternateName: ['Che Quang Huy', 'Huy Che'],
-						jobTitle: 'Full Stack Developer',
-					},
-					dateCreated: projectData.dateCreated,
-					keywords: projectData.technologies?.join(', '),
-					programmingLanguage: projectData.technologies || [],
 					url: projectData.url,
 					image: projectData.image,
-					license: 'MIT',
+					inLanguage: projectData.inLanguage,
+					creator: {
+						'@id': 'https://huyche.site/#person',
+					},
+					author: {
+						'@id': 'https://huyche.site/#person',
+					},
+					isPartOf: {
+						'@id': 'https://huyche.site/#website',
+					},
+					dateCreated: projectData.dateCreated,
+					keywords: projectData.technologies
+						?.map((technology) => technology.replace(/^#/, ''))
+						.join(', '),
+					about: projectData.technologies?.map((technology) => ({
+						'@type': 'Thing',
+						name: technology.replace(/^#/, ''),
+					})),
+					sameAs:
+						projectData.liveUrl && projectData.liveUrl !== '#'
+							? projectData.liveUrl
+							: undefined,
 				};
 			}
 			case 'organization': {

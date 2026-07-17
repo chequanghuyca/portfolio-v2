@@ -1,20 +1,5 @@
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://huyche.site/sitemap.xml
-
-# Crawl-delay for politeness
-Crawl-delay: 1
-
-# Block common bot traps
 Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Disallow: /_next/
-Disallow: /node_modules/
 
-# Allow important files
-Allow: /favicon.ico
-Allow: /robots.txt
-Allow: /sitemap.xml
+Sitemap: https://huyche.site/sitemap.xml

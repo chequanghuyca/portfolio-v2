@@ -6,7 +6,7 @@
 		"projects": "Projects",
 		"contact": "Contact",
 		"downloadCV": "Download CV",
-		"subtitle": "Full Stack Developer"
+		"subtitle": "Senior Software Engineer"
 	},
 	"hero": {
 		"greeting": "Hello, I'm",
@@ -90,6 +90,15 @@
 		"satisfaction": "Satisfaction Rate",
 		"domains": "Production Domains",
 		"curiosity": "Continuous Learning",
+		"languagesEyebrow": "Core Proficiency",
+		"languagesTitle": "Primary engineering languages",
+		"languagesActive": "Active",
+		"languagesStatus": "Production Fluent",
+		"languages": {
+			"typescript": "Product interfaces, typed applications, and full-stack delivery.",
+			"golang": "Concurrent backend services, APIs, and distributed workloads.",
+			"rust": "Reliable desktop tooling and performance-focused systems work."
+		},
 		"categories": {
 			"frontend": "Accessible, fast interfaces with scalable component and state architecture.",
 			"backend": "Resilient APIs, service boundaries, data models, and authentication flows.",
@@ -137,7 +146,7 @@
 			},
 			"3": {
 				"title": "Pegaxy Marketplace Assets",
-				"description": "Marketplace cho phép người dùng mua, bán và đấu giá tài sản kỹ thuật số với tích hợp ví Web3 liền mạch (MetaMask, WalletConnect).",
+				"description": "A marketplace where users can buy, sell, and auction digital assets with seamless Web3 wallet integration through MetaMask and WalletConnect.",
 				"technologies": [
 					"#Web3",
 					"#Smart Contract",

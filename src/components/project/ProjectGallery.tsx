@@ -58,6 +58,8 @@ const ProjectGallery = ({ project, onImageClick }: ProjectGalleryProps) => {
 										<img
 											src={image}
 											alt={`${project.title} screenshot ${index + 1}`}
+											loading="lazy"
+											decoding="async"
 											className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
 										/>
 									</div>
@@ -114,6 +116,8 @@ const ProjectGallery = ({ project, onImageClick }: ProjectGalleryProps) => {
 											<img
 												src={project.gallery![index % project.gallery!.length]}
 												alt={`${project.title} additional screenshot ${index + 1}`}
+												loading="lazy"
+												decoding="async"
 												className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
 											/>
 										</div>

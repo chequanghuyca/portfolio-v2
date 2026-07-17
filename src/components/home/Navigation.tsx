@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
-import { Download, Menu, X } from 'lucide-react';
-import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
 import CV from '@/assets/HUYCHE-CV.pdf?url';
+import logo from '@/assets/logo-ui.webp';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import logo from '@/assets/logo.png';
+import classNames from 'classnames';
+import { Download, Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -61,13 +61,17 @@ const Navigation = () => {
 						<img
 							src={logo}
 							alt="Huy Che logo"
+							width={256}
+							height={256}
 							className="brand-logo h-7 w-7 object-contain lg:h-8 lg:w-8"
 						/>
 					</span>
 					<span className="hidden sm:block">
-						<span className="block text-base font-semibold leading-none text-white lg:text-lg">Huy Che</span>
+						<span className="block text-base font-semibold leading-none text-white lg:text-lg">
+							Huy Che
+						</span>
 						<span className="mt-1.5 flex items-center gap-1.5 font-mono-code text-[10px] uppercase tracking-[0.18em] text-white/50">
-							<span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
+							<span className="h-1.5 w-1.5 rounded-full bg-green-500 shadow-[0_0_10px_hsl(var(--primary))]" />
 							Available
 						</span>
 					</span>
@@ -75,11 +79,7 @@ const Navigation = () => {
 
 				<div className="hidden items-center gap-1 lg:flex">
 					{navItems.map((item, index) => (
-						<a
-							key={item.href}
-							href={item.href}
-							className="nav-link group"
-						>
+						<a key={item.href} href={item.href} className="nav-link group">
 							<span className="text-[10px] text-primary/75">0{index + 1}</span>
 							{item.name}
 						</a>

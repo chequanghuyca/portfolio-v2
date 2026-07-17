@@ -1,42 +1,27 @@
 {
-	"name": "Chế Quang Huy - Full Stack Developer Portfolio",
-	"short_name": "Che Quang Huy Portfolio",
-	"description": "Full Stack Developer specializing in React, TypeScript, NextJS, Golang, Rust, and Flutter technologies",
+	"name": "Huy Che — Senior Software Engineer Portfolio",
+	"short_name": "Huy Che",
+	"description": "Portfolio of Huy Che, a Senior Software Engineer building production-ready web products, scalable systems, and Web3 infrastructure.",
 	"start_url": "/",
 	"display": "standalone",
 	"background_color": "#160d0a",
 	"theme_color": "#e8a44a",
 	"orientation": "portrait-primary",
 	"scope": "/",
-	"lang": "vi",
-	"categories": [
-		"portfolio",
-		"developer",
-		"technology",
-		"react",
-		"typescript",
-		"nextjs",
-		"golang",
-		"rust",
-		"flutter"
-	],
+	"lang": "en",
+	"categories": ["portfolio", "developer", "technology"],
 	"icons": [
 		{
-			"src": "/favicon.ico",
-			"sizes": "16x16",
-			"type": "image/x-icon"
-		},
-		{
-			"src": "/logo.png",
+			"src": "/logo-192.png",
 			"sizes": "192x192",
 			"type": "image/png",
-			"purpose": "any maskable"
+			"purpose": "any"
 		},
 		{
-			"src": "/logo.png",
+			"src": "/logo-512.png",
 			"sizes": "512x512",
 			"type": "image/png",
-			"purpose": "any maskable"
+			"purpose": "any"
 		}
 	]
 }

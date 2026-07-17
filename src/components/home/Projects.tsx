@@ -1,7 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Project, useQueryGetProjects } from '@/hooks/project';
+import { Link } from '@tanstack/react-router';
 
 interface ProjectCardProps {
 	project: Project;
@@ -9,7 +10,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
+	const isVietnamese = (i18n.resolvedLanguage || i18n.language).startsWith('vi');
 
 	return (
 		<article className="project-card-stage">
@@ -21,7 +23,8 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 					<img
 						src={project.image}
 						alt={`${project.title} interface`}
-						loading={index > 0 ? 'lazy' : 'eager'}
+						loading="lazy"
+						decoding="async"
 						className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
 					/>
 					<div className="project-card-scanline" />
@@ -57,7 +60,19 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 						</div>
 					</div>
 
-					<div className="mt-10 flex items-center gap-3 border-t border-white/10 pt-6">
+					<div className="mt-10 flex flex-wrap items-center gap-3 border-t border-white/10 pt-6">
+						<Link
+							to="/projects/$projectId"
+							params={{ projectId: project.id }}
+							search={isVietnamese ? { lang: 'vi' } : {}}
+							className="button-ghost group"
+						>
+							{t('projects.viewDetails')}
+							<ArrowRight
+								size={16}
+								className="transition-transform group-hover:translate-x-0.5"
+							/>
+						</Link>
 						<a
 							href={project.liveUrl}
 							target="_blank"

@@ -1,4 +1,4 @@
-import profilePhoto from '@/assets/profile-photo.png';
+import profilePhoto from '@/assets/profile-photo.webp';
 import ParticleNetwork from '@/components/canvas/ParticleNetwork';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
@@ -64,15 +64,19 @@ const Hero = () => {
 						</motion.span>
 					</h1>
 
-					<motion.div
-						{...entrance(0.42, 32)}
-						className="hero-portrait-shell"
-						aria-hidden="true"
-					>
-						<div className="hero-orbit hero-orbit-one" />
-						<div className="hero-orbit hero-orbit-two" />
-						<div className="hero-portrait-glow" />
-						<img src={profilePhoto} alt="" className="hero-portrait-image" />
+					<motion.div {...entrance(0.42, 32)} className="hero-portrait-shell">
+						<div className="hero-orbit hero-orbit-one" aria-hidden="true" />
+						<div className="hero-orbit hero-orbit-two" aria-hidden="true" />
+						<div className="hero-portrait-glow" aria-hidden="true" />
+						<img
+							src={profilePhoto}
+							alt="Huy Che, Senior Software Engineer"
+							width={509}
+							height={490}
+							fetchPriority="high"
+							decoding="async"
+							className="hero-portrait-image"
+						/>
 						<span className="hero-coordinate hero-coordinate-top">10.8231° N</span>
 						<span className="hero-coordinate hero-coordinate-bottom">106.6297° E</span>
 					</motion.div>

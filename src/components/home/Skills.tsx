@@ -29,6 +29,17 @@ const skillCategories = [
 	},
 ];
 
+const primaryLanguages = [
+	{ name: 'TypeScript', code: 'TS', descriptionKey: 'skills.languages.typescript' },
+	{ name: 'Golang', code: 'GO', descriptionKey: 'skills.languages.golang' },
+	{ name: 'Rust', code: 'RS', descriptionKey: 'skills.languages.rust' },
+];
+
+const languageSignalBars = [42, 68, 86, 100] as const;
+
+const isPrimaryLanguage = (skill: string) =>
+	skill === 'TypeScript' || skill === 'Golang' || skill.includes('Rust');
+
 const Skills = () => {
 	const { t } = useTranslation();
 	const reduceMotion = useReducedMotion();
@@ -88,6 +99,68 @@ const Skills = () => {
 					))}
 				</div>
 
+				<div className="mb-20">
+					<motion.div
+						initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, margin: '-10%' }}
+						transition={{ duration: 0.65 }}
+						className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+					>
+						<div>
+							<p className="font-mono-code text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+								{t('skills.languagesEyebrow')}
+							</p>
+							<h3 className="mt-2 font-display text-3xl font-semibold tracking-[-0.05em] text-white sm:text-4xl">
+								{t('skills.languagesTitle')}
+							</h3>
+						</div>
+						<div className="flex items-center gap-2 font-mono-code text-[9px] uppercase tracking-[0.16em] text-white/35">
+							<span className="language-status-dot" />
+							03 / {t('skills.languagesActive')}
+						</div>
+					</motion.div>
+
+					<div className="language-proficiency-grid">
+						{primaryLanguages.map((language, index) => (
+							<motion.article
+								key={language.name}
+								initial={reduceMotion ? false : { opacity: 0, y: 28, scale: 0.97 }}
+								whileInView={{ opacity: 1, y: 0, scale: 1 }}
+								viewport={{ once: true, margin: '-8%' }}
+								transition={{
+									duration: 0.7,
+									delay: index * 0.08,
+									ease: [0.22, 1, 0.36, 1],
+								}}
+								className="language-proficiency-card group/language"
+							>
+								<div className="language-proficiency-scan" aria-hidden="true" />
+								<div className="relative z-10 flex items-start justify-between gap-5">
+									<span className="language-code">{language.code}</span>
+									<span className="language-proficiency-state">
+										<span />
+										{t('skills.languagesStatus')}
+									</span>
+								</div>
+								<div className="relative z-10 mt-10">
+									<h4 className="font-display text-3xl font-semibold tracking-[-0.055em] text-white transition-colors group-hover/language:text-[#f5dcb7]">
+										{language.name}
+									</h4>
+									<p className="mt-2 max-w-xs text-sm leading-relaxed text-white/42">
+										{t(language.descriptionKey)}
+									</p>
+								</div>
+								<div className="language-signal" aria-hidden="true">
+									{languageSignalBars.map((bar) => (
+										<span key={bar} style={{ height: `${bar}%` }} />
+									))}
+								</div>
+							</motion.article>
+						))}
+					</div>
+				</div>
+
 				<div className="border-t border-white/10">
 					{skillCategories.map((category, index) => {
 						const Icon = category.icon;
@@ -125,7 +198,11 @@ const Skills = () => {
 
 								<div className="flex flex-wrap gap-2">
 									{category.skills.map((skill) => (
-										<span key={skill} className="tech-pill">
+										<span
+											key={skill}
+											className={`tech-pill${isPrimaryLanguage(skill) ? ' tech-pill-primary' : ''}`}
+										>
+											{isPrimaryLanguage(skill) && <span aria-hidden="true" />}
 											{skill}
 										</span>
 									))}
