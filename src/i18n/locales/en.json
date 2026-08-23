@@ -32,12 +32,28 @@
 			"03": "Measure what matters"
 		},
 		"experience": {
+			"lta": {
+				"role": "Senior Software Engineer",
+				"company": "LTA - Logistics Technology Application (Genuine Partner Group)",
+				"companyShort": "LTA",
+				"companyUrl": "https://ltacv.com/",
+				"location": "Ho Chi Minh City, Vietnam",
+				"period": "May 2026 - Present",
+				"achievements": [
+					"Architected and delivered the end-to-end LTA Tracking Ecosystem (Desktop App, Management Dashboard, Backend Microservices) for automated timekeeping, shift scheduling, and real-time productivity analytics.",
+					"Engineered OneStop@LTA Mobile SuperApp with Flutter/Dart for empty container dispatching (e-Depot ISO 6346), driver eKYC identity verification (chip-embedded ID card & MRZ scanning), LTA Pay wallet integration, and dynamic remote server matrix control.",
+					"Developed a cross-platform desktop application (macOS, Windows, Linux) with Wails v2 (Go + React + TypeScript + Tailwind CSS) featuring automated screen capture, offline caching, and live screen streaming via WebRTC.",
+					"Engineered high-performance distributed backend microservices in Golang (Gin, GORM, PostgreSQL, Kafka, MinIO, WebSocket) handling millions of activity events and secure large-scale media storage.",
+					"Built a modern management web dashboard with React 19, TanStack Router/Query, and Recharts for multi-tenant department control, shift approvals, and detailed productivity insights.",
+					"Automated CI/CD pipelines for cross-platform packaging, code signing, and notarization (Apple Notarization & Windows Authenticode) across desktop release channels."
+				]
+			},
 			"mirai": {
 				"role": "Middle Software Engineer",
 				"company": "Mirai Labs",
 				"companyShort": "Mirai Labs",
 				"location": "Ho Chi Minh City, Vietnam",
-				"period": "Mar 2024 - Present",
+				"period": "Mar 2024 - Apr 2026",
 				"achievements": [
 					"Built a decentralized NFT marketplace enabling users to buy, sell, and auction digital assets with seamless Web3 wallet integration (MetaMask, WalletConnect).",
 					"Developed an operator dashboard for the Mirai App (similar to Binance), empowering admins to manage listings, users, and transactions efficiently.",
@@ -115,9 +131,76 @@
 		"viewDetails": "View Details",
 		"github": "GitHub",
 		"featured": "Featured",
+		"productionCaseStudy": "Production Case Study",
+		"systemQa": "System Specs & Q&A",
+		"qaDocTitle": "LTA Tracking System Specification | Q&A, Features & Terms",
+		"qaDocDesc": "Detailed documentation covering FAQs, operational functional specifications, and system terms of service for LTA Tracking.",
+		"viewQa": "View System Specs & Q&A",
 		"viewAllProjects": "View All Projects",
+		"detailedDescription": "Detailed Description & Architecture",
+		"architectureDeepDive": "Architecture & Deep Dive",
+		"specifications": "Specifications",
+		"coreCapabilities": "Core Capabilities",
+		"engineeringFocus": "Engineering Focus",
+		"projectInfo": "Project Scope & Info",
+		"role": "Role",
+		"duration": "Timeline",
+		"teamSize": "Team Size",
+		"keyFeatures": "Core Capabilities & Features",
+		"challenges": "Technical Challenges",
+		"projectImpact": "Project Impact & Value",
+		"impact1": "Improved user experience and real-world operational efficiency",
+		"impact2": "Enhanced system scalability, high availability, and resilience",
+		"impact3": "Clean, maintainable, and production-grade codebase architecture",
+		"technicalHighlights": "Technical Highlights",
+		"tech1": "Modern software engineering patterns and industry best practices",
+		"tech2": "Cross-platform responsive design and polished user experience",
+		"tech3": "Optimized performance, low-latency streaming, and high security",
+		"gallery": "Visual Artifacts & Interface Gallery",
+		"galleryDescription": "Click on any screenshot to inspect full-size preview",
+		"screenshot": "Screenshot",
+		"watchDemo": "Watch Demo",
+		"notFound": "Project Not Found",
+		"notFoundDesc": "The project you are looking for does not exist or has been moved.",
+		"expand": "Expand",
+		"preview": "Preview",
+		"productionGrade": "Production Grade",
 		"allProjectsItem": {
 			"1": {
+				"title": "LTA Tracking App & Ecosystem",
+				"description": "Enterprise productivity tracking and workforce management ecosystem featuring cross-platform Desktop App (Wails/Go/React), Management Dashboard (React 19), and high-performance distributed Backend (Golang, Kafka, PostgreSQL, MinIO, WebRTC).",
+				"technologies": [
+					"#Golang",
+					"#Wails",
+					"#React",
+					"#TypeScript",
+					"#PostgreSQL",
+					"#Kafka",
+					"#MinIO",
+					"#WebRTC",
+					"#Tailwind CSS"
+				],
+				"liveUrl": "https://tracking.ltacv.com/qa",
+				"featured": true
+			},
+			"2": {
+				"title": "OneStop@LTA - Logistics SuperApp",
+				"description": "Comprehensive mobile logistics superapp for Genuine Partner Group (GPG - LTA), managing empty container dispatching (e-Depot ISO 6346), driver eKYC identity verification with chip-embedded ID and MRZ scanning, and LTA Pay wallet.",
+				"technologies": [
+					"#Flutter",
+					"#Dart",
+					"#BLoC",
+					"#eKYC / Face SDK",
+					"#LTA Pay",
+					"#Zalo SDK",
+					"#Biometrics",
+					"#iOS",
+					"#Android"
+				],
+				"liveUrl": "https://ltacv.com",
+				"featured": true
+			},
+			"3": {
 				"title": "Remoty Platform App",
 				"description": "Track productivity, monitor activity, and manage your remote team with powerful insights and seamless oversight.",
 				"technologies": [
@@ -131,7 +214,7 @@
 				"liveUrl": "https://remoty.ai",
 				"featured": true
 			},
-			"2": {
+			"4": {
 				"title": "Petopia Marketplace Assets",
 				"description": "Allow users to buy, sell, and auction digital assets with seamless Web3 wallet integration (MetaMask, WalletConnect).",
 				"technologies": [
@@ -144,7 +227,7 @@
 				"liveUrl": "https://asset.petopiagame.io",
 				"featured": true
 			},
-			"3": {
+			"5": {
 				"title": "Pegaxy Marketplace Assets",
 				"description": "A marketplace where users can buy, sell, and auction digital assets with seamless Web3 wallet integration through MetaMask and WalletConnect.",
 				"technologies": [
@@ -157,7 +240,7 @@
 				"liveUrl": "https://blaze-marketplace.pegaxy.io",
 				"featured": true
 			},
-			"4": {
+			"6": {
 				"title": "Mirai Telegram Wallet",
 				"description": "Telegram wallet for Mirai App, allowing users to manage Web3 wallets and transactions.",
 				"technologies": [
@@ -171,14 +254,14 @@
 				"liveUrl": "https://t.me/MiraiAppBot?profile",
 				"featured": false
 			},
-			"5": {
+			"7": {
 				"title": "Play To Whitelist - Merge Pals Games",
 				"description": "Allow users to play and be added to the whitelist to gain access to Merge Pals game.",
 				"technologies": ["#Web3", "#Smart Contract", "#Next.js"],
 				"liveUrl": "https://asset.mergepals.io/",
 				"featured": false
 			},
-			"6": {
+			"8": {
 				"title": "TransMaster",
 				"description": "A personal project that helps users practice translating sentences and paragraphs into English with the support of AI.",
 				"technologies": [
@@ -194,7 +277,7 @@
 				"githubUrl": "https://github.com/chequanghuyca/hub-service",
 				"featured": true
 			},
-			"7": {
+			"9": {
 				"title": "MHP TECHNOLOGY INVESTMENT JOINT STOCK COMPANY",
 				"description": "Freelance project building a website for MHP TECHNOLOGY INVESTMENT JOINT STOCK COMPANY.",
 				"technologies": [

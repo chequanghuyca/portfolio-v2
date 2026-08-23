@@ -1,8 +1,8 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, Github } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { Project, useQueryGetProjects } from '@/hooks/project';
 import { Link } from '@tanstack/react-router';
+import { motion, useReducedMotion } from 'framer-motion';
+import { ArrowRight, ArrowUpRight, FileText, Github } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface ProjectCardProps {
 	project: Project;
@@ -16,86 +16,134 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 	return (
 		<article className="project-card-stage">
 			<div
-				style={{ top: `calc(5.5rem + ${index * 10}px)` }}
+				style={{ top: `calc(4.5rem + ${index * 12}px)` }}
 				className="project-card group"
 			>
-				<div className="project-card-media">
-					<img
-						src={project.image}
-						alt={`${project.title} interface`}
-						loading="lazy"
-						decoding="async"
-						className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-					/>
-					<div className="project-card-scanline" />
-					<div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/50 px-3 py-1.5 font-mono-code text-[9px] uppercase tracking-[0.15em] text-white/70 backdrop-blur-md">
-						<span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
-						Production
-					</div>
-				</div>
-
-				<div className="flex flex-col p-6 sm:p-8 lg:p-10">
-					<div className="mb-10 flex items-start justify-between">
-						<p className="font-mono-code text-[10px] uppercase tracking-[0.18em] text-white/35">
-							Case study / {String(index + 1).padStart(2, '0')}
-						</p>
-						<span className="font-display text-5xl font-semibold leading-none tracking-[-0.08em] text-white/10">
-							{String(index + 1).padStart(2, '0')}
+				{/* 1. Header Bar with Metadata & Quick Action Buttons */}
+				<div className="flex flex-col gap-4 border-b border-white/10 p-5 sm:p-7 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:py-5 bg-[#170a06]/90">
+					<div className="flex flex-wrap items-center gap-3">
+						<span className="flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3 py-1 font-mono-code text-[11px] uppercase tracking-[0.16em] text-primary">
+							<span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary))]" />
+							Case Study / {String(index + 1).padStart(2, '0')}
+						</span>
+						<span className="font-mono-code text-[11px] uppercase tracking-[0.15em] text-white/40">
+							{project.featured ? '• Featured Case Study' : '• Production Grade'}
 						</span>
 					</div>
 
-					<div className="flex-1">
-						<h3 className="max-w-xl font-display text-3xl font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-4xl lg:text-5xl">
-							{project.title}
-						</h3>
-						<p className="mt-6 max-w-lg text-sm leading-relaxed text-white/48 sm:text-base">
-							{project.description}
-						</p>
-						<div className="mt-7 flex flex-wrap gap-2">
-							{project.technologies.map((technology) => (
-								<span key={technology} className="project-tech-pill">
-									{technology.replace(/^#/, '')}
-								</span>
-							))}
-						</div>
-					</div>
-
-					<div className="mt-10 flex flex-wrap items-center gap-3 border-t border-white/10 pt-6">
+					{/* Action Buttons */}
+					<div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
 						<Link
 							to="/projects/$projectId"
 							params={{ projectId: project.id }}
 							search={isVietnamese ? { lang: 'vi' } : {}}
-							className="button-ghost group"
+							className="button-ghost group/btn !py-2 !px-4 text-xs font-semibold"
 						>
-							{t('projects.viewDetails')}
+							<span>{t('projects.viewDetails')}</span>
 							<ArrowRight
-								size={16}
-								className="transition-transform group-hover:translate-x-0.5"
+								size={14}
+								className="transition-transform group-hover/btn:translate-x-0.5"
 							/>
 						</Link>
-						<a
-							href={project.liveUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="button-primary group"
-						>
-							{t('projects.liveDemo')}
-							<ArrowUpRight
-								size={16}
-								className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-							/>
-						</a>
+
+						{project.liveUrl && project.liveUrl !== '#' && (
+							<a
+								href={project.liveUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="button-primary group/btn !py-2 !px-4 text-xs font-semibold"
+							>
+								<span>{t('projects.liveDemo')}</span>
+								<ArrowUpRight
+									size={14}
+									className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
+								/>
+							</a>
+						)}
+
+						{project.qaUrl && (
+							<a
+								href={project.qaUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="button-ghost group/btn !py-2 !px-3.5 text-xs font-semibold border border-primary/35 text-primary hover:border-primary hover:bg-primary/10"
+								title={t('projects.systemQa')}
+							>
+								<FileText size={14} />
+								<span className="hidden sm:inline">{t('projects.systemQa')}</span>
+								<ArrowUpRight
+									size={13}
+									className="opacity-70 transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
+								/>
+							</a>
+						)}
+
 						{project.githubUrl && project.githubUrl !== '#' && (
 							<a
 								href={project.githubUrl}
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={`${project.title} source code`}
-								className="grid h-11 w-11 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-primary hover:text-primary"
+								className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-primary hover:text-primary"
 							>
-								<Github size={16} />
+								<Github size={15} />
 							</a>
 						)}
+					</div>
+				</div>
+
+				{/* 2. Full-Width Panoramic Master Showcase Banner (100% Uncropped) */}
+				<Link
+					to="/projects/$projectId"
+					params={{ projectId: project.id }}
+					search={isVietnamese ? { lang: 'vi' } : {}}
+					className="project-card-media block relative w-full aspect-[16/9.6] overflow-hidden bg-[#120704] cursor-pointer"
+				>
+					<img
+						src={project.image}
+						alt={`${project.title} interface`}
+						loading="lazy"
+						decoding="async"
+						className="h-full w-full object-contain sm:object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+					/>
+					<div className="project-card-scanline" />
+
+					{/* Subtle overlay gradient on bottom */}
+					<div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-[#120704]/95 via-[#120704]/40 to-transparent p-5 sm:p-7 lg:p-8">
+						<div>
+							<h3 className="font-display text-2xl font-bold tracking-[-0.04em] text-white sm:text-3xl lg:text-4xl drop-shadow-md">
+								{project.title}
+							</h3>
+						</div>
+						<div className="hidden sm:flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-4 py-1.5 font-mono-code text-xs uppercase tracking-[0.14em] text-white/90 backdrop-blur-md transition-all group-hover:border-primary group-hover:text-primary group-hover:bg-black/80">
+							<span>{t('projects.viewDetails')}</span>
+							<ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+						</div>
+					</div>
+				</Link>
+
+				{/* 3. Card Footer with Description & Complete Tech Stack */}
+				<div className="grid gap-5 p-5 sm:p-7 lg:grid-cols-[1.3fr_1fr] lg:gap-10 lg:px-8 lg:py-6 border-t border-white/10 bg-[#1c0d08]/75">
+					<div>
+						<h4 className="font-mono-code text-[10px] uppercase tracking-[0.18em] text-white/40 mb-2">
+							Overview &amp; Engineering Focus
+						</h4>
+						<p className="text-sm sm:text-base leading-relaxed text-white/70">
+							{project.description}
+						</p>
+					</div>
+
+					<div>
+						<h4 className="font-mono-code text-[10px] uppercase tracking-[0.18em] text-white/40 mb-2">
+							Tech Stack
+						</h4>
+						<div className="flex flex-wrap gap-1.5 sm:gap-2">
+							{project.technologies.map((technology) => (
+								<span key={technology} className="project-tech-pill">
+									{technology.replace(/^#/, '')}
+								</span>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

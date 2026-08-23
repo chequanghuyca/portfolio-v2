@@ -20,6 +20,7 @@ interface ProjectData {
 	url: string;
 	image: string;
 	liveUrl?: string;
+	qaUrl?: string;
 	inLanguage?: string;
 }
 
@@ -82,10 +83,12 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
 						'@type': 'Thing',
 						name: technology.replace(/^#/, ''),
 					})),
-					sameAs:
+					sameAs: [
 						projectData.liveUrl && projectData.liveUrl !== '#'
 							? projectData.liveUrl
 							: undefined,
+						projectData.qaUrl ? projectData.qaUrl : undefined,
+					].filter(Boolean) as string[],
 				};
 			}
 			case 'organization': {

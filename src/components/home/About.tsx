@@ -3,14 +3,16 @@ import { ArrowUpRight, Building2, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import logoFPT from '@/assets/fpt.png';
 import logoHCMUT from '@/assets/hcmut.png';
+import logoLTA from '@/assets/lta.png';
 import logoMirai from '@/assets/mirai.png';
 
 const About = () => {
 	const { t } = useTranslation();
 	const reduceMotion = useReducedMotion();
 
-	const getExperience = (company: 'mirai' | 'hcmut' | 'fpt') => {
+	const getExperience = (company: 'lta' | 'mirai' | 'hcmut' | 'fpt') => {
 		const logoMap = {
+			lta: logoLTA,
 			mirai: logoMirai,
 			hcmut: logoHCMUT,
 			fpt: logoFPT,
@@ -22,6 +24,9 @@ const About = () => {
 			logo: logoMap[company],
 			location: t(`about.experience.${company}.location`),
 			period: t(`about.experience.${company}.period`),
+			companyUrl: t(`about.experience.${company}.companyUrl`, {
+				defaultValue: '',
+			}),
 			achievements: t(`about.experience.${company}.achievements`, {
 				returnObjects: true,
 			}) as string[],
@@ -29,6 +34,7 @@ const About = () => {
 	};
 
 	const workExperience = [
+		getExperience('lta'),
 		getExperience('mirai'),
 		getExperience('hcmut'),
 		getExperience('fpt'),
@@ -122,7 +128,19 @@ const About = () => {
 										<div>
 											<div className="mb-2 flex items-center gap-2 text-xs text-black/50">
 												<Building2 size={13} />
-												<span>{experience.company}</span>
+												{experience.companyUrl ? (
+													<a
+														href={experience.companyUrl}
+														target="_blank"
+														rel="noopener noreferrer"
+														className="inline-flex items-center gap-1 font-medium transition-colors hover:text-black hover:underline"
+													>
+														<span>{experience.company}</span>
+														<ArrowUpRight size={11} className="opacity-60" />
+													</a>
+												) : (
+													<span>{experience.company}</span>
+												)}
 											</div>
 											<h3 className="font-display text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">
 												{experience.role}

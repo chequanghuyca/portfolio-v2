@@ -32,12 +32,28 @@
 			"03": "Đo lường điều quan trọng"
 		},
 		"experience": {
+			"lta": {
+				"role": "Senior Software Engineer",
+				"company": "LTA - Logistics Technology Application (Genuine Partner Group)",
+				"companyShort": "LTA",
+				"companyUrl": "https://ltacv.com/",
+				"location": "Thành phố Hồ Chí Minh, Việt Nam",
+				"period": "Tháng 5/2026 - Hiện tại",
+				"achievements": [
+					"Chịu trách nhiệm kiến trúc và phát triển toàn diện hệ sinh thái LTA Tracking (Desktop App, Management Dashboard, Backend Microservices) phục vụ chấm công, quản lý ca làm việc và đo lường năng suất thời gian thực.",
+					"Phát triển ứng dụng di động OneStop@LTA SuperApp (Flutter/Dart) phục vụ điều phối container rỗng (e-Depot ISO 6346), định danh tài xế eKYC (CCCD gắn chip & quét mã MRZ), tích hợp cổng thanh toán LTA Pay và hệ thống điều khiển tính năng động (Dynamic Matrix & Kill-Switch).",
+					"Phát triển ứng dụng Desktop đa nền tảng (macOS, Windows, Linux) bằng Wails v2 (Go + React + TypeScript + Tailwind CSS) với tính năng chụp màn hình tự động, đồng bộ dữ liệu offline và truyền phát màn hình trực tiếp qua WebRTC.",
+					"Xây dựng hệ thống Backend phân tán hiệu năng cao với Golang (Gin, GORM, PostgreSQL, Kafka, MinIO, WebSocket) xử lý hàng triệu sự kiện hoạt động và lưu trữ media dung lượng lớn an toàn.",
+					"Xây dựng Web Dashboard điều hành trực quan với React 19, TanStack Router/Query và Recharts, hỗ trợ quản lý phân quyền phòng ban, duyệt ca làm việc và phân tích thống kê năng suất chuyên sâu.",
+					"Thiết lập quy trình đóng gói tự động, ký số (Code Signing) và công chứng (Apple Notarization, Windows Authenticode) cho bản phân phối Desktop trên toàn hệ sinh thái."
+				]
+			},
 			"mirai": {
 				"role": "Middle Software Engineer",
 				"company": "Mirai Labs",
 				"companyShort": "Mirai Labs",
 				"location": "Thành phố Hồ Chí Minh, Việt Nam",
-				"period": "Tháng 3/2024 - Hiện tại",
+				"period": "Tháng 3/2024 - Tháng 4/2026",
 				"achievements": [
 					"Xây dựng marketplace NFT phi tập trung cho phép người dùng mua, bán và đấu giá tài sản kỹ thuật số với tích hợp ví Web3 liền mạch (MetaMask, WalletConnect).",
 					"Phát triển dashboard điều hành cho Mirai App (tương tự Binance), trao quyền cho admin quản lý danh sách, người dùng và giao dịch hiệu quả.",
@@ -115,9 +131,76 @@
 		"viewDetails": "Xem chi tiết",
 		"github": "GitHub",
 		"featured": "Nổi bật",
+		"productionCaseStudy": "Nghiên cứu dự án thực tế",
+		"systemQa": "Đặc tả & Q&A",
+		"qaDocTitle": "Đặc tả hệ thống LTA Tracking | Q&A, chức năng & điều khoản",
+		"qaDocDesc": "Tài liệu chi tiết giải đáp câu hỏi thường gặp, quy trình vận hành chức năng và chính sách điều khoản sử dụng của hệ thống LTA Tracking.",
+		"viewQa": "Xem Đặc tả & Q&A",
 		"viewAllProjects": "Xem tất cả dự án",
+		"detailedDescription": "Mô tả chi tiết & Kiến trúc",
+		"architectureDeepDive": "Kiến trúc & Phân tích chuyên sâu",
+		"specifications": "Đặc tả thông số",
+		"coreCapabilities": "Năng lực cốt lõi",
+		"engineeringFocus": "Trọng tâm kỹ thuật",
+		"projectInfo": "Phạm vi & Thông tin dự án",
+		"role": "Vai trò",
+		"duration": "Thời gian",
+		"teamSize": "Quy mô nhóm",
+		"keyFeatures": "Tính năng nổi bật",
+		"challenges": "Thách thức kỹ thuật",
+		"projectImpact": "Tác động & Giá trị dự án",
+		"impact1": "Nâng cao trải nghiệm người dùng và hiệu suất vận hành thực tế",
+		"impact2": "Tối ưu hóa khả năng mở rộng, độ tin cậy và tính ổn định của hệ thống",
+		"impact3": "Kiến trúc chuẩn Clean Code, dễ dàng bảo trì và phát triển lâu dài",
+		"technicalHighlights": "Điểm sáng kỹ thuật",
+		"tech1": "Áp dụng các mô hình kiến trúc và quy chuẩn phát triển phần mềm hiện đại",
+		"tech2": "Thiết kế responsive, tối ưu trải nghiệm người dùng đa nền tảng",
+		"tech3": "Tối ưu hóa hiệu năng, độ trễ thời gian thực và tiêu chuẩn bảo mật cao",
+		"gallery": "Bộ sưu tập hình ảnh giao diện",
+		"galleryDescription": "Nhấp vào bất kỳ hình ảnh nào để xem kích thước đầy đủ",
+		"screenshot": "Ảnh chụp giao diện",
+		"watchDemo": "Xem Video Demo",
+		"notFound": "Không tìm thấy dự án",
+		"notFoundDesc": "Dự án bạn đang tìm kiếm không tồn tại hoặc đã được di chuyển.",
+		"expand": "Mở rộng",
+		"preview": "Xem trước",
+		"productionGrade": "Chuẩn Production",
 		"allProjectsItem": {
 			"1": {
+				"title": "LTA Tracking App & Ecosystem",
+				"description": "Hệ thống giám sát năng suất và chấm công đa nền tảng cho doanh nghiệp gồm Desktop App (Wails/Go/React), Management Dashboard (React 19) và Backend phân tán (Golang, Kafka, PostgreSQL, MinIO, WebRTC).",
+				"technologies": [
+					"#Golang",
+					"#Wails",
+					"#React",
+					"#TypeScript",
+					"#PostgreSQL",
+					"#Kafka",
+					"#MinIO",
+					"#WebRTC",
+					"#Tailwind CSS"
+				],
+				"liveUrl": "https://tracking.ltacv.com/qa",
+				"featured": true
+			},
+			"2": {
+				"title": "OneStop@LTA - Logistics SuperApp",
+				"description": "Siêu ứng dụng di động cho hệ sinh thái logistics của tập đoàn Genuine Partner Group (GPG - LTA), hỗ trợ điều phối trả container rỗng (e-Depot ISO 6346), định danh tài xế qua eKYC quét CCCD gắn chip & MRZ, tích hợp ví thanh toán LTA Pay.",
+				"technologies": [
+					"#Flutter",
+					"#Dart",
+					"#BLoC",
+					"#eKYC / Face SDK",
+					"#LTA Pay",
+					"#Zalo SDK",
+					"#Biometrics",
+					"#iOS",
+					"#Android"
+				],
+				"liveUrl": "https://ltacv.com",
+				"featured": true
+			},
+			"3": {
 				"title": "Remoty Platform App",
 				"description": "Theo dõi năng suất, giám sát hoạt động và quản lý nhóm từ xa của bạn với thông tin chi tiết mạnh mẽ và giám sát liền mạch.",
 				"technologies": [
@@ -131,7 +214,7 @@
 				"liveUrl": "https://remoty.ai",
 				"featured": true
 			},
-			"2": {
+			"4": {
 				"title": "Petopia Marketplace Assets",
 				"description": "Marketplace cho phép người dùng mua, bán và đấu giá tài sản kỹ thuật số với tích hợp ví Web3 liền mạch (MetaMask, WalletConnect).",
 				"technologies": [
@@ -144,7 +227,7 @@
 				"liveUrl": "https://asset.petopiagame.io",
 				"featured": true
 			},
-			"3": {
+			"5": {
 				"title": "Pegaxy Marketplace Assets",
 				"description": "Marketplace cho phép người dùng mua, bán và đấu giá tài sản kỹ thuật số với tích hợp ví Web3 liền mạch (MetaMask, WalletConnect).",
 				"technologies": [
@@ -157,7 +240,7 @@
 				"liveUrl": "https://blaze-marketplace.pegaxy.io",
 				"featured": true
 			},
-			"4": {
+			"6": {
 				"title": "Mirai Telegram Wallet",
 				"description": "Ứng dụng Telegram wallet cho Mirai App, cho phép người dùng quản lý ví Web3 và giao dịch.",
 				"technologies": [
@@ -172,14 +255,14 @@
 				"liveUrl": "https://t.me/MiraiAppBot?profile",
 				"featured": false
 			},
-			"5": {
+			"7": {
 				"title": "Play To Whitelist - Merge Pals Games",
 				"description": "Cho phép người dùng chơi và được thêm vào danh sách chờ để nhận quyền truy cập vào game Merge Pals.",
 				"technologies": ["#Web3", "#Smart Contract", "#Next.js"],
 				"liveUrl": "https://asset.mergepals.io/",
 				"featured": false
 			},
-			"6": {
+			"8": {
 				"title": "TransMaster",
 				"description": "Một dự án cá nhân giúp người dùng luyện dịch câu, đoạn văn sang tiếng Anh dưới sự hỗ trợ của AI.",
 				"technologies": [
@@ -195,7 +278,7 @@
 				"githubUrl": "https://github.com/chequanghuyca/hub-service",
 				"featured": false
 			},
-			"7": {
+			"9": {
 				"title": "CÔNG TY CỔ PHẦN ĐẦU TƯ CÔNG NGHỆ MHP",
 				"description": "Dự án freelance xây dựng website cho Công ty Cổ phần Đầu tư Công nghệ MHP.",
 				"technologies": [

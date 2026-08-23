@@ -13,7 +13,7 @@ const skillCategories = [
 		icon: Braces,
 		title: 'Backend Systems',
 		descriptionKey: 'skills.categories.backend',
-		skills: ['NestJS', 'Node.js', 'Golang', 'GraphQL', 'REST APIs', 'PostgreSQL'],
+		skills: ['Golang', 'NestJS', 'Node.js', 'PostgreSQL', 'Kafka', 'MinIO'],
 	},
 	{
 		icon: CloudCog,
@@ -25,7 +25,7 @@ const skillCategories = [
 		icon: Cpu,
 		title: 'Emerging Systems',
 		descriptionKey: 'skills.categories.systems',
-		skills: ['Web3', 'Smart Contracts', 'Tauri / Rust', 'AI Workflows', 'SEO', 'System Design'],
+		skills: ['Wails / Tauri', 'WebRTC', 'Web3', 'Smart Contracts', 'AI Workflows', 'System Design'],
 	},
 ];
 

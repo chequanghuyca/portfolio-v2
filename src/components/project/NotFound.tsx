@@ -1,40 +1,58 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import ProjectDetailHeader from './ProjectDetailHeader';
 
 const NotFound = () => {
+	const { t, i18n } = useTranslation();
+	const isVietnamese = (i18n.resolvedLanguage || i18n.language).startsWith('vi');
+
 	return (
-		<>
+		<div className="dark portfolio-shell min-h-screen w-full bg-background text-foreground">
 			<ProjectDetailHeader />
 			<Helmet>
-				<title>Project not found | Huy Che Portfolio</title>
+				<title>Project not found | Huy Che</title>
 				<meta name="description" content="The requested project could not be found." />
 			</Helmet>
-			<div className="pt-16 lg:pt-20">
-				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
+			<div className="pt-32 sm:pt-40 pb-20">
+				<div className="section-container max-w-2xl text-center">
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
+						className="rounded-3xl border border-white/10 bg-[#24130e]/80 backdrop-blur-xl p-8 sm:p-12 shadow-2xl"
 					>
-						<div className="mb-6">
+						<div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-2xl border border-primary/30 bg-primary/10 text-primary">
+							<AlertCircle className="h-8 w-8" />
+						</div>
+						<span className="font-mono-code text-[10px] uppercase tracking-[0.2em] text-primary">
+							404 Error
+						</span>
+						<h1 className="font-display text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-white mt-2 mb-4">
+							{t('projects.notFound')}
+						</h1>
+						<p className="text-white/60 leading-relaxed font-sans mb-8">
+							{t('projects.notFoundDesc')}
+						</p>
+						<div>
 							<Link
 								to="/"
-								className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors"
+								search={isVietnamese ? { lang: 'vi' } : {}}
+								className="button-primary group"
 							>
-								<ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+								<ArrowLeft
+									size={16}
+									className="transition-transform group-hover:-translate-x-1"
+								/>
+								<span>{t('common.backToHome')}</span>
 							</Link>
 						</div>
-						<h1 className="text-2xl font-semibold mb-4">Project not found</h1>
-						<p className="text-text-secondary">
-							The project you're looking for doesn't exist or has been removed.
-						</p>
 					</motion.div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 

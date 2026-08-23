@@ -1,12 +1,16 @@
-import { useParams } from '@tanstack/react-router';
-import { Helmet } from 'react-helmet-async';
-import StructuredData from '@/components/StructuredData';
-import { useQueryGetProject } from '@/hooks/project/useQueryGetProject';
 import { useState } from 'react';
+import { useParams, Link } from '@tanstack/react-router';
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { ArrowLeft } from 'lucide-react';
+import StructuredData from '@/components/StructuredData';
+import TechCursor from '@/components/TechCursor';
+import ScrollToTop from '@/components/ScrollToTop';
+import Footer from '@/components/home/Footer';
+import ImageModal from '@/components/ImageModal';
+import { useQueryGetProject } from '@/hooks/project/useQueryGetProject';
 import { getLocalizedUrl, getSiteLanguage, SITE_NAME, SITE_URL } from '@/lib/seo';
 
-// Import components
 import {
 	ProjectDetailHeader,
 	LoadingSkeleton,
@@ -16,14 +20,15 @@ import {
 	DetailedDescription,
 	ProjectGallery,
 } from '@/components/project';
-import ImageModal from '@/components/ImageModal';
 
 const ProjectDetail = () => {
 	const { projectId } = useParams({ from: '/projects/$projectId' });
 	const { data: project, isLoading } = useQueryGetProject(projectId);
-	const { i18n } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+	const isVietnamese = (i18n.resolvedLanguage || i18n.language).startsWith('vi');
 
 	const handleImageClick = (index: number) => {
 		setCurrentImageIndex(index);
@@ -35,15 +40,7 @@ const ProjectDetail = () => {
 	}
 
 	if (!project) {
-		return (
-			<>
-				<Helmet>
-					<title>Project not found | Huy Che</title>
-					<meta name="robots" content="noindex, follow" />
-				</Helmet>
-				<NotFound />
-			</>
-		);
+		return <NotFound />;
 	}
 
 	const language = getSiteLanguage(i18n.resolvedLanguage || i18n.language);
@@ -62,8 +59,10 @@ const ProjectDetail = () => {
 			: fullDescription;
 
 	return (
-		<>
-			<ProjectDetailHeader />
+		<div className="dark portfolio-shell min-h-screen w-full overflow-x-clip bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+			<TechCursor />
+			<ProjectDetailHeader project={project} />
+
 			<Helmet htmlAttributes={{ lang: language }}>
 				<title>{seoTitle}</title>
 				<meta name="description" content={seoDescription} />
@@ -101,6 +100,7 @@ const ProjectDetail = () => {
 				<meta name="twitter:image:alt" content={`${project.title} interface`} />
 				<meta name="twitter:url" content={canonicalUrl} />
 			</Helmet>
+
 			<StructuredData
 				type="project"
 				data={{
@@ -110,18 +110,44 @@ const ProjectDetail = () => {
 					url: canonicalUrl,
 					image: imageUrl,
 					liveUrl: project.liveUrl,
+					qaUrl: project.qaUrl,
 					inLanguage: language,
 				}}
 			/>
 
-			<div className="pt-16 lg:pt-20">
-				<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8 lg:py-16">
-					<ProjectHero project={project} />
+			<main id="main-content" className="relative z-10 pt-28 sm:pt-36 pb-20">
+				<div className="hero-grid absolute inset-0 opacity-40 pointer-events-none" />
+				<div className="hero-aurora hero-aurora-left" />
+				<div className="hero-aurora hero-aurora-right" />
+
+				<div className="section-container relative z-10">
+					{/* Navigation Breadcrumb / Back Link */}
+					<div className="mb-8 flex items-center justify-between border-b border-white/10 pb-4">
+						<Link
+							to="/"
+							search={isVietnamese ? { lang: 'vi' } : {}}
+							className="group inline-flex items-center gap-2 font-mono-code text-xs uppercase tracking-[0.16em] text-white/50 transition-colors hover:text-primary"
+						>
+							<ArrowLeft
+								size={14}
+								className="transition-transform group-hover:-translate-x-1"
+							/>
+							<span>{t('common.backToHome')}</span>
+						</Link>
+						<span className="font-mono-code text-[10px] uppercase tracking-[0.2em] text-primary">
+							Case Study / {String(projectId).padStart(2, '0')}
+						</span>
+					</div>
+
+					<ProjectHero project={project} onImageClick={() => handleImageClick(0)} />
 					<ProjectDetailsGrid project={project} />
 					<DetailedDescription project={project} />
 					<ProjectGallery project={project} onImageClick={handleImageClick} />
 				</div>
-			</div>
+			</main>
+
+			<Footer />
+			<ScrollToTop />
 
 			{/* Image Modal */}
 			<ImageModal
@@ -132,7 +158,7 @@ const ProjectDetail = () => {
 				onNavigate={setCurrentImageIndex}
 				projectTitle={project.title}
 			/>
-		</>
+		</div>
 	);
 };
 

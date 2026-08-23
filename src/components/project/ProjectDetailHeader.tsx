@@ -1,58 +1,84 @@
 import { Link } from '@tanstack/react-router';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import logo from '@/assets/logo-ui.webp';
+import type { ProjectDetail } from '@/hooks/project/useQueryGetProject';
 
-const ProjectDetailHeader = () => {
-	const { t } = useTranslation();
+interface ProjectDetailHeaderProps {
+	project?: ProjectDetail;
+}
+
+const ProjectDetailHeader = ({ project }: ProjectDetailHeaderProps) => {
+	const { t, i18n } = useTranslation();
+	const isVietnamese = (i18n.resolvedLanguage || i18n.language).startsWith('vi');
 
 	return (
 		<motion.header
-			initial={{ opacity: 0, y: -50 }}
+			initial={{ opacity: 0, y: -30 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.6 }}
-			className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50"
+			className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5"
 		>
-			<div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-				<div className="flex items-center justify-between h-16 lg:h-20">
-					{/* Logo */}
-					<Link to="/" className="flex items-center gap-3 group">
-						<motion.div
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							className="relative"
-						>
-							<img
-								src={logo}
-								alt="Huy Che Logo"
-								width={256}
-								height={256}
-								className="h-8 w-8 lg:h-10 lg:w-10 rounded-lg"
-							/>
-						</motion.div>
-						<div className="hidden sm:block">
-							<span className="block text-lg lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-								Huy Che
-							</span>
-							<p className="text-xs lg:text-sm text-muted-foreground">
-								{t('navigation.subtitle') || 'Full Stack Developer'}
-							</p>
-						</div>
+			<div className="mx-auto flex max-w-[1480px] items-center justify-between px-5 py-3.5 sm:py-4 rounded-2xl border border-white/10 bg-[#160d0a]/95 shadow-[0_20px_60px_rgba(28,12,6,0.32)] backdrop-blur-xl sm:px-7">
+				{/* Logo & Brand */}
+				<Link
+					to="/"
+					search={isVietnamese ? { lang: 'vi' } : {}}
+					className="group flex items-center gap-3"
+				>
+					<span className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/[0.04] transition-colors group-hover:border-primary/60 lg:h-12 lg:w-12">
+						<img
+							src={logo}
+							alt="Huy Che logo"
+							width={256}
+							height={256}
+							className="brand-logo h-7 w-7 object-contain lg:h-8 lg:w-8"
+						/>
+					</span>
+					<span className="hidden sm:block">
+						<span className="block text-base font-semibold leading-none text-white lg:text-lg">
+							Huy Che
+						</span>
+						<span className="mt-1.5 flex items-center gap-1.5 font-mono-code text-[10px] uppercase tracking-[0.18em] text-white/50">
+							<span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
+							{project ? `Case Study / ${project.id.padStart(2, '0')}` : 'Software Engineer'}
+						</span>
+					</span>
+				</Link>
+
+				{/* Actions */}
+				<div className="flex items-center gap-2.5 sm:gap-3">
+					<LanguageSwitcher />
+
+					<Link
+						to="/"
+						search={isVietnamese ? { lang: 'vi' } : {}}
+						className="button-ghost group hidden sm:inline-flex"
+					>
+						<ArrowLeft
+							size={14}
+							className="transition-transform group-hover:-translate-x-0.5"
+						/>
+						<span>{t('common.backToHome')}</span>
 					</Link>
 
-					{/* Language Switcher & Back Button */}
-					<div className="flex items-center gap-3">
-						<LanguageSwitcher />
-						<Button variant="outline" size="sm" asChild className="hidden sm:flex">
-							<Link to="/">
-								<ArrowLeft className="h-4 w-4" />
-								{t('common.backToHome') || 'Back'}
-							</Link>
-						</Button>
-					</div>
+					{project?.liveUrl && project.liveUrl !== '#' && (
+						<a
+							href={project.liveUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="button-primary group"
+						>
+							<span className="hidden sm:inline">{t('projects.liveDemo')}</span>
+							<span className="sm:hidden">Demo</span>
+							<ArrowUpRight
+								size={14}
+								className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+							/>
+						</a>
+					)}
 				</div>
 			</div>
 		</motion.header>

@@ -1,3 +1,5 @@
+import projectLTA from '@/assets/projects/lta-tracking/lta-tracking-sign.webp';
+import projectLTASuperApp from '@/assets/projects/lta-superapp/lta-superapp-sign.webp';
 import project1 from '@/assets/projects/remoty/remoty-sign.webp';
 import project2 from '@/assets/projects/petopia/petopia-sign.webp';
 import project3 from '@/assets/projects/pegaxy/pegaxy-sign.webp';
@@ -19,6 +21,7 @@ export type Project = {
 	image: string;
 	technologies: string[];
 	liveUrl: string;
+	qaUrl?: string;
 	githubUrl?: string;
 	featured: boolean;
 };
@@ -62,6 +65,7 @@ export const useQueryGetProjects = (
 						? projectData.technologies
 						: [],
 					liveUrl: projectData?.liveUrl || '#',
+					qaUrl: projectData.qaUrl,
 					githubUrl: projectData.githubUrl,
 					featured: Boolean(projectData?.featured),
 				};
@@ -90,20 +94,24 @@ export const useQueryGetProjects = (
 const getProjectImage = (id: string): string => {
 	switch (id) {
 		case '1':
-			return project1;
+			return projectLTA;
 		case '2':
-			return project2;
+			return projectLTASuperApp;
 		case '3':
-			return project3;
+			return project1;
 		case '4':
-			return project4;
+			return project2;
 		case '5':
-			return project5;
+			return project3;
 		case '6':
-			return project6;
+			return project4;
 		case '7':
+			return project5;
+		case '8':
+			return project6;
+		case '9':
 			return project7;
 		default:
-			return project5;
+			return projectLTA;
 	}
 };

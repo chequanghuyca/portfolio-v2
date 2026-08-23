@@ -1089,31 +1089,36 @@ body::-webkit-scrollbar-corner {
 
 .project-card-stage {
 	position: relative;
-	padding-bottom: 2rem;
+	padding-bottom: 2.5rem;
 }
 
 .project-card {
 	overflow: hidden;
 	border: 1px solid rgba(255, 255, 255, 0.14);
 	border-radius: 1.5rem;
-	background: #24130e;
-	box-shadow: 0 22px 58px rgba(56, 22, 8, 0.2);
+	background: #1f100b;
+	box-shadow: 0 24px 60px rgba(36, 14, 5, 0.35);
 	isolation: isolate;
+	display: flex;
+	flex-direction: column;
+	transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.project-card:hover {
+	border-color: rgba(232, 164, 74, 0.35);
+	box-shadow: 0 30px 80px rgba(36, 14, 5, 0.45);
 }
 
 .project-card-media {
 	position: relative;
 	overflow: hidden;
-	min-height: 17rem;
-	background: #190d09;
+	background: #120704;
 }
 
 .project-card-media::after {
 	position: absolute;
 	inset: 0;
-	background:
-		linear-gradient(to top, rgba(25, 13, 9, 0.2), transparent 45%),
-		linear-gradient(90deg, transparent 70%, rgba(25, 13, 9, 0.16));
+	background: linear-gradient(to top, rgba(18, 7, 4, 0.4), transparent 30%);
 	content: '';
 	pointer-events: none;
 }
@@ -1291,19 +1296,19 @@ body::-webkit-scrollbar-corner {
 	}
 
 	.project-card-stage {
-		min-height: 74vh;
-		padding-bottom: 3.5vh;
+		min-height: auto;
+		padding-bottom: 4.5rem;
 	}
 
 	.project-card {
 		position: sticky;
-		display: grid;
-		min-height: min(64vh, 680px);
-		grid-template-columns: minmax(0, 1.45fr) minmax(22rem, 0.85fr);
+		display: flex;
+		flex-direction: column;
+		min-height: auto;
 	}
 
 	.project-card-media {
-		min-height: 100%;
+		min-height: auto;
 	}
 }
 
