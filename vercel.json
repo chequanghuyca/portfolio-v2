@@ -1,0 +1,25 @@
+{
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"trailingSlash": false,
+	"redirects": [
+		{
+			"source": "/:path*",
+			"has": [{ "type": "host", "value": "huyche.site" }],
+			"destination": "https://www.huyche.com/:path*",
+			"permanent": true
+		},
+		{
+			"source": "/:path*",
+			"has": [{ "type": "host", "value": "www.huyche.site" }],
+			"destination": "https://www.huyche.com/:path*",
+			"permanent": true
+		}
+	],
+	"rewrites": [
+		{
+			"source": "/projects/:projectId(\\d+)",
+			"destination": "/projects/:projectId.html"
+		},
+		{ "source": "/(.*)", "destination": "/index.html" }
+	]
+}

@@ -22,6 +22,7 @@ const NotFound = () => {
 					name="description"
 					content="The page you're looking for doesn't exist. Return to the homepage to explore my portfolio."
 				/>
+				<meta name="robots" content="noindex, follow" />
 				<meta property="og:title" content="404 - Page Not Found | Huy Che Portfolio" />
 				<meta
 					property="og:description"

@@ -9,7 +9,13 @@ import ScrollToTop from '@/components/ScrollToTop';
 import Footer from '@/components/home/Footer';
 import ImageModal from '@/components/ImageModal';
 import { useQueryGetProject } from '@/hooks/project/useQueryGetProject';
-import { getLocalizedUrl, getSiteLanguage, SITE_NAME, SITE_URL } from '@/lib/seo';
+import {
+	createSeoDescription,
+	getLocalizedUrl,
+	getSiteLanguage,
+	SITE_NAME,
+	SITE_URL,
+} from '@/lib/seo';
 
 import {
 	ProjectDetailHeader,
@@ -53,10 +59,7 @@ const ProjectDetail = () => {
 			? 'Case study kỹ thuật bởi Huy Che, Senior Software Engineer.'
 			: 'An engineering case study by Huy Che, Senior Software Engineer.';
 	const fullDescription = `${project.description} ${descriptionSuffix}`;
-	const seoDescription =
-		fullDescription.length > 165
-			? `${fullDescription.slice(0, 162).trimEnd()}…`
-			: fullDescription;
+	const seoDescription = createSeoDescription(fullDescription);
 
 	return (
 		<div className="dark portfolio-shell min-h-screen w-full overflow-x-clip bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
@@ -84,6 +87,8 @@ const ProjectDetail = () => {
 				<meta property="og:description" content={seoDescription} />
 				<meta property="og:url" content={canonicalUrl} />
 				<meta property="og:image" content={imageUrl} />
+				<meta property="og:image:secure_url" content={imageUrl} />
+				<meta property="og:image:type" content="image/webp" />
 				<meta property="og:image:alt" content={`${project.title} interface`} />
 				<meta property="og:type" content="article" />
 				<meta property="og:site_name" content={SITE_NAME} />

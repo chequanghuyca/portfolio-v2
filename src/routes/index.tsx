@@ -47,6 +47,8 @@ function RouteComponent() {
 				<meta property="og:locale" content={seo.locale} />
 				<meta property="og:locale:alternate" content={seo.alternateLocale} />
 				<meta property="og:image" content={OG_IMAGE_URL} />
+				<meta property="og:image:secure_url" content={OG_IMAGE_URL} />
+				<meta property="og:image:type" content="image/png" />
 				<meta property="og:image:width" content="1200" />
 				<meta property="og:image:height" content="630" />
 				<meta property="og:image:alt" content={seo.imageAlt} />

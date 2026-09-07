@@ -15,6 +15,7 @@ const NotFound = () => {
 			<Helmet>
 				<title>Project not found | Huy Che</title>
 				<meta name="description" content="The requested project could not be found." />
+				<meta name="robots" content="noindex, follow" />
 			</Helmet>
 			<div className="pt-32 sm:pt-40 pb-20">
 				<div className="section-container max-w-2xl text-center">

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { SITE_URL } from '@/lib/seo';
 
 interface PersonData {
 	name: string;
@@ -67,13 +68,13 @@ const StructuredData = ({ type, data }: StructuredDataProps) => {
 					image: projectData.image,
 					inLanguage: projectData.inLanguage,
 					creator: {
-						'@id': 'https://huyche.site/#person',
+						'@id': `${SITE_URL}/#person`,
 					},
 					author: {
-						'@id': 'https://huyche.site/#person',
+						'@id': `${SITE_URL}/#person`,
 					},
 					isPartOf: {
-						'@id': 'https://huyche.site/#website',
+						'@id': `${SITE_URL}/#website`,
 					},
 					dateCreated: projectData.dateCreated,
 					keywords: projectData.technologies

@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://huyche.site';
+export const SITE_URL = 'https://www.huyche.com';
 export const SITE_NAME = 'Huy Che';
 export const OG_IMAGE_URL = `${SITE_URL}/og.png`;
 
@@ -15,6 +15,16 @@ export const getLocalizedUrl = (path: string, language: SiteLanguage) => {
 	}
 
 	return url.toString();
+};
+
+export const createSeoDescription = (description: string, maxLength = 165) => {
+	if (description.length <= maxLength) return description;
+
+	const truncated = description.slice(0, maxLength - 1).trimEnd();
+	const lastWordBoundary = truncated.lastIndexOf(' ');
+	const text = lastWordBoundary > 0 ? truncated.slice(0, lastWordBoundary) : truncated;
+
+	return `${text.trimEnd()}…`;
 };
 
 export const homeSeo = {
