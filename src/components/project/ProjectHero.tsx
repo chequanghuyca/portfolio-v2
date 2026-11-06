@@ -59,11 +59,23 @@ const ProjectHero = ({ project, onImageClick }: ProjectHeroProps) => {
 							rel="noopener noreferrer"
 							className="button-primary group !py-3 !px-6"
 						>
-							<span>{t('projects.liveDemo')}</span>
+							<span>{project.liveLabel || t('projects.liveDemo')}</span>
 							<ArrowUpRight
 								size={16}
 								className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
 							/>
+						</a>
+					)}
+
+					{project.secondaryLink && (
+						<a
+							href={project.secondaryLink.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							className="button-ghost !py-3 !px-5"
+						>
+							<span>{project.secondaryLink.label}</span>
+							<ArrowUpRight size={16} />
 						</a>
 					)}
 
@@ -130,7 +142,7 @@ const ProjectHero = ({ project, onImageClick }: ProjectHeroProps) => {
 					{/* Top Left Badge */}
 					<div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/15 bg-black/60 px-3.5 py-1.5 font-mono-code text-[10px] uppercase tracking-[0.16em] text-white/80 backdrop-blur-md">
 						<span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]" />
-						{t('projects.productionGrade')}
+						{t(project.preview ? 'projects.preview' : 'projects.productionGrade')}
 					</div>
 
 					{/* Bottom Right Click to Expand Hint */}

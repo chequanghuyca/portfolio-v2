@@ -287,4 +287,64 @@
 			href="https://www.huyche.com/projects/9"
 		/>
 	</url>
+	<url>
+		<loc>https://www.huyche.com/projects/10</loc>
+		<lastmod>2026-11-06</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://www.huyche.com/projects/10" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://www.huyche.com/projects/10?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://www.huyche.com/projects/10"
+		/>
+	</url>
+	<url>
+		<loc>https://www.huyche.com/projects/10?lang=vi</loc>
+		<lastmod>2026-11-06</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://www.huyche.com/projects/10" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://www.huyche.com/projects/10?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://www.huyche.com/projects/10"
+		/>
+	</url>
+	<url>
+		<loc>https://www.huyche.com/projects/11</loc>
+		<lastmod>2026-11-07</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://www.huyche.com/projects/11" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://www.huyche.com/projects/11?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://www.huyche.com/projects/11"
+		/>
+	</url>
+	<url>
+		<loc>https://www.huyche.com/projects/11?lang=vi</loc>
+		<lastmod>2026-11-07</lastmod>
+		<xhtml:link rel="alternate" hreflang="en" href="https://www.huyche.com/projects/11" />
+		<xhtml:link
+			rel="alternate"
+			hreflang="vi"
+			href="https://www.huyche.com/projects/11?lang=vi"
+		/>
+		<xhtml:link
+			rel="alternate"
+			hreflang="x-default"
+			href="https://www.huyche.com/projects/11"
+		/>
+	</url>
 </urlset>

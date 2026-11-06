@@ -19,6 +19,8 @@ const projectImageFolders = {
 	'7': 'merge-pals',
 	'8': 'transmaster',
 	'9': 'mhp',
+	'10': 'envispeed',
+	'11': 'smarthrms',
 };
 
 const escapeHtml = (value) =>

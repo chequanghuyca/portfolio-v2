@@ -291,6 +291,33 @@
 				],
 				"liveUrl": "https://mhptech.com.vn",
 				"featured": true
+			},
+			"10": {
+				"title": "Envispeed",
+				"description": "Open-source Telex input for macOS and Windows that switches between Vietnamese and English as you type.",
+				"technologies": ["#C++", "#SwiftUI", "#Objective-C++", "#Win32", "#Next.js"],
+				"liveUrl": "https://envispeed.huyche.com/en",
+				"githubUrl": "https://github.com/chequanghuyca/envispeed",
+				"featured": true
+			},
+			"11": {
+				"title": "Smart HRMS",
+				"description": "Flutter employee app for face and location-based attendance, shifts, leave approvals, and mobile identity verification.",
+				"technologies": [
+					"#Flutter",
+					"#Dart",
+					"#GetX",
+					"#Luxand FaceSDK",
+					"#NFC",
+					"#WebView"
+				],
+				"liveUrl": "https://apps.apple.com/vn/app/smart-hrms/id1512085333",
+				"liveLabel": "App Store",
+				"secondaryLink": {
+					"label": "Google Play",
+					"url": "https://play.google.com/store/apps/details?id=gsot.smarthrms.timekeeping"
+				},
+				"featured": true
 			}
 		}
 	},

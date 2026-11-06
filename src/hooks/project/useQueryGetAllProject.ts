@@ -7,12 +7,20 @@ import project4 from '@/assets/projects/telegram-wallet/telegram-wallet-sign.web
 import project5 from '@/assets/projects/merge-pals/merge-pals-sign.webp';
 import project6 from '@/assets/projects/transmaster/transmaster-sign.webp';
 import project7 from '@/assets/projects/mhp/mhp-sign.webp';
+import envispeedImage from '@/assets/projects/envispeed/envispeed-sign.webp';
+import smartHrmsImage from '@/assets/projects/smarthrms/smarthrms-sign.webp';
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 
 import enProjects from '@/i18n/locales/en.json';
 import viProjects from '@/i18n/locales/vi.json';
+
+const projectPriority = new Map([
+	['10', 0], // Envispeed
+	['11', 1], // Smart HRMS
+	['2', 2], // OneStop@LTA
+]);
 
 export type Project = {
 	id: string;
@@ -21,6 +29,8 @@ export type Project = {
 	image: string;
 	technologies: string[];
 	liveUrl: string;
+	liveLabel?: string;
+	secondaryLink?: { label: string; url: string };
 	qaUrl?: string;
 	githubUrl?: string;
 	featured: boolean;
@@ -65,13 +75,19 @@ export const useQueryGetProjects = (
 						? projectData.technologies
 						: [],
 					liveUrl: projectData?.liveUrl || '#',
+					liveLabel: projectData.liveLabel,
+					secondaryLink: projectData.secondaryLink,
 					qaUrl: projectData.qaUrl,
 					githubUrl: projectData.githubUrl,
 					featured: Boolean(projectData?.featured),
 				};
 			});
 
-			return projects; // Return all projects, filter by size in component
+			return projects.sort(
+				(a, b) =>
+					(projectPriority.get(a.id) ?? projectPriority.size) -
+					(projectPriority.get(b.id) ?? projectPriority.size),
+			);
 		},
 		staleTime: 1000 * 60 * 5, // Cache for 5 minutes
 		gcTime: 1000 * 60 * 10, // Keep in cache for 10 minutes (renamed from cacheTime in newer versions)
@@ -111,6 +127,10 @@ const getProjectImage = (id: string): string => {
 			return project6;
 		case '9':
 			return project7;
+		case '10':
+			return envispeedImage;
+		case '11':
+			return smartHrmsImage;
 		default:
 			return projectLTA;
 	}

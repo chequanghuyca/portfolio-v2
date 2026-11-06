@@ -1,3 +1,5 @@
+import envispeedSettings from '@/assets/projects/envispeed/envispeed-settings.webp';
+import envispeedImage from '@/assets/projects/envispeed/envispeed-sign.webp';
 import ltaDarkImage from '@/assets/projects/lta-tracking/lta-tracking-dark.png';
 import ltaLightImage from '@/assets/projects/lta-tracking/lta-tracking-light.png';
 import ltaQaImage from '@/assets/projects/lta-tracking/lta-tracking-qa.png';
@@ -14,6 +16,8 @@ import pegaxyImage from '@/assets/projects/pegaxy/pegaxy-sign.webp';
 import petopiaImage from '@/assets/projects/petopia/petopia-sign.webp';
 import remotySecondaryImage from '@/assets/projects/remoty/remoty-2.webp';
 import remotyImage from '@/assets/projects/remoty/remoty-sign.webp';
+import smartHrmsFace from '@/assets/projects/smarthrms/smarthrms-face.webp';
+import smartHrmsImage from '@/assets/projects/smarthrms/smarthrms-sign.webp';
 import telegramWalletImage from '@/assets/projects/telegram-wallet/telegram-wallet-sign.webp';
 import transmasterImage from '@/assets/projects/transmaster/transmaster-sign.webp';
 import { useQuery, UseQueryOptions } from '@tanstack/react-query';
@@ -21,8 +25,9 @@ import { useTranslation } from 'react-i18next';
 
 import enProjects from '@/i18n/locales/en.json';
 import viProjects from '@/i18n/locales/vi.json';
+import type { Project } from './useQueryGetAllProject';
 
-export type ProjectDetail = {
+export type ProjectDetail = Pick<Project, 'liveLabel' | 'secondaryLink'> & {
 	id: string;
 	title: string;
 	description: string;
@@ -33,6 +38,7 @@ export type ProjectDetail = {
 	qaUrl?: string;
 	githubUrl?: string;
 	featured: boolean;
+	preview?: boolean;
 	challenges: string[];
 	features: string[];
 	role: string;
@@ -51,6 +57,7 @@ type LocalizedProjectDetail = {
 	en: ProjectCopy;
 	vi: ProjectCopy;
 	gallery: string[];
+	preview?: boolean;
 };
 
 const projectImages: Record<string, string> = {
@@ -63,6 +70,8 @@ const projectImages: Record<string, string> = {
 	'7': mergePalsImage,
 	'8': transmasterImage,
 	'9': mhpImage,
+	'10': envispeedImage,
+	'11': smartHrmsImage,
 };
 
 const projectDetails: Record<string, LocalizedProjectDetail> = {
@@ -436,6 +445,85 @@ const projectDetails: Record<string, LocalizedProjectDetail> = {
 		},
 		gallery: [mhpImage],
 	},
+	'10': {
+		en: {
+			longDescription:
+				'Envispeed is a GPL-3.0 distribution of Vikey, which is based on OpenKey. I worked on the Envispeed identity, desktop build and packaging workflows, the public macOS preview, and a bilingual product site with a typing demo. The app uses the upstream C++ engine to process keystrokes on the device and recognize Vietnamese and English in the same sentence.',
+			challenges: [
+				'Preserving upstream typing behavior and attribution while adapting the native apps for distribution',
+				'Packaging a single macOS preview for Apple Silicon and Intel and guiding users through Accessibility setup',
+				'Demonstrating mixed-language input on the web with examples taken from the app’s onboarding',
+			],
+			features: [
+				'Telex input with context-aware Vietnamese and English switching',
+				'On-device keystroke processing and undo after an automatic correction',
+				'Public macOS preview and Windows build instructions in the source repository',
+				'Bilingual product site with an interactive typing demo',
+			],
+			role: 'Maintainer / Release Engineer',
+			duration: '2026 · Public preview',
+			teamSize: 'Personal open-source project',
+		},
+		vi: {
+			longDescription:
+				'Envispeed là bản phân phối mã nguồn mở theo GPL-3.0, phát triển từ Vikey dựa trên OpenKey. Tôi thực hiện nhận diện Envispeed, quy trình build và đóng gói desktop, phát hành bản thử nghiệm macOS và xây dựng trang sản phẩm song ngữ có demo gõ. Ứng dụng dùng engine C++ từ dự án gốc để xử lý phím trên thiết bị và nhận diện tiếng Việt lẫn tiếng Anh trong cùng một câu.',
+			challenges: [
+				'Giữ hành vi của bộ gõ và ghi nhận tác giả gốc khi điều chỉnh ứng dụng để phân phối',
+				'Đóng gói một bản thử nghiệm macOS cho Apple Silicon và Intel, kèm hướng dẫn cấp quyền Trợ năng',
+				'Minh họa cách gõ xen kẽ Việt và Anh trên web bằng các ví dụ từ phần hướng dẫn của ứng dụng',
+			],
+			features: [
+				'Gõ Telex và tự chuyển giữa tiếng Việt và tiếng Anh theo ngữ cảnh',
+				'Xử lý phím trên thiết bị và hỗ trợ hoàn tác sau khi tự sửa',
+				'Bản thử nghiệm macOS công khai và hướng dẫn build Windows trong repo',
+				'Trang sản phẩm song ngữ có demo gõ tương tác',
+			],
+			role: 'Bảo trì dự án và phát hành',
+			duration: '2026 · Bản thử nghiệm công khai',
+			teamSize: 'Dự án mã nguồn mở cá nhân',
+		},
+		gallery: [envispeedImage, envispeedSettings],
+		preview: true,
+	},
+	'11': {
+		en: {
+			longDescription:
+				'Smart HRMS is an iOS and Android employee app published by GSOT Group for attendance and day-to-day HR workflows. My work focused on adding eKYC with document capture, NFC and face matching, improving face attendance with Luxand, and fixing i-Office WebView permissions and sign-in continuity. I also worked on Khmer localization and the mobile release workflow.',
+			challenges: [
+				'Handling camera permissions, NFC interruptions, and face verification timeouts across iOS and Android',
+				'Applying employer-specific identity and attendance rules while keeping check-in guidance clear',
+				'Keeping employees signed in when opening i-Office and handling WebView permissions and navigation',
+			],
+			features: [
+				'Face attendance with liveness checks and employer-configured GPS work zones',
+				'eKYC with identity document capture, supported NFC cards, and live face matching',
+				'Shift schedules, monthly attendance records, leave requests, and approvals by role',
+				'i-Office integration and Khmer localization alongside Vietnamese and English',
+			],
+			role: 'Senior Software Engineer · Mobile',
+			duration: '2026 · Mobile enhancements',
+			teamSize: 'Enterprise product team',
+		},
+		vi: {
+			longDescription:
+				'Smart HRMS là ứng dụng chấm công và quản trị nhân sự trên iOS và Android do GSOT Group phát hành. Tôi phụ trách các hạng mục eKYC gồm chụp giấy tờ, đọc NFC và đối chiếu khuôn mặt, cải thiện chấm công bằng Luxand, và xử lý quyền truy cập cùng phiên đăng nhập i-Office trong WebView. Tôi cũng tham gia bổ sung tiếng Khmer và chuẩn bị bản phát hành mobile.',
+			challenges: [
+				'Xử lý quyền camera, gián đoạn khi đọc NFC và hết thời gian xác thực khuôn mặt trên iOS và Android',
+				'Áp dụng quy tắc xác thực và vùng chấm công của từng doanh nghiệp, đồng thời hướng dẫn rõ ở từng bước',
+				'Duy trì phiên đăng nhập khi mở i-Office và xử lý quyền, điều hướng trong WebView',
+			],
+			features: [
+				'Chấm công bằng khuôn mặt với kiểm tra người thật và vùng GPS do doanh nghiệp cấu hình',
+				'eKYC bằng ảnh giấy tờ, thẻ NFC tương thích và đối chiếu khuôn mặt trực tiếp',
+				'Lịch ca, bảng công tháng, đơn nghỉ phép và phê duyệt theo vai trò',
+				'Tích hợp i-Office và hỗ trợ tiếng Khmer bên cạnh tiếng Việt và tiếng Anh',
+			],
+			role: 'Senior Software Engineer · Mobile',
+			duration: '2026 · Nâng cấp ứng dụng mobile',
+			teamSize: 'Nhóm sản phẩm doanh nghiệp',
+		},
+		gallery: [smartHrmsImage, smartHrmsFace],
+	},
 };
 
 export const useQueryGetProject = (
@@ -465,8 +553,12 @@ export const useQueryGetProject = (
 				image: projectImages[projectId],
 				technologies: projectData.technologies,
 				liveUrl: projectData.liveUrl,
+				liveLabel: 'liveLabel' in projectData ? projectData.liveLabel : undefined,
+				secondaryLink:
+					'secondaryLink' in projectData ? projectData.secondaryLink : undefined,
 				githubUrl: 'githubUrl' in projectData ? projectData.githubUrl : undefined,
 				featured: projectData.featured,
+				preview: detailData.preview,
 				...detailData[language],
 				gallery: detailData.gallery,
 			};

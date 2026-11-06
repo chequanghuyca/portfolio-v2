@@ -292,6 +292,33 @@
 				],
 				"liveUrl": "https://mhptech.com.vn",
 				"featured": true
+			},
+			"10": {
+				"title": "Envispeed",
+				"description": "Bộ gõ Telex mã nguồn mở cho macOS và Windows, tự chuyển giữa tiếng Việt và tiếng Anh theo ngữ cảnh.",
+				"technologies": ["#C++", "#SwiftUI", "#Objective-C++", "#Win32", "#Next.js"],
+				"liveUrl": "https://envispeed.huyche.com/vi",
+				"githubUrl": "https://github.com/chequanghuyca/envispeed",
+				"featured": true
+			},
+			"11": {
+				"title": "Smart HRMS",
+				"description": "Ứng dụng Flutter cho chấm công bằng khuôn mặt và vị trí, xem ca làm, duyệt nghỉ phép và xác thực danh tính trên điện thoại.",
+				"technologies": [
+					"#Flutter",
+					"#Dart",
+					"#GetX",
+					"#Luxand FaceSDK",
+					"#NFC",
+					"#WebView"
+				],
+				"liveUrl": "https://apps.apple.com/vn/app/smart-hrms/id1512085333",
+				"liveLabel": "App Store",
+				"secondaryLink": {
+					"label": "Google Play",
+					"url": "https://play.google.com/store/apps/details?id=gsot.smarthrms.timekeeping"
+				},
+				"featured": true
 			}
 		}
 	},

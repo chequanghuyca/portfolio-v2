@@ -9,6 +9,8 @@ interface ProjectCardProps {
 	index: number;
 }
 
+const showcaseProjectIds = ['1', '2', '3', '4', '5', '10', '11'];
+
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
 	const { t, i18n } = useTranslation();
 	const isVietnamese = (i18n.resolvedLanguage || i18n.language).startsWith('vi');
@@ -53,11 +55,23 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 								rel="noopener noreferrer"
 								className="button-primary group/btn !py-2 !px-4 text-xs font-semibold"
 							>
-								<span>{t('projects.liveDemo')}</span>
+								<span>{project.liveLabel || t('projects.liveDemo')}</span>
 								<ArrowUpRight
 									size={14}
 									className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5"
 								/>
+							</a>
+						)}
+
+						{project.secondaryLink && (
+							<a
+								href={project.secondaryLink.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="button-ghost !py-2 !px-4 text-xs font-semibold"
+							>
+								<span>{project.secondaryLink.label}</span>
+								<ArrowUpRight size={14} />
 							</a>
 						)}
 
@@ -154,7 +168,8 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 const Projects = () => {
 	const { t } = useTranslation();
 	const reduceMotion = useReducedMotion();
-	const { data: projects, isLoading } = useQueryGetProjects({ size: 5 });
+	const { data: projects, isLoading } = useQueryGetProjects();
+	const showcaseProjects = projects?.filter(({ id }) => showcaseProjectIds.includes(id));
 
 	return (
 		<section
@@ -195,7 +210,7 @@ const Projects = () => {
 					</div>
 				) : (
 					<div>
-						{projects?.map((project, index) => (
+						{showcaseProjects?.map((project, index) => (
 							<ProjectCard key={project.id} project={project} index={index} />
 						))}
 					</div>

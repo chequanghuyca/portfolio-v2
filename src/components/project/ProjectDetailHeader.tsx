@@ -71,8 +71,12 @@ const ProjectDetailHeader = ({ project }: ProjectDetailHeaderProps) => {
 							rel="noopener noreferrer"
 							className="button-primary group"
 						>
-							<span className="hidden sm:inline">{t('projects.liveDemo')}</span>
-							<span className="sm:hidden">Demo</span>
+							{project.liveLabel || (
+								<>
+									<span className="hidden sm:inline">{t('projects.liveDemo')}</span>
+									<span className="sm:hidden">Demo</span>
+								</>
+							)}
 							<ArrowUpRight
 								size={14}
 								className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
