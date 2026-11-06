@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from '@/lib/contact';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -47,10 +48,10 @@ const Contact = () => {
 							{t('contact.subtitle')}
 						</p>
 						<a
-							href="mailto:chequanghuybtt@gmail.com"
+							href={`mailto:${CONTACT_EMAIL}`}
 							className="group mt-8 inline-flex items-center gap-3 border-b border-primary pb-2 font-display text-xl font-semibold tracking-[-0.035em] text-white transition-colors hover:text-primary sm:text-2xl"
 						>
-							chequanghuybtt@gmail.com
+							{CONTACT_EMAIL}
 							<ArrowUpRight
 								size={20}
 								className="text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"

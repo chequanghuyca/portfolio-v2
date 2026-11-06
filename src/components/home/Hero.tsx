@@ -1,5 +1,6 @@
 import profilePhoto from '@/assets/profile-photo.webp';
 import ParticleNetwork from '@/components/canvas/ParticleNetwork';
+import { CONTACT_EMAIL } from '@/lib/contact';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -126,7 +127,7 @@ const Hero = () => {
 									href: 'https://www.linkedin.com/in/quang-huy-che-11493311b/',
 									label: 'LinkedIn',
 								},
-								{ icon: Mail, href: 'mailto:chequanghuybtt@gmail.com', label: 'Email' },
+								{ icon: Mail, href: `mailto:${CONTACT_EMAIL}`, label: 'Email' },
 							].map(({ icon: Icon, href, label }) => (
 								<a
 									key={label}
